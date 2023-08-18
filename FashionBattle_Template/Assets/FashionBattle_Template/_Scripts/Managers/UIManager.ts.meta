@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 5e3a5b19c3aa80745b3d605121e2690e
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.UIPanelType = void 0;\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst UIPanel_1 = require(\"../UI/UIPanel\");\r\nvar
+    UIPanelType;\r\n(function (UIPanelType) {\r\n    UIPanelType[UIPanelType[\"START\"]
+    = 0] = \"START\";\r\n    UIPanelType[UIPanelType[\"LOBBY\"] = 1] = \"LOBBY\";\r\n   
+    UIPanelType[UIPanelType[\"GAME\"] = 2] = \"GAME\";\r\n    UIPanelType[UIPanelType[\"CUSTOMIZATION\"]
+    = 3] = \"CUSTOMIZATION\";\r\n    UIPanelType[UIPanelType[\"END\"] = 4] = \"END\";\r\n   
+    UIPanelType[UIPanelType[\"NONE\"] = 5] = \"NONE\";\r\n})(UIPanelType = exports.UIPanelType
+    || (exports.UIPanelType = {}));\r\nclass UIManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n        this.uiPanels = [];\r\n        for (var i = 0;
+    i < this.uiPanelsGameObject.length; i++) {\r\n            this.uiPanels[i] =
+    this.uiPanelsGameObject[i].GetComponent($typeof(UIPanel_1.default));\r\n       
+    }\r\n        this.SwitchUIPanel(UIPanelType.START);\r\n    }\r\n    SwitchUIPanel(uiPanelType)
+    {\r\n        for (var i = 0; i < this.uiPanels.length; i++) {\r\n           
+    if (this.uiPanels[i].uiPanelType == uiPanelType) {\r\n                this.uiPanels[i].Show(true);\r\n           
+    }\r\n            else {\r\n                this.uiPanels[i].Show(false);\r\n           
+    }\r\n        }\r\n    }\r\n}\r\nexports.default = UIManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVUlNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUErQztBQUMvQyxpREFBcUQ7QUFDckQsMkNBQW9DO0FBRXBDLElBQVksV0FRWDtBQVJELFdBQVksV0FBVztJQUVuQiwrQ0FBSyxDQUFBO0lBQ0wsK0NBQUssQ0FBQTtJQUNMLDZDQUFJLENBQUE7SUFDSiwrREFBYSxDQUFBO0lBQ2IsMkNBQUcsQ0FBQTtJQUNILDZDQUFJLENBQUE7QUFDUixDQUFDLEVBUlcsV0FBVyxHQUFYLG1CQUFXLEtBQVgsbUJBQVcsUUFRdEI7QUFFRCxNQUFxQixTQUFVLFNBQVEscUNBQXFCO0lBS3hELEtBQUs7UUFFRCxJQUFJLENBQUMsUUFBUSxHQUFHLEVBQUUsQ0FBQztRQUVuQixLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsSUFBSSxDQUFDLGtCQUFrQixDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFDdkQ7WUFDSSxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDLENBQUMsQ0FBQyxZQUFZLFNBQUMsaUJBQU8sRUFBRyxDQUFDO1NBQ3pFO1FBRUQsSUFBSSxDQUFDLGFBQWEsQ0FBQyxXQUFXLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDMUMsQ0FBQztJQUVNLGFBQWEsQ0FBQyxXQUF3QjtRQUV6QyxLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxFQUFFLEVBQzdDO1lBQ0ksSUFBSSxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDLFdBQVcsSUFBSSxXQUFXLEVBQy9DO2dCQUNJLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO2FBQy9CO2lCQUNJO2dCQUNELElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDO2FBQ2hDO1NBQ0o7SUFDTCxDQUFDO0NBQ0o7QUE5QkQsNEJBOEJDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/Managers/UIManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"uiPanelsGameObject","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 6b26351a65f0b51210a852a4ecc5d003
+  onlyWriteTrigger: 0

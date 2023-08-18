@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 143599452b4728d4f8509da7a169e393
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UIManager_1 = require(\"../Managers/UIManager\");\r\nclass UIPanel extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.uiPanelType
+    = UIManager_1.UIPanelType.NONE;\r\n    }\r\n    Start() {\r\n    }\r\n    Show(value)
+    {\r\n        this.gameObject.SetActive(value);\r\n    }\r\n}\r\nexports.default
+    = UIPanel;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJUGFuZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQscURBQW1EO0FBRW5ELE1BQXFCLE9BQVEsU0FBUSxxQ0FBcUI7SUFBMUQ7O1FBRVcsZ0JBQVcsR0FBZ0IsdUJBQVcsQ0FBQyxJQUFJLENBQUM7SUFXdkQsQ0FBQztJQVRHLEtBQUs7SUFFTCxDQUFDO0lBRU0sSUFBSSxDQUFDLEtBQVc7UUFFbkIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDckMsQ0FBQztDQUVKO0FBYkQsMEJBYUMifQ==","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanel.ts","manifest":{"properties":[{"assembly":"","name":"uiPanelType","type":"UIPanelType","isArray":false,"initValue":["NONE"],"enumKeys":["START","LOBBY","GAME","CUSTOMIZATION","END","NONE"],"enumValues":["0","1","2","3","4","5"],"attributes":[]}],"name":"UIPanel","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: a0d235afdfa4c401ed70956aebb0b095
+  onlyWriteTrigger: 0

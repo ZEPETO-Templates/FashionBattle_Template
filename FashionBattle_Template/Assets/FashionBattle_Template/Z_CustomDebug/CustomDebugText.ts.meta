@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 9c3cb2d5a27912f40a4ac87234b707fa
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    CustomDebugText extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    LogText(txt)
+    {\r\n        this.debugText.text = txt;\r\n    }\r\n}\r\nexports.default = CustomDebugText;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VzdG9tRGVidWdUZXh0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ3VzdG9tRGVidWdUZXh0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXFEO0FBRXJELE1BQXFCLGVBQWdCLFNBQVEscUNBQXFCO0lBSXZELE9BQU8sQ0FBQyxHQUFZO1FBRXZCLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxHQUFHLEdBQUcsQ0FBQztJQUM5QixDQUFDO0NBRUo7QUFURCxrQ0FTQyJ9","assetPath":"Assets/FashionBattle_Template/_Scripts/CustomDebug/CustomDebugText.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"debugText","type":"TMPro.TextMeshProUGUI","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CustomDebugText","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: fefefce0ad0a8128cfea1da912dc16ec
+  onlyWriteTrigger: 0

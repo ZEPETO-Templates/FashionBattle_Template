@@ -1,7 +1,6 @@
 import { Room } from 'ZEPETO.Multiplay';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { ZepetoWorldMultiplay } from 'ZEPETO.World';
-import CustomDebug from '../CustomDebug/CustomDebug';
 
 export default class MultiplayerManager extends ZepetoScriptBehaviour {
 

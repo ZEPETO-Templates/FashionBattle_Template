@@ -13,14 +13,15 @@ export default class CustomDebug extends ZepetoScriptBehaviour
 
     @Header("Buttons")
     @SerializeField() openCloseBtn: RoundedRectangleButton;
-
-    private _textsList: GameObject[];
-        
-    Start() 
-    {    
+    
+    Awake() {
+        // Singleton pattern
         if (CustomDebug.Instance != null) GameObject.Destroy(this.gameObject);
         CustomDebug.Instance = this;
+    }
 
+    Start() 
+    {    
         this.openCloseBtn.OnClick.AddListener(() => {
             this.ToggleConsoleOnOff();
         });
@@ -31,7 +32,6 @@ export default class CustomDebug extends ZepetoScriptBehaviour
         let newDebugText = GameObject.Instantiate(this.debugTextPrefab) as GameObject;
         newDebugText.transform.parent = this.debugConsolePanel.transform;
         newDebugText.GetComponent<CustomDebugText>().LogText(text);
-        this._textsList.push(newDebugText);
     }
 
     public ToggleConsoleOnOff()

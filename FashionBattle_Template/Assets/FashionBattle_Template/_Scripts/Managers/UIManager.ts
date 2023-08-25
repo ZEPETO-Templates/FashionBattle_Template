@@ -2,7 +2,7 @@ import { Debug, GameObject } from 'UnityEngine'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import UIPanel from '../UI/UIPanel';
 import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
-import CustomDebug from '../CustomDebug/CustomDebug';
+import CustomDebug from '../../Z_CustomDebug/CustomDebug';
 
 export enum UIPanelType
 {
@@ -16,11 +16,19 @@ export enum UIPanelType
 
 export default class UIManager extends ZepetoScriptBehaviour
 {
+    public static instance: UIManager;
+
     public uiPanelsGameObject: GameObject[];
     private uiPanels: UIPanel[];
 
     @Header("Buttons")
     @SerializeField() startBtn: RoundedRectangleButton; // Reference to the Start button
+
+    Awake() {
+        // Singleton pattern
+        if (UIManager.instance != null) GameObject.Destroy(this.gameObject);
+        else UIManager.instance = this;
+    }
 
     Start()
     {
@@ -29,7 +37,9 @@ export default class UIManager extends ZepetoScriptBehaviour
     
     public InitUIManager() : void
     {
-        this.startBtn.OnClick.AddListener(() => { this.OnStartButton(); });
+        this.startBtn.OnClick.AddListener(() => {
+            this.OnStartButton(); 
+        });
         
         this.uiPanels = [];
     
@@ -43,10 +53,7 @@ export default class UIManager extends ZepetoScriptBehaviour
 
     public OnStartButton()
     {
-        if (CustomDebug.Instance != null) {
-            CustomDebug.Instance.LogText("- - - ON START BUTTON - - -");
-            Debug.LogError("- - - ON START BUTTON - - -");
-        }
+        this.SwitchUIPanel(UIPanelType.LOBBY);
     }
 
     public SwitchUIPanel(uiPanelType: UIPanelType): void

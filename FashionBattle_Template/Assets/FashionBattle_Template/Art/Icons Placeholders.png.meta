@@ -1,7 +1,364 @@
 fileFormatVersion: 2
 guid: ebd99e756ec6f974997ddb0fbb0e13f2
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8327063577176683627
+    second: Icons Placeholders_0
+  - first:
+      213: 5998898618526977354
+    second: Icons Placeholders_1
+  - first:
+      213: -5807960713949269393
+    second: Icons Placeholders_2
+  - first:
+      213: 7352748496256866376
+    second: Icons Placeholders_3
+  - first:
+      213: -8872660769373062761
+    second: Icons Placeholders_4
+  - first:
+      213: -7359164452108079117
+    second: Icons Placeholders_5
+  - first:
+      213: 5242737068405478315
+    second: Icons Placeholders_6
+  - first:
+      213: 1584926524242041274
+    second: Icons Placeholders_7
+  - first:
+      213: 8028625997430378417
+    second: Icons Placeholders_8
+  - first:
+      213: -5197737693254423046
+    second: Icons Placeholders_9
+  - first:
+      213: -6058700655226172963
+    second: Icons Placeholders_10
+  - first:
+      213: -2459898455703673090
+    second: Icons Placeholders_11
+  - first:
+      213: -3804757886250602206
+    second: Icons Placeholders_12
+  - first:
+      213: 6300549539939079727
+    second: Icons Placeholders_13
+  - first:
+      213: -1300157532549771793
+    second: Icons Placeholders_14
+  - first:
+      213: 6193423909170187586
+    second: Icons Placeholders_15
+  - first:
+      213: -2164138920950447761
+    second: Icons Placeholders_16
+  - first:
+      213: 1593978425745254784
+    second: Icons Placeholders_17
+  - first:
+      213: -207248462290912918
+    second: Icons Placeholders_18
+  - first:
+      213: 8563161777860041989
+    second: Icons Placeholders_19
+  - first:
+      213: -85472020610244113
+    second: Icons Placeholders_20
+  - first:
+      213: 3979465558996431575
+    second: Icons Placeholders_21
+  - first:
+      213: 2711296833380058916
+    second: Icons Placeholders_22
+  - first:
+      213: -5199975074662190375
+    second: Icons Placeholders_23
+  - first:
+      213: 8033316648012180402
+    second: Icons Placeholders_24
+  - first:
+      213: -4061675410900991786
+    second: Icons Placeholders_25
+  - first:
+      213: -8922655771970746572
+    second: Icons Placeholders_26
+  - first:
+      213: 8237497657886083753
+    second: Icons Placeholders_27
+  - first:
+      213: -1674108726187555368
+    second: Icons Placeholders_28
+  - first:
+      213: 7127400114229405718
+    second: Icons Placeholders_29
+  - first:
+      213: -3927043510504521492
+    second: Icons Placeholders_30
+  - first:
+      213: 1919785968821009533
+    second: Icons Placeholders_31
+  - first:
+      213: 4507381064375704511
+    second: Icons Placeholders_32
+  - first:
+      213: -2229361708826253681
+    second: Icons Placeholders_33
+  - first:
+      213: -2745044897239710729
+    second: Icons Placeholders_34
+  - first:
+      213: 1139098797953725270
+    second: Icons Placeholders_35
+  - first:
+      213: 3209711660152672142
+    second: Icons Placeholders_36
+  - first:
+      213: 104924864508484849
+    second: Icons Placeholders_37
+  - first:
+      213: 5231186893079969608
+    second: Icons Placeholders_38
+  - first:
+      213: -7546513356411548405
+    second: Icons Placeholders_39
+  - first:
+      213: 7007851575424753078
+    second: Icons Placeholders_40
+  - first:
+      213: 1799188980291898589
+    second: Icons Placeholders_41
+  - first:
+      213: 349900274031578573
+    second: Icons Placeholders_42
+  - first:
+      213: 7533033777491833198
+    second: Icons Placeholders_43
+  - first:
+      213: 8726730081123039202
+    second: Icons Placeholders_44
+  - first:
+      213: 976106278120605016
+    second: Icons Placeholders_45
+  - first:
+      213: 652178261067645639
+    second: Icons Placeholders_46
+  - first:
+      213: -8170481020236860827
+    second: Icons Placeholders_47
+  - first:
+      213: 4864847085002986566
+    second: Icons Placeholders_48
+  - first:
+      213: -8363063515829757297
+    second: Icons Placeholders_49
+  - first:
+      213: 3257703543422998400
+    second: Icons Placeholders_50
+  - first:
+      213: 3558214227946043858
+    second: Icons Placeholders_51
+  - first:
+      213: -1101900080112532267
+    second: Icons Placeholders_52
+  - first:
+      213: 565305507246806411
+    second: Icons Placeholders_53
+  - first:
+      213: -3675178803108988886
+    second: Icons Placeholders_54
+  - first:
+      213: 8440450696919740806
+    second: Icons Placeholders_55
+  - first:
+      213: 591505828875586037
+    second: Icons Placeholders_56
+  - first:
+      213: 7513493446439017895
+    second: Icons Placeholders_57
+  - first:
+      213: 7778024444124917566
+    second: Icons Placeholders_58
+  - first:
+      213: -8284379648634819481
+    second: Icons Placeholders_59
+  - first:
+      213: 9179312259655106096
+    second: Icons Placeholders_60
+  - first:
+      213: -4285793048072546612
+    second: Icons Placeholders_61
+  - first:
+      213: -2856056321889777619
+    second: Icons Placeholders_62
+  - first:
+      213: -8957404186877799414
+    second: Icons Placeholders_63
+  - first:
+      213: 3774601475236795391
+    second: Icons Placeholders_64
+  - first:
+      213: -2913330495881656077
+    second: Icons Placeholders_65
+  - first:
+      213: -8141781595345239355
+    second: Icons Placeholders_66
+  - first:
+      213: -4489479134759647832
+    second: Icons Placeholders_67
+  - first:
+      213: 3316980295211925185
+    second: Icons Placeholders_68
+  - first:
+      213: 1933121017623487965
+    second: Icons Placeholders_69
+  - first:
+      213: -1702550502684051232
+    second: Icons Placeholders_70
+  - first:
+      213: 7345602629779162188
+    second: Icons Placeholders_71
+  - first:
+      213: -8679767523863321805
+    second: Icons Placeholders_72
+  - first:
+      213: -6739980971745001446
+    second: Icons Placeholders_73
+  - first:
+      213: -158295270192484361
+    second: Icons Placeholders_74
+  - first:
+      213: -4287939151543068916
+    second: Icons Placeholders_75
+  - first:
+      213: 4779688065752436523
+    second: Icons Placeholders_76
+  - first:
+      213: -4019652377740330097
+    second: Icons Placeholders_77
+  - first:
+      213: 2576394181202973624
+    second: Icons Placeholders_78
+  - first:
+      213: 2417049141533048737
+    second: Icons Placeholders_79
+  - first:
+      213: -6934622174146308733
+    second: Icons Placeholders_80
+  - first:
+      213: 441698392094044627
+    second: Icons Placeholders_81
+  - first:
+      213: 7208951463794317309
+    second: Icons Placeholders_82
+  - first:
+      213: -2626286340399354323
+    second: Icons Placeholders_83
+  - first:
+      213: -6265077837282089373
+    second: Icons Placeholders_84
+  - first:
+      213: -2447854009431385054
+    second: Icons Placeholders_85
+  - first:
+      213: 1025225234666056218
+    second: Icons Placeholders_86
+  - first:
+      213: 7056462000793810301
+    second: Icons Placeholders_87
+  - first:
+      213: -2582593528899325084
+    second: Icons Placeholders_88
+  - first:
+      213: 6431524538619875175
+    second: Icons Placeholders_89
+  - first:
+      213: -5410597441004103037
+    second: Icons Placeholders_90
+  - first:
+      213: 706797039865660786
+    second: Icons Placeholders_91
+  - first:
+      213: -5456702336104147017
+    second: Icons Placeholders_92
+  - first:
+      213: 2806936204166784220
+    second: Icons Placeholders_93
+  - first:
+      213: 10393921060341342
+    second: Icons Placeholders_94
+  - first:
+      213: 6465293244531856971
+    second: Icons Placeholders_95
+  - first:
+      213: -810999710877381615
+    second: Icons Placeholders_96
+  - first:
+      213: -6368198472194338236
+    second: Icons Placeholders_97
+  - first:
+      213: -4319049497223031781
+    second: Icons Placeholders_98
+  - first:
+      213: 1398600170225528764
+    second: Icons Placeholders_99
+  - first:
+      213: -7565132328179388355
+    second: Icons Placeholders_100
+  - first:
+      213: 8939200508196973433
+    second: Icons Placeholders_101
+  - first:
+      213: -5037576659418201362
+    second: Icons Placeholders_102
+  - first:
+      213: -851395336098436362
+    second: Icons Placeholders_103
+  - first:
+      213: 6580023525655058185
+    second: Icons Placeholders_104
+  - first:
+      213: -5138715640636604157
+    second: Icons Placeholders_105
+  - first:
+      213: 8813928364913248232
+    second: Icons Placeholders_106
+  - first:
+      213: 1190931526397287527
+    second: Icons Placeholders_107
+  - first:
+      213: 5756882743430939554
+    second: Icons Placeholders_108
+  - first:
+      213: 5717236375872605972
+    second: Icons Placeholders_109
+  - first:
+      213: -2987295251518859025
+    second: Icons Placeholders_110
+  - first:
+      213: -8160768870706177493
+    second: Icons Placeholders_111
+  - first:
+      213: -6919323132804695821
+    second: Icons Placeholders_112
+  - first:
+      213: -581877614085891371
+    second: Icons Placeholders_113
+  - first:
+      213: -1806459322405408947
+    second: Icons Placeholders_114
+  - first:
+      213: -2485179833222954062
+    second: Icons Placeholders_115
+  - first:
+      213: 5299780802375313007
+    second: Icons Placeholders_116
+  - first:
+      213: 5834521000636318914
+    second: Icons Placeholders_117
+  - first:
+      213: 812537880056518464
+    second: Icons Placeholders_118
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +389,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -68,7 +425,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,7 +437,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,11 +446,2510 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Icons Placeholders_0
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 3849
+        width: 113
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b4a449bc3507c80800000000000000
+      internalID: -8327063577176683627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_1
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 3849
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dc1e0928e504350800000000000000
+      internalID: 5998898618526977354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_2
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 3849
+        width: 112
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6231a7a08af56fa0800000000000000
+      internalID: -5807960713949269393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_3
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 3851
+        width: 161
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8489d220dc53a0660800000000000000
+      internalID: 7352748496256866376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_4
+      rect:
+        serializedVersion: 2
+        x: 2003
+        y: 3851
+        width: 161
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79979f42a0afdd480800000000000000
+      internalID: -8872660769373062761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_5
+      rect:
+        serializedVersion: 2
+        x: 2428
+        y: 3851
+        width: 161
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff6a6cdbeefed990800000000000000
+      internalID: -7359164452108079117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_6
+      rect:
+        serializedVersion: 2
+        x: 2896
+        y: 3851
+        width: 74
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3d4152691f1c840800000000000000
+      internalID: 5242737068405478315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_7
+      rect:
+        serializedVersion: 2
+        x: 3322
+        y: 3851
+        width: 73
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab99a88c64acef510800000000000000
+      internalID: 1584926524242041274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_8
+      rect:
+        serializedVersion: 2
+        x: 3747
+        y: 3851
+        width: 73
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfcd43aec86b6f60800000000000000
+      internalID: 8028625997430378417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_9
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 3484
+        width: 107
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd69e55b1dedd7b0800000000000000
+      internalID: -5197737693254423046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_10
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 3484
+        width: 108
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd941dcbadb2beba0800000000000000
+      internalID: -6058700655226172963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_11
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 3472
+        width: 100
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6204c336facddd0800000000000000
+      internalID: -2459898455703673090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_12
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 3472
+        width: 100
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221baa56cd8c23bc0800000000000000
+      internalID: -3804757886250602206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_13
+      rect:
+        serializedVersion: 2
+        x: 2034
+        y: 3472
+        width: 99
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26d1d1cc6c007750800000000000000
+      internalID: 6300549539939079727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_14
+      rect:
+        serializedVersion: 2
+        x: 2459
+        y: 3472
+        width: 100
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed8258dc99e4fde0800000000000000
+      internalID: -1300157532549771793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_15
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 3472
+        width: 100
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d00813b3673f550800000000000000
+      internalID: 6193423909170187586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_16
+      rect:
+        serializedVersion: 2
+        x: 3309
+        y: 3472
+        width: 98
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61c6241e1f67f1e0800000000000000
+      internalID: -2164138920950447761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_17
+      rect:
+        serializedVersion: 2
+        x: 3727
+        y: 3472
+        width: 111
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089ae26dee2fe1610800000000000000
+      internalID: 1593978425745254784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_18
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 3120
+        width: 147
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6977e02f94bf1df0800000000000000
+      internalID: -207248462290912918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_19
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 3114
+        width: 175
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ddc83744676d670800000000000000
+      internalID: 8563161777860041989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_20
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 3110
+        width: 175
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1aa4d66a750def0800000000000000
+      internalID: -85472020610244113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_21
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 3130
+        width: 132
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d232ef77d6e93730800000000000000
+      internalID: 3979465558996431575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_22
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 3108
+        width: 53
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427824ada1670a520800000000000000
+      internalID: 2711296833380058916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_23
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 3108
+        width: 175
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2ffd1683af5d7b0800000000000000
+      internalID: -5199975074662190375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_24
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 3124
+        width: 100
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb6ff4dde21c7f60800000000000000
+      internalID: 8033316648012180402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_25
+      rect:
+        serializedVersion: 2
+        x: 3271
+        y: 3114
+        width: 175
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0ce44cbb702a7c0800000000000000
+      internalID: -4061675410900991786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_26
+      rect:
+        serializedVersion: 2
+        x: 3731
+        y: 3124
+        width: 105
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437489289db5c2480800000000000000
+      internalID: -8922655771970746572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_27
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 2742
+        width: 151
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa8968c978715270800000000000000
+      internalID: 8237497657886083753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_28
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 2742
+        width: 148
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5853cbbfe54c8e0800000000000000
+      internalID: -1674108726187555368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_29
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 2744
+        width: 140
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618e8bc24ac99e260800000000000000
+      internalID: 7127400114229405718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_30
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 2833
+        width: 49
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce000eacbb65089c0800000000000000
+      internalID: -3927043510504521492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_31
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 2746
+        width: 107
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7cfa5cca2374aa10800000000000000
+      internalID: 1919785968821009533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_32
+      rect:
+        serializedVersion: 2
+        x: 2461
+        y: 2746
+        width: 94
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb9f69623f6d8e30800000000000000
+      internalID: 4507381064375704511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_33
+      rect:
+        serializedVersion: 2
+        x: 2878
+        y: 2746
+        width: 110
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86ad856657bf01e0800000000000000
+      internalID: -2229361708826253681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_34
+      rect:
+        serializedVersion: 2
+        x: 3305
+        y: 2744
+        width: 107
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f34787b534a7e9d0800000000000000
+      internalID: -2745044897239710729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_35
+      rect:
+        serializedVersion: 2
+        x: 3749
+        y: 2846
+        width: 70
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6533b105254eecf00800000000000000
+      internalID: 1139098797953725270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_36
+      rect:
+        serializedVersion: 2
+        x: 1647
+        y: 2744
+        width: 22
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f44d6cfbf2b8c20800000000000000
+      internalID: 3209711660152672142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_37
+      rect:
+        serializedVersion: 2
+        x: 3755
+        y: 2742
+        width: 57
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc522dbb94c47100800000000000000
+      internalID: 104924864508484849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_38
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2378
+        width: 125
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ff5b363c8e89840800000000000000
+      internalID: 5231186893079969608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_39
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 2376
+        width: 132
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d4952e516654790800000000000000
+      internalID: -7546513356411548405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_40
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 2376
+        width: 106
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd9adfe0e3e04160800000000000000
+      internalID: 7007851575424753078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_41
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 2375
+        width: 149
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc881658d008f810800000000000000
+      internalID: 1799188980291898589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_42
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 2451
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdc67402781bd400800000000000000
+      internalID: 349900274031578573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_43
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 2451
+        width: 35
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e617b641f46ba8860800000000000000
+      internalID: 7533033777491833198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_44
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 2376
+        width: 165
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7fd08c5c29b1970800000000000000
+      internalID: 8726730081123039202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_45
+      rect:
+        serializedVersion: 2
+        x: 2463
+        y: 2465
+        width: 87
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85548620d73db8d00800000000000000
+      internalID: 976106278120605016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_46
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 2376
+        width: 138
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c24b2d4ca00d0900800000000000000
+      internalID: 652178261067645639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_47
+      rect:
+        serializedVersion: 2
+        x: 3256
+        y: 2378
+        width: 204
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562f5b81dce9c9e80800000000000000
+      internalID: -8170481020236860827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_48
+      rect:
+        serializedVersion: 2
+        x: 3686
+        y: 2376
+        width: 195
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644923416a8638340800000000000000
+      internalID: 4864847085002986566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_49
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 2378
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a10f0ba0e60fb80800000000000000
+      internalID: -8363063515829757297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_50
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 2428
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0875249dc10b53d20800000000000000
+      internalID: 3257703543422998400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_51
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 2378
+        width: 69
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9f673fcf0516130800000000000000
+      internalID: 3558214227946043858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_52
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 2011
+        width: 51
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d40bea17b345b0f0800000000000000
+      internalID: -1101900080112532267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_53
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 2009
+        width: 53
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85940d1d5e58d700800000000000000
+      internalID: 565305507246806411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_54
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 2011
+        width: 55
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28b4aab9542ffcc0800000000000000
+      internalID: -3675178803108988886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_55
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2009
+        width: 81
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681791e7031822570800000000000000
+      internalID: 8440450696919740806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_56
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 2009
+        width: 52
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9c3bcda63753800800000000000000
+      internalID: 591505828875586037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_57
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 2013
+        width: 140
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad19393b7a454860800000000000000
+      internalID: 7513493446439017895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_58
+      rect:
+        serializedVersion: 2
+        x: 2054
+        y: 2011
+        width: 57
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fee5ea50811fb60800000000000000
+      internalID: 7778024444124917566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_59
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 2009
+        width: 173
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c65a22a98f70d80800000000000000
+      internalID: -8284379648634819481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_60
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 2019
+        width: 100
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e7127bdd7736f70800000000000000
+      internalID: 9179312259655106096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_61
+      rect:
+        serializedVersion: 2
+        x: 3391
+        y: 2072
+        width: 40
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc61ccc0eedc584c0800000000000000
+      internalID: -4285793048072546612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_62
+      rect:
+        serializedVersion: 2
+        x: 3716
+        y: 2038
+        width: 135
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d28404348ef3d58d0800000000000000
+      internalID: -2856056321889777619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_63
+      rect:
+        serializedVersion: 2
+        x: 3285
+        y: 2040
+        width: 114
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a045d83b958e0b380800000000000000
+      internalID: -8957404186877799414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_64
+      rect:
+        serializedVersion: 2
+        x: 3401
+        y: 2040
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff397240b04126430800000000000000
+      internalID: 3774601475236795391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_65
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1649
+        width: 101
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f849a77955c197d0800000000000000
+      internalID: -2913330495881656077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_66
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1649
+        width: 100
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c242aaa6c4920f80800000000000000
+      internalID: -8141781595345239355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_67
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1649
+        width: 100
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a58f12638a22b1c0800000000000000
+      internalID: -4489479134759647832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_68
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 1649
+        width: 100
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ceb31f1108480e20800000000000000
+      internalID: 3316980295211925185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_69
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 1649
+        width: 101
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd52a4bc253d3da10800000000000000
+      internalID: 1933121017623487965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_70
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 1649
+        width: 102
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8ba5b96535f58e0800000000000000
+      internalID: -1702550502684051232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_71
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 1649
+        width: 100
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4489215ca2d0f560800000000000000
+      internalID: 7345602629779162188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_72
+      rect:
+        serializedVersion: 2
+        x: 3291
+        y: 1643
+        width: 136
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333a727ac654b8780800000000000000
+      internalID: -8679767523863321805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_73
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 1647
+        width: 143
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a104f322407c672a0800000000000000
+      internalID: -6739980971745001446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_74
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1279
+        width: 131
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff6d8a5a4f9dcdf0800000000000000
+      internalID: -158295270192484361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_75
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1275
+        width: 80
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0719c56f0e2e74c0800000000000000
+      internalID: -4287939151543068916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_76
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 1275
+        width: 88
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f0950d8fcd45240800000000000000
+      internalID: 4779688065752436523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_77
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1277
+        width: 104
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8bbb30a5735738c0800000000000000
+      internalID: -4019652377740330097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_78
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 1277
+        width: 169
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b39cf38bd031c320800000000000000
+      internalID: 2576394181202973624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_79
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 1277
+        width: 171
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af7dbd53651b8120800000000000000
+      internalID: 2417049141533048737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_80
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 1277
+        width: 102
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3855672bfd543cf90800000000000000
+      internalID: -6934622174146308733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_81
+      rect:
+        serializedVersion: 2
+        x: 3279
+        y: 1275
+        width: 159
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d170aee85a312600800000000000000
+      internalID: 441698392094044627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_82
+      rect:
+        serializedVersion: 2
+        x: 3727
+        y: 1275
+        width: 113
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df71e7269275b0460800000000000000
+      internalID: 7208951463794317309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_83
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 911
+        width: 115
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e2902fc7e8d8bd0800000000000000
+      internalID: -2626286340399354323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_84
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 915
+        width: 126
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 366e0aa96e8fd09a0800000000000000
+      internalID: -6265077837282089373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_85
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 906
+        width: 112
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c93d96fb9770ed0800000000000000
+      internalID: -2447854009431385054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_86
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 917
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a69074be45a3e00800000000000000
+      internalID: 1025225234666056218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_87
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 917
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d757b509dc69de160800000000000000
+      internalID: 7056462000793810301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_88
+      rect:
+        serializedVersion: 2
+        x: 2439
+        y: 917
+        width: 138
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463bbbe5ed8c82cd0800000000000000
+      internalID: -2582593528899325084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_89
+      rect:
+        serializedVersion: 2
+        x: 2866
+        y: 917
+        width: 134
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f45a00e7d514950800000000000000
+      internalID: 6431524538619875175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_90
+      rect:
+        serializedVersion: 2
+        x: 3277
+        y: 911
+        width: 163
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a10524b42b9e4b0800000000000000
+      internalID: -5410597441004103037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_91
+      rect:
+        serializedVersion: 2
+        x: 3702
+        y: 909
+        width: 161
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2758d79b92c0fc900800000000000000
+      internalID: 706797039865660786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_92
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 577
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7d77bd226e544b0800000000000000
+      internalID: -5456702336104147017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_93
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 561
+        width: 111
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd46b8c1b9d34f620800000000000000
+      internalID: 2806936204166784220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_94
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 542
+        width: 57
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5600a4573de42000800000000000000
+      internalID: 10393921060341342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_95
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 654
+        width: 148
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46dd0983f559b950800000000000000
+      internalID: 6465293244531856971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_96
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 654
+        width: 149
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c85305f00ceb4f0800000000000000
+      internalID: -810999710877381615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_97
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 654
+        width: 149
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442dbadca3d9f97a0800000000000000
+      internalID: -6368198472194338236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_98
+      rect:
+        serializedVersion: 2
+        x: 2433
+        y: 654
+        width: 128
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1411b69d57af04c0800000000000000
+      internalID: -4319049497223031781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_99
+      rect:
+        serializedVersion: 2
+        x: 2563
+        y: 662
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbfe719d173d86310800000000000000
+      internalID: 1398600170225528764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_100
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 654
+        width: 148
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d303b04ba30430790800000000000000
+      internalID: -7565132328179388355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_101
+      rect:
+        serializedVersion: 2
+        x: 3285
+        y: 542
+        width: 146
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b6213108b6e0c70800000000000000
+      internalID: 8939200508196973433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_102
+      rect:
+        serializedVersion: 2
+        x: 3716
+        y: 542
+        width: 135
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee2449ee7bee61ab0800000000000000
+      internalID: -5037576659418201362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_103
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 544
+        width: 112
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6faad64e37c3f24f0800000000000000
+      internalID: -851395336098436362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_104
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 542
+        width: 148
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907126cb880f05b50800000000000000
+      internalID: 6580023525655058185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_105
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 542
+        width: 149
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3018c16d95d9fa8b0800000000000000
+      internalID: -5138715640636604157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_106
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 542
+        width: 149
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7c462562d515a70800000000000000
+      internalID: 8813928364913248232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_107
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 542
+        width: 127
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c59b6d9e9078010800000000000000
+      internalID: 1190931526397287527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_108
+      rect:
+        serializedVersion: 2
+        x: 2563
+        y: 552
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a307c79a5e84ef40800000000000000
+      internalID: 5756882743430939554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_109
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 542
+        width: 148
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f04d05134b75f40800000000000000
+      internalID: 5717236375872605972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_110
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 176
+        width: 113
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8d10ecbcefa86d0800000000000000
+      internalID: -2987295251518859025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_111
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 176
+        width: 157
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a1e7f13ff1fbe80800000000000000
+      internalID: -8160768870706177493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_112
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 176
+        width: 134
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f878075540a9ff90800000000000000
+      internalID: -6919323132804695821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_113
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 176
+        width: 106
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da98a59461cce7f0800000000000000
+      internalID: -581877614085891371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_114
+      rect:
+        serializedVersion: 2
+        x: 2034
+        y: 176
+        width: 99
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f25da31da2ee6e0800000000000000
+      internalID: -1806459322405408947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_115
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 176
+        width: 149
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b308c5db1ed28dd0800000000000000
+      internalID: -2485179833222954062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_116
+      rect:
+        serializedVersion: 2
+        x: 2862
+        y: 184
+        width: 143
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66e3017f8a9c8940800000000000000
+      internalID: 5299780802375313007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_117
+      rect:
+        serializedVersion: 2
+        x: 3307
+        y: 176
+        width: 103
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c40c7dffe168f050800000000000000
+      internalID: 5834521000636318914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons Placeholders_118
+      rect:
+        serializedVersion: 2
+        x: 3733
+        y: 176
+        width: 101
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047515b95e6b64b00800000000000000
+      internalID: 812537880056518464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4b3456c54760e5f41a7792ac9d259a5c
     internalID: 0
     vertices: []
     indices: 

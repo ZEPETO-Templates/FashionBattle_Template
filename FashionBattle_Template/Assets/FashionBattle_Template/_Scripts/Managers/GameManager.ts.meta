@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: d7282ca797582a5488ae9d686c99c853
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst MultiplayerManager_1 = require(\"../Multiplayer/MultiplayerManager\");\r\nclass
+    GameManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n       
+    // Singleton pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(GameManager.instance,
+    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    else\r\n            GameManager.instance = this;\r\n    }\r\n    Test() {\r\n       
+    this.playerCount = MultiplayerManager_1.default.instance.GetPlayersCount();\r\n   
+    }\r\n}\r\nexports.default = GameManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2FtZU1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHYW1lTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCw2Q0FBeUM7QUFDekMsMEVBQW1FO0FBRW5FLE1BQXFCLFdBQVksU0FBUSxxQ0FBcUI7SUFNMUQsS0FBSztRQUNELG9CQUFvQjtRQUNwQixJQVpDLHFDQUFxQixDQXFCcTRNLGFBQWMsQ0FUcjZNLFdBQVcsQ0FBQyxRQUFRLEVBQUksSUFBSTtZQUFFLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQzs7WUFDakUsV0FBVyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDckMsQ0FBQztJQUVNLElBQUk7UUFFUCxJQUFJLENBQUMsV0FBVyxHQUFHLDRCQUFrQixDQUFDLFFBQVEsQ0FBQyxlQUFlLEVBQUUsQ0FBQztJQUNyRSxDQUFDO0NBRUo7QUFqQkQsOEJBaUJDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/Managers/GameManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"playerCount","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"GameManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 68a494589f9ce142d91888754cfe7534
+  onlyWriteTrigger: 0

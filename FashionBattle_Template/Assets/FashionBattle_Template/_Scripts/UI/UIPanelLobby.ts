@@ -1,6 +1,6 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 
-export default class ProfileShower extends ZepetoScriptBehaviour {
+export default class UIPanelLobby extends ZepetoScriptBehaviour {
 
     Start() {    
 

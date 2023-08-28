@@ -18,13 +18,6 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
-    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nclass MultiplayerManager extends
-    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        if (!this.multiplay)\r\n           
-    this.multiplay = this.GetComponent($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\r\n       
-    if (!this.multiplay)\r\n            console.warn(\"Add ZepetoWorldMultiplay First\");\r\n       
-    this.multiplay.add_RoomJoined((room) => {\r\n            this.room = room;\r\n       
-    });\r\n    }\r\n}\r\nexports.default = MultiplayerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTXVsdGlwbGF5ZXJNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTXVsdGlwbGF5ZXJNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXFEO0FBQ3JELCtDQUFvRDtBQUVwRCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFLakUsS0FBSztRQUNELElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUztZQUNmLElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLFlBQVksU0FBQyxtQ0FBb0IsRUFBRyxDQUFDO1FBQy9ELElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUztZQUFFLE9BQU8sQ0FBQyxJQUFJLENBQUMsZ0NBQWdDLENBQUMsQ0FBQztRQUNwRSxJQUFJLENBQUMsU0FBUyxnQkFBZSxDQUFDLElBQVUsRUFBRSxFQUFFO1lBQ3hDLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO1FBQ3JCLENBQUMsRUFBQTtJQUNMLENBQUM7Q0FFSjtBQWRELHFDQWNDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/Multiplayer/MultiplayerManager.ts","manifest":{"properties":[{"assembly":"ZEPETO.World","name":"multiplay","type":"ZEPETO.World.ZepetoWorldMultiplay","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"","name":"room","type":"ZEPETO.Multiplay.Room","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"MultiplayerManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: cce2e4c46f8a5106870b5c31725703aa
+  compiledResult: '{"source":"","assetPath":"Assets/FashionBattle_Template/_Scripts/Multiplayer/MultiplayerManager.ts","manifest":{"properties":[],"name":"","description":"","hasAnimatorMove":false},"isCompiled":false}'
+  typescriptHash: 7fb4502ad35c043846166074cb8a99c0
   onlyWriteTrigger: 0

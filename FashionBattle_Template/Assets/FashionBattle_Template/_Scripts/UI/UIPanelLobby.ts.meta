@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 4169ad251de86474e8c2a88d418b28e7
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    UIPanelLobby extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n   
+    }\r\n}\r\nexports.default = UIPanelLobby;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbExvYmJ5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVUlQYW5lbExvYmJ5LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBRXJELE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFFM0QsS0FBSztJQUVMLENBQUM7Q0FFSjtBQU5ELCtCQU1DIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanelLobby.ts","manifest":{"properties":[],"name":"UIPanelLobby","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 37c0384dfb926477fb92e4a1d71a6d52
+  onlyWriteTrigger: 0

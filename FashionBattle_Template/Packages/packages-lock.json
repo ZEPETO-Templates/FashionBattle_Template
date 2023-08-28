@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "asset.cherryblossom": {
+      "version": "1.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "asset.commons": "1.0.4"
+      },
+      "url": "https://upm.zepeto.run"
+    },
+    "asset.commons": {
+      "version": "1.0.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.zepeto.run"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

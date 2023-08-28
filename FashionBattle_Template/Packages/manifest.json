@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "asset.cherryblossom": "1.0.3",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "1.3.9",
     "com.unity.ide.rider": "2.0.7",
@@ -48,7 +49,8 @@
       "name": "ZEPETO",
       "url": "https://upm.zepeto.run",
       "scopes": [
-        "zepeto"
+        "zepeto",
+        "asset"
       ]
     }
   ]

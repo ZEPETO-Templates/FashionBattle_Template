@@ -18,6 +18,41 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/FashionBattle_Template/_Scripts/Multiplayer/MultiplayerManager.ts","manifest":{"properties":[],"name":"","description":"","hasAnimatorMove":false},"isCompiled":false}'
-  typescriptHash: 7fb4502ad35c043846166074cb8a99c0
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Multiplay_1 = require(\"ZEPETO.Multiplay\");\r\nconst ZEPETO_Script_1
+    = require(\"ZEPETO.Script\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    GameManager_1 = require(\"../Managers/GameManager\");\r\nclass MultiplayerManager
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
+    super(...arguments);\r\n        this.playersData = [];\r\n    }\r\n    Awake()
+    {\r\n        // Singleton pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(MultiplayerManager.instance,
+    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    else\r\n            MultiplayerManager.instance = this;\r\n    }\r\n    Start()
+    {\r\n        if (!this.multiplay)\r\n            this.multiplay = this.GetComponent($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\r\n       
+    if (!this.multiplay)\r\n            console.warn(\"Add ZepetoWorldMultiplay First\");\r\n       
+    this.multiplay.add_RoomJoined((room) => {\r\n            this.room = room;\r\n       
+    }\r\n        // this.room.AddMessageHandler(MESSAGE.PlayerData, (playerData:
+    PlayerData) => {\r\n        //     if (this.CheckIfPlayerExist(playerData.ownerSessionId))\r\n       
+    //     {\r\n        //         this.UpdatePlayerData(playerData);\r\n       
+    //     }\r\n        //     else\r\n        //     {\r\n        //         this.CreateNewPlayerData(playerData);\r\n       
+    //     };\r\n        // });\r\n        );\r\n        // this.room.AddMessageHandler(MESSAGE.PlayerData,
+    (playerData: PlayerData) => {\r\n        //     if (this.CheckIfPlayerExist(playerData.ownerSessionId))\r\n       
+    //     {\r\n        //         this.UpdatePlayerData(playerData);\r\n       
+    //     }\r\n        //     else\r\n        //     {\r\n        //         this.CreateNewPlayerData(playerData);\r\n       
+    //     };\r\n        // });\r\n    }\r\n    CheckIfPlayerExist(ownerSession)
+    {\r\n        let result = false;\r\n        this.playersData.forEach((pd) =>
+    {\r\n            if (pd.ownerSessionId == ownerSession) {\r\n               
+    result = true;\r\n            }\r\n        });\r\n        return result;\r\n   
+    }\r\n    UpdatePlayerData(playerData) {\r\n    }\r\n    CreateNewPlayerData(playerData)
+    {\r\n        this.playersData.push(playerData);\r\n    }\r\n    ClearPayersData()
+    {\r\n        this.playersData = [];\r\n    }\r\n    SendPlayerData(ownerSessionId)
+    {\r\n        const data = new ZEPETO_Multiplay_1.RoomData();\r\n        data.Add(\"ownerSessionId\",
+    ownerSessionId);\r\n        data.Add(\"headItem\", this.testHeadItem);\r\n       
+    data.Add(\"chestItem\", this.testChestItem);\r\n        data.Add(\"legsItem\",
+    this.testLegsItem);\r\n        data.Add(\"footItem\", this.testFootItem);\r\n       
+    this.room.Send(MESSAGE.PlayerData, data.GetObject());\r\n    }\r\n    GetPlayersCount()
+    {\r\n        return this.playersData.Length;\r\n    }\r\n}\r\nexports.default
+    = MultiplayerManager;\r\nvar MESSAGE;\r\n(function (MESSAGE) {\r\n    MESSAGE[\"PlayerData\"]
+    = \"PlayerData\";\r\n})(MESSAGE || (MESSAGE = {}));\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTXVsdGlwbGF5ZXJNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTXVsdGlwbGF5ZXJNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQWdEO0FBQ2hELHVEQUFrRDtBQUNsRCxpREFBcUQ7QUFDckQsK0NBQW9EO0FBQ3BELHlEQUFrRDtBQUVsRCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFBckU7O1FBYVcsZ0JBQVcsR0FBaUIsRUFBRSxDQUFDO0lBeUUxQyxDQUFDO0lBdkVHLEtBQUs7UUFFRCxvQkFBb0I7UUFDcEIsSUF0QkMscUNBQXFCLENBdUd5b0ksYUFBYyxDQWpGenFJLGtCQUFrQixDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDOztZQUN4RSxrQkFBa0IsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQzVDLENBQUM7SUFFRCxLQUFLO1FBRUQsSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTO1lBQ2YsSUFBSSxDQUFDLFNBQVMsR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLG1DQUFvQixFQUFHLENBQUM7UUFDL0QsSUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTO1lBQUUsT0FBTyxDQUFDLElBQUksQ0FBQyxnQ0FBZ0MsQ0FBQyxDQUFDO1FBQ3BFLElBQUksQ0FBQyxTQUFTLGdCQUFlLENBQUMsSUFBVSxFQUFFLEVBQUU7WUFDeEMsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7UUFDckIsQ0FBQztRQUVELGdGQUFnRjtRQUNoRiw4REFBOEQ7UUFDOUQsUUFBUTtRQUNSLDZDQUE2QztRQUM3QyxRQUFRO1FBQ1IsV0FBVztRQUNYLFFBQVE7UUFDUixnREFBZ0Q7UUFDaEQsU0FBUztRQUNULE1BQU07VUFYTDtRQUVELGdGQUFnRjtRQUNoRiw4REFBOEQ7UUFDOUQsUUFBUTtRQUNSLDZDQUE2QztRQUM3QyxRQUFRO1FBQ1IsV0FBVztRQUNYLFFBQVE7UUFDUixnREFBZ0Q7UUFDaEQsU0FBUztRQUNULE1BQU07SUFDVixDQUFDO0lBRU8sa0JBQWtCLENBQUMsWUFBb0I7UUFFM0MsSUFBSSxNQUFNLEdBQUcsS0FBSyxDQUFDO1FBQ25CLElBQUksQ0FBQyxXQUFXLENBQUMsT0FBTyxDQUFDLENBQUMsRUFBRSxFQUFFLEVBQUU7WUFDNUIsSUFBSSxFQUFFLENBQUMsY0FBYyxJQUFJLFlBQVksRUFDckM7Z0JBQ0ksTUFBTSxHQUFHLElBQUksQ0FBQzthQUNqQjtRQUNMLENBQUMsQ0FBQyxDQUFDO1FBRUgsT0FBTyxNQUFNLENBQUM7SUFDbEIsQ0FBQztJQUVPLGdCQUFnQixDQUFDLFVBQXNCO0lBRS9DLENBQUM7SUFFTyxtQkFBbUIsQ0FBQyxVQUFzQjtRQUM5QyxJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUN0QyxDQUFDO0lBR08sZUFBZTtRQUNuQixJQUFJLENBQUMsV0FBVyxHQUFHLEVBQUUsQ0FBQztJQUMxQixDQUFDO0lBRU0sY0FBYyxDQUFDLGNBQXVCO1FBRXpDLE1BQU0sSUFBSSxHQUFHLElBQUksMkJBQVEsRUFBRSxDQUFDO1FBQzVCLElBQUksQ0FBQyxHQUFHLENBQUMsZ0JBQWdCLEVBQUUsY0FBYyxDQUFDLENBQUM7UUFFM0MsSUFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1FBQ3hDLElBQUksQ0FBQyxHQUFHLENBQUMsV0FBVyxFQUFFLElBQUksQ0FBQyxhQUFhLENBQUMsQ0FBQztRQUMxQyxJQUFJLENBQUMsR0FBRyxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7UUFDeEMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsSUFBSSxDQUFDLFlBQVksQ0FBQyxDQUFDO1FBRXhDLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxVQUFVLEVBQUUsSUFBSSxDQUFDLFNBQVMsRUFBRSxDQUFDLENBQUM7SUFDekQsQ0FBQztJQUVNLGVBQWU7UUFFbEIsT0FBTyxJQUFJLENBQUMsV0FBVyxDQUFDLE1BQU0sQ0FBQztJQUNuQyxDQUFDO0NBQ0o7QUF0RkQscUNBc0ZDO0FBV0QsSUFBSyxPQUVKO0FBRkQsV0FBSyxPQUFPO0lBQ1Isb0NBQXlCLENBQUE7QUFDN0IsQ0FBQyxFQUZJLE9BQU8sS0FBUCxPQUFPLFFBRVgifQ==","assetPath":"Assets/FashionBattle_Template/_Scripts/Multiplayer/MultiplayerManager.ts","manifest":{"properties":[{"assembly":"ZEPETO.World","name":"multiplay","type":"ZEPETO.World.ZepetoWorldMultiplay","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"","name":"room","type":"ZEPETO.Multiplay.Room","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"testHeadItem","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"testChestItem","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"testLegsItem","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"testFootItem","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"","name":"playersData","type":"PlayerData","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["\"Players\""]}]}],"name":"MultiplayerManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 3af51cef47f63e2ae38e2c9083cd42dc
   onlyWriteTrigger: 0

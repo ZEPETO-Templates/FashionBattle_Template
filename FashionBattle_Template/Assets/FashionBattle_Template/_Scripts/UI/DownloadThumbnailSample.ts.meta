@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 75d33cd8059293c4b8f787a888425d14
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Module_Shop_1 = require(\"ZEPETO.Module.Shop\");\r\nconst UnityEngine
+    = require(\"UnityEngine\");\r\nclass DownloadThumbnailSample extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n        this.StartCoroutine(this.DownloadItemTexture());\r\n   
+    }\r\n    ClearAndReloadImage(itemName) {\r\n        this.itemCode = itemName;\r\n       
+    this.StartCoroutine(this.DownloadItemTexture());\r\n    }\r\n    *DownloadItemTexture()
+    {\r\n        // Download thumbnail texture for the specified item code\r\n       
+    var request = ZEPETO_Module_Shop_1.ShopService.DownloadItemThumbnail(this.itemCode);\r\n       
+    yield new UnityEngine.WaitUntil(() => request.keepWaiting == false);\r\n       
+    if (request.responseData.isSuccess) {\r\n            this.image.texture = request.responseData.texture;\r\n       
+    }\r\n    }\r\n}\r\nexports.default = DownloadThumbnailSample;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRG93bmxvYWRUaHVtYm5haWxTYW1wbGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJEb3dubG9hZFRodW1ibmFpbFNhbXBsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCwyREFBaUQ7QUFFakQsMkNBQTJDO0FBRzNDLE1BQXFCLHVCQUF3QixTQUFRLHFDQUFxQjtJQUt0RSxLQUFLO1FBQ0QsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsbUJBQW1CLEVBQUUsQ0FBQyxDQUFDO0lBQ3BELENBQUM7SUFFTSxtQkFBbUIsQ0FBQyxRQUFnQjtRQUV2QyxJQUFJLENBQUMsUUFBUSxHQUFHLFFBQVEsQ0FBQztRQUN6QixJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxtQkFBbUIsRUFBRSxDQUFDLENBQUM7SUFDcEQsQ0FBQztJQUVELENBQUMsbUJBQW1CO1FBQ2hCLHlEQUF5RDtRQUN6RCxJQUFJLE9BQU8sR0FBRyxnQ0FBVyxDQUFDLHFCQUFxQixDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQztRQUUvRCxNQUFNLElBQUksV0FBVyxDQUFDLFNBQVMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxPQUFPLENBQUMsV0FBVyxJQUFJLEtBQUssQ0FBQyxDQUFDO1FBRXBFLElBQUksT0FBTyxDQUFDLFlBQVksQ0FBQyxTQUFTLEVBQUU7WUFDaEMsSUFBSSxDQUFDLEtBQUssQ0FBQyxPQUFPLEdBQUcsT0FBTyxDQUFDLFlBQVksQ0FBQyxPQUFPLENBQUM7U0FDckQ7SUFDTCxDQUFDO0NBRUo7QUExQkQsMENBMEJDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/DownloadThumbnailSample.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"image","type":"UnityEngine.UI.RawImage","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"itemCode","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"DownloadThumbnailSample","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: c542dc2e64b4b523d36e8c5ce366ee88
+  onlyWriteTrigger: 0

@@ -1,0 +1,47 @@
+fileFormatVersion: 2
+guid: e60aaf9e0b8890b4086bfbf128e2cd64
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst DownloadThumbnailSample_1
+    = require(\"./DownloadThumbnailSample\");\r\nclass UIPanelCustomization extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    this.bodyPartSelected = BODYPART_SELECTION.HEAD;\r\n    }\r\n    Start() {\r\n       
+    this.PopulateButtons(BODYPART_SELECTION.HEAD);\r\n        this.buttons[0].OnClick.AddListener(()
+    => {\r\n            this.PopulateButtons(BODYPART_SELECTION.HEAD);\r\n       
+    });\r\n        this.buttons[1].OnClick.AddListener(() => {\r\n            this.PopulateButtons(BODYPART_SELECTION.CHEST);\r\n       
+    });\r\n        this.buttons[2].OnClick.AddListener(() => {\r\n            this.PopulateButtons(BODYPART_SELECTION.LEGS);\r\n       
+    });\r\n        this.buttons[3].OnClick.AddListener(() => {\r\n            this.PopulateButtons(BODYPART_SELECTION.SHOES);\r\n       
+    });\r\n    }\r\n    PopulateButtons(selection) {\r\n        let i = 0;\r\n       
+    switch (selection) {\r\n            case BODYPART_SELECTION.HEAD:\r\n               
+    this.thumbnails.forEach(element => {\r\n                    element.GetComponent($typeof(DownloadThumbnailSample_1.default)).ClearAndReloadImage(this.headItems[i]);\r\n                   
+    i++;\r\n                });\r\n                break;\r\n            case BODYPART_SELECTION.CHEST:\r\n               
+    this.thumbnails.forEach(element => {\r\n                    element.GetComponent($typeof(DownloadThumbnailSample_1.default)).ClearAndReloadImage(this.chestItems[i]);\r\n                   
+    i++;\r\n                });\r\n                break;\r\n            case BODYPART_SELECTION.LEGS:\r\n               
+    this.thumbnails.forEach(element => {\r\n                    element.GetComponent($typeof(DownloadThumbnailSample_1.default)).ClearAndReloadImage(this.legsItems[i]);\r\n                   
+    i++;\r\n                });\r\n                break;\r\n            case BODYPART_SELECTION.SHOES:\r\n               
+    this.thumbnails.forEach(element => {\r\n                    element.GetComponent($typeof(DownloadThumbnailSample_1.default)).ClearAndReloadImage(this.shoesItems[i]);\r\n                   
+    i++;\r\n                });\r\n                break;\r\n        }\r\n    }\r\n}\r\nexports.default
+    = UIPanelCustomization;\r\nvar BODYPART_SELECTION;\r\n(function (BODYPART_SELECTION)
+    {\r\n    BODYPART_SELECTION[\"HEAD\"] = \"Head\";\r\n    BODYPART_SELECTION[\"CHEST\"]
+    = \"Chest\";\r\n    BODYPART_SELECTION[\"LEGS\"] = \"Legs\";\r\n    BODYPART_SELECTION[\"SHOES\"]
+    = \"Shoes\";\r\n})(BODYPART_SELECTION || (BODYPART_SELECTION = {}));\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbEN1c3RvbWl6YXRpb24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVSVBhbmVsQ3VzdG9taXphdGlvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUErQztBQUMvQyxpREFBcUQ7QUFFckQsdUVBQWdFO0FBRWhFLE1BQXFCLG9CQUFxQixTQUFRLHFDQUFxQjtJQUF2RTs7UUFVVyxxQkFBZ0IsR0FBdUIsa0JBQWtCLENBQUMsSUFBSSxDQUFDO0lBdUQxRSxDQUFDO0lBckRHLEtBQUs7UUFFRCxJQUFJLENBQUMsZUFBZSxDQUFDLGtCQUFrQixDQUFDLElBQUksQ0FBQyxDQUFDO1FBRTlDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDckMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUNsRCxDQUFDLENBQUMsQ0FBQztRQUVILElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDckMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxrQkFBa0IsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNuRCxDQUFDLENBQUMsQ0FBQztRQUVILElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDckMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUNsRCxDQUFDLENBQUMsQ0FBQztRQUVILElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDckMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxrQkFBa0IsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNuRCxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFTSxlQUFlLENBQUMsU0FBNkI7UUFFaEQsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ1YsUUFBTyxTQUFTLEVBQ2hCO1lBQ0ksS0FBSyxrQkFBa0IsQ0FBQyxJQUFJO2dCQUN4QixJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxPQUFPLENBQUMsRUFBRTtvQkFDOUIsT0FBTyxDQUFDLFlBQVksU0FBQyxpQ0FBdUIsR0FBSSxtQkFBbUIsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7b0JBQ3ZGLENBQUMsRUFBRSxDQUFDO2dCQUNSLENBQUMsQ0FBQyxDQUFDO2dCQUNILE1BQU07WUFDVixLQUFLLGtCQUFrQixDQUFDLEtBQUs7Z0JBQ3pCLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxFQUFFO29CQUM5QixPQUFPLENBQUMsWUFBWSxTQUFDLGlDQUF1QixHQUFJLG1CQUFtQixDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztvQkFDeEYsQ0FBQyxFQUFFLENBQUM7Z0JBQ1IsQ0FBQyxDQUFDLENBQUM7Z0JBQ0gsTUFBTTtZQUNWLEtBQUssa0JBQWtCLENBQUMsSUFBSTtnQkFDeEIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLEVBQUU7b0JBQzlCLE9BQU8sQ0FBQyxZQUFZLFNBQUMsaUNBQXVCLEdBQUksbUJBQW1CLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO29CQUN2RixDQUFDLEVBQUUsQ0FBQztnQkFDUixDQUFDLENBQUMsQ0FBQztnQkFDSCxNQUFNO1lBQ1YsS0FBSyxrQkFBa0IsQ0FBQyxLQUFLO2dCQUN6QixJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxPQUFPLENBQUMsRUFBRTtvQkFDOUIsT0FBTyxDQUFDLFlBQVksU0FBQyxpQ0FBdUIsR0FBSSxtQkFBbUIsQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7b0JBQ3hGLENBQUMsRUFBRSxDQUFDO2dCQUNSLENBQUMsQ0FBQyxDQUFDO2dCQUNILE1BQU07U0FDYjtJQUNMLENBQUM7Q0FFSjtBQWpFRCx1Q0FpRUM7QUFFRCxJQUFLLGtCQUtKO0FBTEQsV0FBSyxrQkFBa0I7SUFDbkIsbUNBQWEsQ0FBQTtJQUNiLHFDQUFlLENBQUE7SUFDZixtQ0FBYSxDQUFBO0lBQ2IscUNBQWUsQ0FBQTtBQUNuQixDQUFDLEVBTEksa0JBQWtCLEtBQWxCLGtCQUFrQixRQUt0QiJ9","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanelCustomization.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"headItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"chestItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"legsItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"shoesItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"ZEPETO.World.Gui","name":"buttons","type":"ZEPETO.World.Gui.RoundedRectangleButton[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"thumbnails","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"","name":"bodyPartSelected","type":"BODYPART_SELECTION","isArray":false,"initValue":["HEAD"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIPanelCustomization","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: daefa23f53315562f7b162e0859b70ef
+  onlyWriteTrigger: 0

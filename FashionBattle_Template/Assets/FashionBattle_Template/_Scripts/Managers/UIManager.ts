@@ -53,7 +53,7 @@ export default class UIManager extends ZepetoScriptBehaviour
 
     public OnStartButton()
     {
-        this.SwitchUIPanel(UIPanelType.LOBBY);
+        this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
     public SwitchUIPanel(uiPanelType: UIPanelType): void

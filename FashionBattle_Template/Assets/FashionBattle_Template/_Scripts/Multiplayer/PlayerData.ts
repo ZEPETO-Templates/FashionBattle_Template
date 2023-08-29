@@ -4,9 +4,9 @@ export default class PlayerData extends ZepetoScriptBehaviour {
 
     public ownerSessionId: string;
 
-    public testHeadItem: number;
-    public testChestItem: number;
-    public testLegsItem: number;
-    public testFootItem: number;
+    public testHeadItem: string;
+    public testChestItem: string;
+    public testLegsItem: string;
+    public testFootItem: string;
 
 }

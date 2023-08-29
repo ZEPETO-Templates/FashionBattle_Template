@@ -2,6 +2,7 @@ import { Debug, GameObject } from 'UnityEngine';
 import { Room, RoomData } from 'ZEPETO.Multiplay';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { ZepetoWorldMultiplay } from 'ZEPETO.World';
+import GameManager from '../Managers/GameManager';
 
 export default class MultiplayerManager extends ZepetoScriptBehaviour {
 
@@ -10,21 +11,23 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public multiplay: ZepetoWorldMultiplay;
     public room: Room;
 
-    public testHeadItem: number = 0;
-    public testChestItem: number = 0;
-    public testLegsItem: number = 0;
-    public testFootItem: number = 0;
+    public testHeadItem: string;
+    public testChestItem: string;
+    public testLegsItem: string;
+    public testFootItem: string;
 
     @Header("Players")
     public playersData: PlayerData[] = [];
 
-    Awake() {
+    Awake() 
+    {
         // Singleton pattern
         if (MultiplayerManager.instance != null) GameObject.Destroy(this.gameObject);
         else MultiplayerManager.instance = this;
     }
 
-    Start() {    
+    Start() 
+    {    
         if (!this.multiplay)
             this.multiplay = this.GetComponent<ZepetoWorldMultiplay>();
         if (!this.multiplay) console.warn("Add ZepetoWorldMultiplay First");
@@ -32,16 +35,16 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
             this.room = room;
         }
         
-        this.room.AddMessageHandler(MESSAGE.PlayerData, (playerData: PlayerData) => {
-            if (this.CheckIfPlayerExist(playerData.ownerSessionId))
-            {
-                this.UpdatePlayerData(playerData);
-            }
-            else
-            {
-                this.CreateNewPlayerData(playerData);
-            };
-        });
+        // this.room.AddMessageHandler(MESSAGE.PlayerData, (playerData: PlayerData) => {
+        //     if (this.CheckIfPlayerExist(playerData.ownerSessionId))
+        //     {
+        //         this.UpdatePlayerData(playerData);
+        //     }
+        //     else
+        //     {
+        //         this.CreateNewPlayerData(playerData);
+        //     };
+        // });
     }
 
     private CheckIfPlayerExist(ownerSession: string) : bool

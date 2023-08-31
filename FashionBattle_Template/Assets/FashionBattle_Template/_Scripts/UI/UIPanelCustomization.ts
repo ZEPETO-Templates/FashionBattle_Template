@@ -2,6 +2,7 @@ import { Debug, GameObject } from 'UnityEngine'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
 import DownloadThumbnailSample from './DownloadThumbnailSample';
+import UIManager, { UIPanelType } from '../Managers/UIManager';
 
 export default class UIPanelCustomization extends ZepetoScriptBehaviour {
 
@@ -12,6 +13,8 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
 
     public buttons: RoundedRectangleButton[]
     public thumbnails: GameObject[]
+
+    public doneButton: RoundedRectangleButton;
 
     public bodyPartSelected: BODYPART_SELECTION = BODYPART_SELECTION.HEAD;
 
@@ -34,6 +37,11 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
         this.buttons[3].OnClick.AddListener(() => {
             this.PopulateButtons(BODYPART_SELECTION.SHOES);
         });
+
+        this.doneButton.OnClick.AddListener(() => {
+            UIManager.instance.SwitchUIPanel(UIPanelType.GAME);
+        });
+
     }
     
     public PopulateButtons(selection :BODYPART_SELECTION)

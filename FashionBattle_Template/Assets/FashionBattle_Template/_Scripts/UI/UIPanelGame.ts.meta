@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 441dec9056cb28e468f67a3d9a32ff01
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_World_Gui_1 = require(\"ZEPETO.World.Gui\");\r\nconst VoteButton_1 = require(\"./VoteButton\");\r\nclass
+    UIPanelGame extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n   
+    }\r\n    OnVoteSelection(voteIndex) {\r\n        this.SetVoteSelection(voteIndex);\r\n       
+    this.voteButtons.forEach(element => {\r\n            let voteButton = element.GetComponent($typeof(VoteButton_1.default));\r\n           
+    if (voteButton.buttonIndex <= voteIndex) {\r\n                voteButton.SetSelectedImg(true);\r\n           
+    }\r\n            else {\r\n                voteButton.SetSelectedImg(false);\r\n           
+    }\r\n        });\r\n    }\r\n    SetVoteSelection(voteIndex) {\r\n        let
+    voteSelection = voteIndex + 1;\r\n    }\r\n}\r\nexports.default = UIPanelGame;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbEdhbWUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVSVBhbmVsR2FtZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFxRDtBQUNyRCx1REFBeUQ7QUFDekQsNkNBQXNDO0FBRXRDLE1BQXFCLFdBQVksU0FBUSxxQ0FBcUI7SUFJMUQsS0FBSztJQUVMLENBQUM7SUFFTSxlQUFlLENBQUMsU0FBa0I7UUFFckMsSUFBSSxDQUFDLGdCQUFnQixDQUFDLFNBQVMsQ0FBQyxDQUFDO1FBQ2pDLElBQUksQ0FBQyxXQUFXLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxFQUFFO1lBQy9CLElBQUksVUFBVSxHQUFHLE9BQU8sQ0FBQyxZQUFZLFNBQUMsb0JBQVUsRUFBRyxDQUFDO1lBQ3BELElBQUksVUFBVSxDQUFDLFdBQVcsSUFBSSxTQUFTLEVBQ3ZDO2dCQUNJLFVBQVUsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLENBQUM7YUFDbkM7aUJBRUQ7Z0JBQ0ksVUFBVSxDQUFDLGNBQWMsQ0FBQyxLQUFLLENBQUMsQ0FBQzthQUNwQztRQUNMLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVNLGdCQUFnQixDQUFDLFNBQWlCO1FBRXJDLElBQUksYUFBYSxHQUFHLFNBQVMsR0FBRyxDQUFDLENBQUM7SUFDdEMsQ0FBQztDQUVKO0FBN0JELDhCQTZCQyJ9","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanelGame.ts","manifest":{"properties":[{"assembly":"ZEPETO.World.Gui","name":"voteButtons","type":"ZEPETO.World.Gui.RoundedRectangleButton[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIPanelGame","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 27d1ead3df248f329011e8855308bae3
+  onlyWriteTrigger: 0

@@ -33,18 +33,44 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         if (!this.multiplay) console.warn("Add ZepetoWorldMultiplay First");
         this.multiplay.RoomJoined += (room: Room) => {
             this.room = room;
+            Debug.LogError("- - ROOM CREATED - -");
+            this.AddMessageHandlers();
+            this.SetInitialPlayerData();
         }
-        
-        // this.room.AddMessageHandler(MESSAGE.PlayerData, (playerData: PlayerData) => {
-        //     if (this.CheckIfPlayerExist(playerData.ownerSessionId))
-        //     {
-        //         this.UpdatePlayerData(playerData);
-        //     }
-        //     else
-        //     {
-        //         this.CreateNewPlayerData(playerData);
-        //     };
-        // });
+    }
+    
+    private AddMessageHandlers()
+    {
+        Debug.LogError("- - ADDED MESSAGE HANDLER - -");
+
+        this.room.AddMessageHandler(MESSAGE.PlayerData, (playerData: PlayerData) => {
+            if (this.CheckIfPlayerExist(playerData.ownerSessionId))
+            {
+                this.UpdatePlayerData(playerData);
+            }
+            else
+            {
+                this.CreateNewPlayerData(playerData);
+            };
+
+            Debug.LogError("PLAYERS COUNT: " + this.playersData.length)
+        });
+    }
+
+    public OnPlayerDataArrive(playerData: PlayerData)
+    {
+        if (this.CheckIfPlayerExist(playerData.ownerSessionId)) {
+            this.UpdatePlayerData(playerData);
+        }
+        else {
+            this.CreateNewPlayerData(playerData);
+        };
+    }
+
+    private SetInitialPlayerData()
+    {
+        Debug.LogError("- - SEND INITIAL DATA - -");
+        this.SendPlayerData(this.room.SessionId);
     }
 
     private CheckIfPlayerExist(ownerSession: string) : bool
@@ -89,6 +115,12 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public GetPlayersCount() : number
     {
         return this.playersData.Length;        
+    }
+
+    public IsMaster(): bool
+    {
+        let result = true;
+        return result;
     }
 }
 

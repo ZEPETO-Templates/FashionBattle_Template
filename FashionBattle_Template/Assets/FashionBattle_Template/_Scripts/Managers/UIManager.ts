@@ -56,6 +56,11 @@ export default class UIManager extends ZepetoScriptBehaviour
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
+    public OnReadyButton()
+    {
+        
+    }
+
     public SwitchUIPanel(uiPanelType: UIPanelType): void
     {
         for (var i = 0; i < this.uiPanels.length; i++)

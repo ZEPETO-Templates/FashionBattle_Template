@@ -1,5 +1,4 @@
 {
-    "State": {
-        
-    }
+"State" : {"players" : {"map" : "Player"}},
+"Player" : {"sessionid" : "string","zepetoHash" : "string","zepetoUserId" : "string"}
 }

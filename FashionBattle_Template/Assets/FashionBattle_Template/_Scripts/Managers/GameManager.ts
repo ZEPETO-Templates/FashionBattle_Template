@@ -8,15 +8,36 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     public playerCount: number;
 
+    public stageCustomization: GameObject;
+    public stageRunway: GameObject;
+
     Awake() {
         // Singleton pattern
         if (GameManager.instance != null) GameObject.Destroy(this.gameObject);
         else GameManager.instance = this;
+
+        this.SwitchStage(STAGE.CUSTOMIZATION);
     }
 
-    public Test()
+    public SwitchStage(stage: STAGE)
     {
-        this.playerCount = MultiplayerManager.instance.GetPlayersCount();
-    }
+        this.stageCustomization.SetActive(false);
+        this.stageRunway.SetActive(false);
 
+        switch (stage)
+        {
+            case STAGE.CUSTOMIZATION:
+                this.stageCustomization.SetActive(true);
+                break;
+            case STAGE.RUNWAY:
+                this.stageRunway.SetActive(true);
+                break;
+        }
+    }
+}
+
+enum STAGE
+{
+    CUSTOMIZATION,
+    RUNWAY
 }

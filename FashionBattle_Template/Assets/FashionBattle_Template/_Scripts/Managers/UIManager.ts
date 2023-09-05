@@ -3,6 +3,7 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import UIPanel from '../UI/UIPanel';
 import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
 import CustomDebug from '../../Z_CustomDebug/CustomDebug';
+import UIPanelStart from '../UI/UIPanelStart';
 
 export enum UIPanelType
 {
@@ -21,8 +22,7 @@ export default class UIManager extends ZepetoScriptBehaviour
     public uiPanelsGameObject: GameObject[];
     private uiPanels: UIPanel[];
 
-    @Header("Buttons")
-    @SerializeField() startBtn: RoundedRectangleButton; // Reference to the Start button
+    public currentPanelType: UIPanelType = UIPanelType.NONE;
 
     Awake() {
         // Singleton pattern
@@ -37,10 +37,6 @@ export default class UIManager extends ZepetoScriptBehaviour
     
     public InitUIManager() : void
     {
-        this.startBtn.OnClick.AddListener(() => {
-            this.OnStartButton(); 
-        });
-        
         this.uiPanels = [];
     
         for (var i = 0; i < this.uiPanelsGameObject.length; i++)
@@ -56,22 +52,49 @@ export default class UIManager extends ZepetoScriptBehaviour
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
-    public OnReadyButton()
+    public SetCounterToStart(value: bool)
     {
-        
+        let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        startPanel.ShowCountdownText(value);
+    }
+    
+    public SetPlayersOnline(value: number)
+    {
+        let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        startPanel.SetPlayersCount(value);
+    }
+
+    public SetPlayersReady(value: number)
+    {
+        let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        startPanel.SetPlayersReady(value);
     }
 
     public SwitchUIPanel(uiPanelType: UIPanelType): void
     {
+        this.currentPanelType = uiPanelType;
+
         for (var i = 0; i < this.uiPanels.length; i++)
         {
             if (this.uiPanels[i].uiPanelType == uiPanelType)
             {
                 this.uiPanels[i].Show(true);
             }
-            else {
+            else 
+            {
                 this.uiPanels[i].Show(false);
             }
         }
+    }
+
+    private GetUiPanelType(uiPanelType: UIPanelType) : UIPanel
+    {
+        let result = this.uiPanels[i];  
+        for (var i = 0; i < this.uiPanels.length; i++) {
+            if (this.uiPanels[i].uiPanelType == uiPanelType) {
+                result = this.uiPanels[i];
+            }
+        }
+        return result;
     }
 }

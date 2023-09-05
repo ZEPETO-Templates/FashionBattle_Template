@@ -4,55 +4,45 @@ import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
 import UIManager from '../Managers/UIManager';
 import { TMP_Text } from 'TMPro';
 import MultiplayerManager from '../Multiplayer/MultiplayerManager';
+import GameManager from '../Managers/GameManager';
 
 export default class UIPanelStart extends ZepetoScriptBehaviour 
 {
-    @Header("PANELS")
-    @SerializeField() masterPanel: GameObject;
-    @SerializeField() othersPanel: GameObject;
-
     @Header("BUTTONS")
-    @SerializeField() startBtn: RoundedRectangleButton; // Reference to the play button
     @SerializeField() readyBtn: RoundedRectangleButton; // Reference to the play button
 
+    @Header("READY IMG")
+    @SerializeField() readyImg: GameObject;
+
     @Header("TEXT")
+    @SerializeField() gameCountdownTMP: TMP_Text;
     @SerializeField() playersCountTMP: TMP_Text;
     @SerializeField() playersReadyTMP: TMP_Text;
 
     Start()
     {
-        this.startBtn.OnClick.AddListener(() => {
-            UIManager.instance.OnStartButton();
-        });
+        this.readyImg.SetActive(GameManager.instance.isPlayerReady);
 
         this.readyBtn.OnClick.AddListener(() => {
-            UIManager.instance.OnReadyButton();
+            GameManager.instance.OnPlayerReady();
+            this.readyImg.SetActive(GameManager.instance.isPlayerReady);
         });
+
+        this.ShowCountdownText(false);
     }
 
-    public RefreshPanel()
+    Update()
     {
-        if(MultiplayerManager.instance.IsMaster)
+        if (GameManager.instance.isPlayerReady && !GameManager.instance.isGameStarted)
         {
-            this.SwitchPanels(START_PANEL.MASTER);
-        }
-        else
-        {
-            this.SwitchPanels(START_PANEL.OTHER);
+            var intvalue = Math.floor(GameManager.instance.counterToStart);
+            this.gameCountdownTMP.text = "Game Starts in " + intvalue;
         }
     }
 
-    public SwitchPanels(startPanelType: START_PANEL)
+    public ShowCountdownText(value: bool)
     {
-        this.masterPanel.SetActive(false);
-        this.othersPanel.SetActive(false);
-
-        switch (startPanelType){
-            case START_PANEL.MASTER:
-                break;
-            case START_PANEL.OTHER:
-                break;
-        }
+        this.gameCountdownTMP.gameObject.SetActive(value);
     }
 
     public SetPlayersCount(amount: number)
@@ -62,12 +52,6 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
 
     public SetPlayersReady(amount: number)
     {
-        this.playersCountTMP.text = "Ready: " + amount;
+        this.playersReadyTMP.text = "Ready: " + amount;
     }
-}
-
-enum START_PANEL
-{
-    MASTER,
-    OTHER
 }

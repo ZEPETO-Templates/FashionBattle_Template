@@ -1,12 +1,14 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 
-export default class PlayerData extends ZepetoScriptBehaviour {
-
+export default class PlayerData extends ZepetoScriptBehaviour 
+{
     public ownerSessionId: string;
+    public isReady: boolean;
+    public isWinner: boolean; 
+    public isCustomized: boolean;
 
-    public testHeadItem: string;
-    public testChestItem: string;
-    public testLegsItem: string;
-    public testFootItem: string;
-
+    public headItem: string;
+    public chestItem: string;
+    public legsItem: string;
+    public footItem: string;
 }

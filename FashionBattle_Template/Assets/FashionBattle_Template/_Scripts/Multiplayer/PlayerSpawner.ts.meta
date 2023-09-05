@@ -1,0 +1,64 @@
+fileFormatVersion: 2
+guid: 8d0e44a368c64f7498600c38868607c2
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst MultiplayerManager_1 = require(\"./MultiplayerManager\");\r\nconst
+    GameManager_1 = require(\"../Managers/GameManager\");\r\n// This script spawns
+    a single player\r\nclass PlayerSpawner extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this._currentPlayers
+    = new Map();\r\n    }\r\n    static get instance() {\r\n        if (this.m_instance
+    === null) {\r\n            this.m_instance = UnityEngine_1.GameObject.FindObjectOfType($typeof(PlayerSpawner));\r\n           
+    if (this.m_instance === null) {\r\n                this.m_instance = new UnityEngine_1.GameObject(PlayerSpawner.name).AddComponent($typeof(PlayerSpawner));\r\n           
+    }\r\n        }\r\n        return this.m_instance;\r\n    }\r\n    Awake() {\r\n       
+    if (PlayerSpawner.m_instance !== null && PlayerSpawner.m_instance !== this) {\r\n           
+    UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n        }\r\n        else
+    {\r\n            PlayerSpawner.m_instance = this;\r\n            UnityEngine_1.GameObject.DontDestroyOnLoad(this.gameObject);\r\n       
+    }\r\n    }\r\n    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId)
+    => {\r\n            this.AddPlayerSync(sessionId);\r\n            ZEPETO_Character_Controller_1.ZepetoPlayers.instance.ZepetoCamera.gameObject.SetActive(false);\r\n       
+    });\r\n    }\r\n    /** multiplayer Spawn **/\r\n    OnStateChange(state, isFirst)
+    {\r\n        const join = new Map();\r\n        const leave = new Map(this._currentPlayers);\r\n       
+    state.players.ForEach((sessionId, player) => {\r\n            if (!this._currentPlayers.has(sessionId))
+    {\r\n                join.set(sessionId, player);\r\n            }\r\n           
+    leave.delete(sessionId);\r\n        });\r\n        // [RoomState] Create a player
+    instance for players that enter the Room\r\n        join.forEach((player, sessionId)
+    => this.OnJoinPlayer(sessionId, player));\r\n        // [RoomState] Remove the
+    player instance for players that exit the room\r\n        leave.forEach((player,
+    sessionId) => this.OnLeavePlayer(sessionId, player));\r\n    }\r\n    OnJoinPlayer(sessionId,
+    player) {\r\n        console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);\r\n       
+    this._currentPlayers.set(sessionId, player);\r\n        const spawnInfo = new
+    ZEPETO_Character_Controller_1.SpawnInfo();\r\n        spawnInfo.position = this.transform.position;\r\n       
+    spawnInfo.rotation = this.transform.rotation;\r\n        const isLocal = MultiplayerManager_1.default.instance.GetRoom().SessionId
+    === player.sessionId;\r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
+    sessionId, player.zepetoUserId, spawnInfo, isLocal);\r\n    }\r\n    OnLeavePlayer(sessionId,
+    player) {\r\n        console.log(`[OnLeavePlayer] players - sessionId : ${sessionId}`);\r\n       
+    this._currentPlayers.delete(sessionId);\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.RemovePlayer(sessionId);\r\n   
+    }\r\n    AddPlayerSync(sessionId) {\r\n        UnityEngine_1.Debug.LogError(\"ADD
+    PLAYER\");\r\n        const zepetoPlayer = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(sessionId);\r\n       
+    zepetoPlayer.character.gameObject.SetActive(false);\r\n    }\r\n    ShowCharacter(sessionId)
+    {\r\n        const zepetoPlayer = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(sessionId);\r\n       
+    zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;\r\n       
+    zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;\r\n       
+    zepetoPlayer.character.gameObject.SetActive(true);\r\n    }\r\n}\r\nexports.default
+    = PlayerSpawner;\r\n/* Singleton */\r\nPlayerSpawner.m_instance = null;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyU3Bhd25lci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlBsYXllclNwYXduZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQXVFO0FBRXZFLDZDQUEyRDtBQUMzRCw2REFBc0Q7QUFHdEQseURBQWtEO0FBRWxELHFDQUFxQztBQUNyQyxNQUFxQixhQUFjLFNBQVEscUNBQXFCO0lBQWhFOztRQUdZLG9CQUFlLEdBQXdCLElBQUksR0FBRyxFQUFrQixDQUFDO0lBc0Y3RSxDQUFDO0lBbEZVLE1BQU0sS0FBSyxRQUFRO1FBQ3RCLElBQUksSUFBSSxDQUFDLFVBQVUsS0FBSyxJQUFJLEVBQUU7WUFDMUIsSUFBSSxDQUFDLFVBQVUsR0FBRyx3QkFBVSxDQUFDLGdCQUFnQixTQUFDLGFBQWEsRUFBRyxDQUFDO1lBQy9ELElBQUksSUFBSSxDQUFDLFVBQVUsS0FBSyxJQUFJLEVBQUU7Z0JBQzFCLElBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSx3QkFBVSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsQ0FBQyxZQUFZLFNBQUMsYUFBYSxFQUFHLENBQUM7YUFDdEY7U0FDSjtRQUNELE9BQU8sSUFBSSxDQUFDLFVBQVUsQ0FBQztJQUMzQixDQUFDO0lBRU8sS0FBSztRQUNULElBQUksYUFBYSxDQUFDLFVBQVUsS0FBSyxJQUFJLElBQUksYUFBYSxDQUFDLFVBQVUsS0FBSyxJQUFJLEVBQUU7WUFDeEUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQ3ZDO2FBQU07WUFDSCxhQUFhLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQztZQUNoQyx3QkFBVSxDQUFDLGlCQUFpQixDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQztTQUNqRDtJQUNMLENBQUM7SUFFTyxLQUFLO1FBRVQsMkNBQWEsQ0FBQyxRQUFRLENBQUMsYUFBYSxDQUFDLFdBQVcsQ0FBQyxDQUFDLFNBQWlC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","assetPath":"Assets/FashionBattle_Template/_Scripts/Multiplayer/PlayerSpawner.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"spawnPosition","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"PlayerSpawner","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 1ef5f53323ee0835aea6515285ff756d
+  onlyWriteTrigger: 0

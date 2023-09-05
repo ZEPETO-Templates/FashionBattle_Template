@@ -104,6 +104,7 @@ export default class SyncPlayerDataModule extends IModule
     {
         let playerDataModel = this.GetPlayerDataFromId(client.sessionId);
         
+        playerDataModel.wolrdId = playerData.wolrdId;
         playerDataModel.ownerSessionId = playerData.ownerSessionId;
         playerDataModel.isReady = playerData.isReady;
         playerDataModel.isWinner = playerData.isWinner;
@@ -199,6 +200,7 @@ enum MESSAGE {
 }
 
 interface PlayerDataModel {
+    wolrdId?: string;
     ownerSessionId?: string;
     isReady?: boolean;
     isWinner?: boolean;

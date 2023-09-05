@@ -1,10 +1,12 @@
 import { Debug, GameObject, Input, KeyCode, Time, Transform } from 'UnityEngine';
 import { Room, RoomData } from 'ZEPETO.Multiplay';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { ZepetoWorldMultiplay } from 'ZEPETO.World';
+import { WorldService, ZepetoWorldMultiplay } from 'ZEPETO.World';
 import PlayerData from './PlayerData';
 import GameManager, { STAGE } from '../Managers/GameManager';
 import UIManager, { UIPanelType } from '../Managers/UIManager';
+import { State } from 'ZEPETO.Multiplay.Schema';
+import PlayerSpawner from './PlayerSpawner';
 
 export enum ITEM_TYPE {
     HEAD,
@@ -18,15 +20,16 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public static instance: MultiplayerManager;
 
     public multiplay: ZepetoWorldMultiplay;
-    public room: Room;
-
+    
     public localPlayerData: PlayerData;
-
+    
     @Header("Players")
     public playersData: PlayerDataModel[] = [];
-
+    
     public allPlayersReady: bool = false;
-
+    
+    private _room: Room;
+    
     Awake() 
     {
         // Singleton pattern
@@ -40,15 +43,21 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
             this.multiplay = this.GetComponent<ZepetoWorldMultiplay>();
         if (!this.multiplay) console.warn("Add ZepetoWorldMultiplay First");
         this.multiplay.RoomJoined += (room: Room) => {
-            this.room = room;
+            this._room = room;
+            this._room.OnStateChange += this.OnStateChange;
             this.AddMessageHandlers();
             this.SetInitialPlayerData();
         }
     }
+
+    private OnStateChange(state: State, isFirst: boolean) 
+    {
+        PlayerSpawner.instance.OnStateChange(state, isFirst);
+    }
     
     private AddMessageHandlers()
     {
-        this.room.AddMessageHandler(MESSAGE.OnPlayersReady, (value: string) =>
+        this._room.AddMessageHandler(MESSAGE.OnPlayersReady, (value: string) =>
         {
             if(value == "True")
             {
@@ -64,12 +73,12 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
             GameManager.instance.SetGameReadyToStart(this.allPlayersReady);
         });
 
-        this.room.AddMessageHandler(MESSAGE.OnResetPlayerDataCache, (message) => 
+        this._room.AddMessageHandler(MESSAGE.OnResetPlayerDataCache, (message) => 
         {
             this.playersData = [];
         });
 
-        this.room.AddMessageHandler(MESSAGE.OnPlayersDataCacheArrive, (playerData: PlayerDataModel) => 
+        this._room.AddMessageHandler(MESSAGE.OnPlayersDataCacheArrive, (playerData: PlayerDataModel) => 
         {
             this.playersData.push(playerData);
             if(UIManager.instance.currentPanelType == UIPanelType.START)
@@ -79,7 +88,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
             }
         });
 
-        this.room.AddMessageHandler(MESSAGE.OnAllPlayersCustomized, (value) =>
+        this._room.AddMessageHandler(MESSAGE.OnAllPlayersCustomized, (value) =>
         {
             UIManager.instance.SwitchUIPanel(UIPanelType.GAME);
             GameManager.instance.SwitchStage(STAGE.RUNWAY);
@@ -90,22 +99,23 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     private SetInitialPlayerData()
     {
         this.localPlayerData = new PlayerData();
-        this.localPlayerData.ownerSessionId = this.room.SessionId;
-        this.room.Send(MESSAGE.RequestPlayersDataCache, "");
+        this.localPlayerData.ownerSessionId = this._room.SessionId;
+        this.localPlayerData.wolrdId = WorldService.userId;
+        this._room.Send(MESSAGE.RequestPlayersDataCache, "");
     }
 
     public RequestPlayersDataCache()
     {
-        this.room.Send(MESSAGE.RequestPlayersDataCache, "");
+        this._room.Send(MESSAGE.RequestPlayersDataCache, "");
     }
 
     public SendPlayerData()
     {
         const data = new RoomData();
+        data.Add("wolrdId", this.localPlayerData.wolrdId);
         data.Add("ownerSessionId", this.localPlayerData.ownerSessionId);
         data.Add("isReady", this.localPlayerData.isReady);
         data.Add("isWinner", this.localPlayerData.isWinner);
-        Debug.LogError("isCustomized : " + this.localPlayerData.isCustomized);
         data.Add("isCustomized", this.localPlayerData.isCustomized);
         
         data.Add("headItem", this.localPlayerData.headItem);
@@ -114,7 +124,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         data.Add("footItem", this.localPlayerData.footItem);
 
         Debug.LogError("SENDING : " + MESSAGE.SendPlayerData);
-        this.room.Send(MESSAGE.SendPlayerData, data.GetObject());
+        this._room.Send(MESSAGE.SendPlayerData, data.GetObject());
     }
 
     public SetPlayerIsCustomize(value: bool)
@@ -145,7 +155,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public SetPlayerReady(value: boolean)
     {
         this.localPlayerData.isReady = value;
-        this.room.Send(MESSAGE.SendPlayerReady, value);
+        this._room.Send(MESSAGE.SendPlayerReady, value);
     }
 
     public GetPlayersAmount() : number
@@ -166,9 +176,20 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         });
         return result;
     }
+
+    public GetRoom() : Room
+    {
+        return this._room;
+    }
+
+    public GetState() : State
+    {
+        return this._room.State;
+    }
 }
 
 interface PlayerDataModel {
+    wolrdId?: string;
     ownerSessionId?: string;
     isReady?: boolean;
     isWinner?: boolean;

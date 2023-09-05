@@ -1,11 +1,12 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Debug, GameObject, Input, KeyCode, Time, Transform } from 'UnityEngine';
+import { Debug, GameObject, Time, Transform } from 'UnityEngine';
 import MultiplayerManager, { ITEM_TYPE } from '../Multiplayer/MultiplayerManager';
-import PlayerSpawner from '../Player/PlayerSpawner';
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import UIManager, { UIPanelType } from './UIManager';
+import PlayerSpawner from '../Multiplayer/PlayerSpawner';
 
 export enum STAGE {
+    START,
     CUSTOMIZATION,
     RUNWAY
 }
@@ -21,9 +22,6 @@ export default class GameManager extends ZepetoScriptBehaviour
     public stageCustomization: GameObject;
     public stageRunway: GameObject;
 
-    public playerSpawner: GameObject;
-    public customizationGizmo: Transform;
-
     public isGameStarted: bool = false;
     public playersReady: bool = false;
     public timeToStart: number;
@@ -34,7 +32,7 @@ export default class GameManager extends ZepetoScriptBehaviour
         if (GameManager.instance != null) GameObject.Destroy(this.gameObject);
         else GameManager.instance = this;
 
-        this.SwitchStage(STAGE.CUSTOMIZATION);
+        this.SwitchStage(STAGE.START);
 
         this.isPlayerReady = false;
         this.counterToStart = this.timeToStart;
@@ -42,13 +40,14 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     Update()
     {
-        if (this.playersReady)
+        if (this.playersReady && !this.isGameStarted)
         {
             this.counterToStart -= Time.deltaTime;
             if(this.counterToStart < 0)
             {
                 this.isGameStarted = true;
                 UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
+                this.SwitchStage(STAGE.CUSTOMIZATION);
             }
         }
     }
@@ -60,9 +59,11 @@ export default class GameManager extends ZepetoScriptBehaviour
 
         switch (stage)
         {
+            case STAGE.START:
+                break;
             case STAGE.CUSTOMIZATION:
                 this.stageCustomization.SetActive(true);
-                this.playerSpawner.GetComponent<PlayerSpawner>().SpawnPlayerAtTransform(this.customizationGizmo);
+                PlayerSpawner.instance.ShowCharacter(MultiplayerManager.instance.localPlayerData.ownerSessionId);
                 break;
             case STAGE.RUNWAY:
                 this.stageRunway.SetActive(true);

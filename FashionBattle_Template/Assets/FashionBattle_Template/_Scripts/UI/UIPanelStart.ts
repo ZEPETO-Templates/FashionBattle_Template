@@ -40,6 +40,12 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
         }
     }
 
+    public ResetPanel()
+    {
+        this.ShowCountdownText(false);
+        this.readyImg.SetActive(GameManager.instance.isPlayerReady);
+    }
+
     public ShowCountdownText(value: bool)
     {
         this.gameCountdownTMP.gameObject.SetActive(value);

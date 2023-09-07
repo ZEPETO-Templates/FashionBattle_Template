@@ -1,5 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
-import { LocalPlayer, SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
+import { LocalPlayer, SpawnInfo, ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import {State, Player} from "ZEPETO.Multiplay.Schema";
 import { Debug, GameObject, Input, KeyCode, Transform, WaitForSeconds } from 'UnityEngine';
 import MultiplayerManager, { PlayerDataModel } from './MultiplayerManager';
@@ -11,16 +11,18 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
 {
     public spawnPosition: Transform;
     private _currentPlayers: Map<string, Player> = new Map<string, Player>();
-
+    
     // ClothingPickup
     public _previewer: MannequinPreviewer;
     public itemsContent: ItemContent[];
-
+    
     private itemContentHead: ItemContent;
     private itemContentChest: ItemContent;
     private itemContentLegs: ItemContent;
     private itemContentShoes: ItemContent;
 
+    private _currentZepetoChatacterDisplayerd : ZepetoPlayer;
+    
     /* Singleton */
     private static m_instance: PlayerSpawner = null;
     public static get instance(): PlayerSpawner {
@@ -32,7 +34,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         }
         return this.m_instance;
     }
-
+    
     private Awake() {
         if (PlayerSpawner.m_instance !== null && PlayerSpawner.m_instance !== this) {
             GameObject.Destroy(this.gameObject);
@@ -45,11 +47,14 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
     private Start()
     {
         ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {
-            this.AddPlayerSync(sessionId);
             ZepetoPlayers.instance.ZepetoCamera.gameObject.SetActive(false);
+            
+            Debug.LogError("ADDED ZEPETO PLAYER ID : " + sessionId);
+            const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
+            zepetoPlayer.character.gameObject.SetActive(false);
         });
     }
-
+    
     private Update()
     {
         if(Input.GetKeyDown(KeyCode.T))
@@ -84,8 +89,8 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         this._currentPlayers.set(sessionId, player);
 
         const spawnInfo = new SpawnInfo();
-        spawnInfo.position = this.transform.position;
-        spawnInfo.rotation = this.transform.rotation;
+        spawnInfo.position = this.spawnPosition.transform.position;
+        spawnInfo.rotation = this.spawnPosition.transform.rotation;
 
         const isLocal = MultiplayerManager.instance.GetRoom().SessionId === player.sessionId;
         ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
@@ -99,13 +104,6 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         ZepetoPlayers.instance.RemovePlayer(sessionId);
     }
     
-    private AddPlayerSync(sessionId: string) 
-    {
-        Debug.LogError("ADD PLAYER");
-        const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
-        zepetoPlayer.character.gameObject.SetActive(false);
-    }
-
     public UpdateCharacterCloth(sessionId: string)
     {
         let playerData : PlayerDataModel = MultiplayerManager.instance.GetPlayerData(sessionId);
@@ -114,7 +112,6 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         
         if (playerData.headItem != "none" && playerData.headItem != "")
         {
-            Debug.LogError("ITEM WHAT : " + playerData.headItem);
             this.itemContentHead = new ItemContent();
             this.itemContentHead.id = playerData.headItem;
             this.itemContentHead.property = ZepetoPropertyFlag.AccessoryHeadwear;
@@ -154,17 +151,25 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
     public ShowCharacterOriginal(sessionId: string)
     {
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
+        zepetoPlayer.character.characterController.enabled = false;
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
         zepetoPlayer.character.gameObject.SetActive(true);
+        zepetoPlayer.character.characterController.enabled = true;
+
+        this._currentZepetoChatacterDisplayerd = zepetoPlayer;
     }
 
     public ShowCharacterWithCloth(sessionId: string)
     {
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
+        zepetoPlayer.character.characterController.enabled = false;
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
         zepetoPlayer.character.gameObject.SetActive(true);
+        zepetoPlayer.character.characterController.enabled = true;
+
+        this._currentZepetoChatacterDisplayerd = zepetoPlayer;
 
         this.StartCoroutine(this.WaitAndUpdateClothes(sessionId));
     }
@@ -175,6 +180,13 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
         zepetoPlayer.character.gameObject.SetActive(false);
+    }
+
+    public HideCurrentZepetoPlayer()
+    {
+        this._currentZepetoChatacterDisplayerd.character.gameObject.transform.position = this.spawnPosition.position;
+        this._currentZepetoChatacterDisplayerd.character.gameObject.transform.rotation = this.spawnPosition.rotation;
+        this._currentZepetoChatacterDisplayerd.character.gameObject.SetActive(false);
     }
 
     *WaitAndUpdateClothes(sessionId: string)

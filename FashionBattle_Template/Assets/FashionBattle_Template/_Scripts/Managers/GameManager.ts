@@ -68,9 +68,10 @@ export default class GameManager extends ZepetoScriptBehaviour
     
     public StartGame()
     {
-        this.SwitchStage(STAGE.START);
+        this.isGameStarted = false;
         this.isPlayerReady = false;
         this.counterToStart = this.timeToStart;
+        this.SwitchStage(STAGE.START);
     }
     
     public SwitchStage(stage: STAGE)
@@ -82,14 +83,19 @@ export default class GameManager extends ZepetoScriptBehaviour
         switch (stage)
         {
             case STAGE.START:
+                UIManager.instance.ResetPanels();
                 UIManager.instance.SwitchUIPanel(UIPanelType.START);
+
+                this.isPlayerReady = false;
+                MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
+
                 break;
             case STAGE.CUSTOMIZATION:
                 this.stageCustomization.SetActive(true);
                 PlayerSpawner.instance.ShowCharacterOriginal(MultiplayerManager.instance.localPlayerData.ownerSessionId);
                 break;
             case STAGE.RUNWAY:
-                PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.localPlayerData.ownerSessionId);
+                PlayerSpawner.instance.HideCurrentZepetoPlayer();
                 this.stageRunway.SetActive(true);
                 
                 this.currentPlayerIndexInRunway = 0;
@@ -105,9 +111,8 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     public RestartGame()
     {
-        PlayerSpawner.instance.HideCharacter(this._winnerId);
+        PlayerSpawner.instance.HideCurrentZepetoPlayer();
         this.SetGameReadyToStart(false);
-        this.isGameStarted = false;
         this.StartGame();
     }
     
@@ -115,12 +120,15 @@ export default class GameManager extends ZepetoScriptBehaviour
     {
         if (this.currentPlayerIndexInRunway >= this.totalPlayersInRunway)
         {
+            if (this.currentPlayerIndexInRunway != 0) {
+                PlayerSpawner.instance.HideCurrentZepetoPlayer();
+            }
             this.SwitchStage(STAGE.ENDGAME);
         }
         else
         {
             if (this.currentPlayerIndexInRunway != 0){
-                PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.playersData[this.currentPlayerIndexInRunway-1].ownerSessionId);
+                PlayerSpawner.instance.HideCurrentZepetoPlayer();
             }
 
             UIManager.instance.SetNewxtPlayerToVote(this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway));
@@ -161,6 +169,8 @@ export default class GameManager extends ZepetoScriptBehaviour
         let winnerData : VoteModel = MultiplayerManager.instance.GetWinner();
         this._winnerId = winnerData.sessionId;
 
+        PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
+
         let winnerName = winnerData.sessionId;
         let winnerScore = winnerData.finalVote.toString();
 
@@ -169,6 +179,11 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     private OnGameOver()
     {
+        this.isPlayerReady = false;
+        this.OnPlayerDoneCustomize(false);
+        MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
+
+
         MultiplayerManager.instance.RequestVoteDataCache();
         UIManager.instance.SwitchUIPanel(UIPanelType.END);
     }
@@ -179,9 +194,9 @@ export default class GameManager extends ZepetoScriptBehaviour
         MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
     }
 
-    public OnPlayerDoneCustomize()
+    public OnPlayerDoneCustomize(value: boolean)
     {
-        MultiplayerManager.instance.SetPlayerIsCustomize(true);
+        MultiplayerManager.instance.SetPlayerIsCustomize(value);
     }
 
     // Method to change the costume of the local player using the provided item code.

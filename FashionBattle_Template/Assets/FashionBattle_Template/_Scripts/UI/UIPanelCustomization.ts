@@ -61,9 +61,17 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
             this.timeCounter = 0;
             this.timeSlider.value = 0;
 
-            GameManager.instance.OnPlayerDoneCustomize();
+            GameManager.instance.OnPlayerDoneCustomize(true);
         });
 
+    }
+
+    public ResetPanel()
+    {
+        this.timeCounter = this.timeLimit;
+        this.timeSlider.maxValue = this.timeLimit;
+        this.isCounterRunning = true;
+        this.waitinContainer.SetActive(false);
     }
     
     Update()
@@ -76,7 +84,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
             if (this.timeCounter <= 0)
             {
                 this.isCounterRunning = false;
-                GameManager.instance.OnPlayerDoneCustomize();
+                GameManager.instance.OnPlayerDoneCustomize(true);
             }
         }
     }

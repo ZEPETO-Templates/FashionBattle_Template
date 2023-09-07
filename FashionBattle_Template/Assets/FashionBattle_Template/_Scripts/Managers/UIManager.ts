@@ -4,6 +4,7 @@ import UIPanel from '../UI/UIPanel';
 import UIPanelStart from '../UI/UIPanelStart';
 import UIPanelGame from '../UI/UIPanelGame';
 import UIPanelEnd from '../UI/UIPanelEnd';
+import UIPanelCustomization from '../UI/UIPanelCustomization';
 
 export enum UIPanelType
 {
@@ -55,6 +56,15 @@ export default class UIManager extends ZepetoScriptBehaviour
     public OnStartButton()
     {
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
+    }
+
+    public ResetPanels()
+    {
+        let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
+        customizationPanel.ResetPanel();
+
+        let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        startPanel.ResetPanel();
     }
 
     public SetCounterToStart(value: bool)

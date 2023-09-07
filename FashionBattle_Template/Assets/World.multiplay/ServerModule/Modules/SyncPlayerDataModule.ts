@@ -55,11 +55,10 @@ export default class SyncPlayerDataModule extends IModule
             });
         });
 
-        this.server.onMessage<RecieveVoteModel>(MESSAGE.SendVoteData, (client, message: RecieveVoteModel) => 
+        this.server.onMessage<IVote>(MESSAGE.SendVoteData, (client, message: IVote) => 
         {
             let voteDataModel = this.GetVoteDataFromId(client.sessionId);
             voteDataModel.totalVote += message.voteValue;
-            console.log(voteDataModel.totalVote);
         });
         
         this.server.onMessage(MESSAGE.RequestVoteDataCache, (client, message: string) => {
@@ -271,14 +270,14 @@ interface PlayerDataModel {
     footItem?: string;
 }
 
-interface RecieveVoteModel {
+interface IVote {
     sessionId?: string;
-    voteValue?: number;
+    voteValue: number;
 }
 
 interface VoteModel
 {
     sessionId?: string;
-    totalVote?: number;
+    totalVote: number;
     finalVote?: number;
 }

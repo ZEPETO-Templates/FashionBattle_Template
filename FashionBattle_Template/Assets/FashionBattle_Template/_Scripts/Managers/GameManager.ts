@@ -57,11 +57,6 @@ export default class GameManager extends ZepetoScriptBehaviour
                 this.SwitchStage(STAGE.CUSTOMIZATION);
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            this.SetNextPlayerInRunway();
-        }
     }
 
     public InitGame()
@@ -91,7 +86,7 @@ export default class GameManager extends ZepetoScriptBehaviour
                 break;
             case STAGE.CUSTOMIZATION:
                 this.stageCustomization.SetActive(true);
-                PlayerSpawner.instance.ShowCharacter(MultiplayerManager.instance.localPlayerData.ownerSessionId);
+                PlayerSpawner.instance.ShowCharacterOriginal(MultiplayerManager.instance.localPlayerData.ownerSessionId);
                 break;
             case STAGE.RUNWAY:
                 PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.localPlayerData.ownerSessionId);
@@ -124,9 +119,10 @@ export default class GameManager extends ZepetoScriptBehaviour
         }
         else
         {
-            // if (this.currentPlayerIndexInRunway != 0){
-            //     PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.playersData[this.currentPlayerIndexInRunway-1].ownerSessionId);
-            // }
+            if (this.currentPlayerIndexInRunway != 0){
+                PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.playersData[this.currentPlayerIndexInRunway-1].ownerSessionId);
+            }
+
             UIManager.instance.SetNewxtPlayerToVote(this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway));
 
             this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
@@ -147,7 +143,7 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     public SetCharacterWithCloth(index: number)
     {
-        PlayerSpawner.instance.ShowCharacter(MultiplayerManager.instance.playersData[index].ownerSessionId);
+        PlayerSpawner.instance.ShowCharacterWithCloth(MultiplayerManager.instance.playersData[index].ownerSessionId);
     }
 
     public SetGameReadyToStart(value: bool)

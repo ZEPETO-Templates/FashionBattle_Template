@@ -119,6 +119,12 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this.localPlayerData = new PlayerData();
         this.localPlayerData.ownerSessionId = this._room.SessionId;
         this.localPlayerData.wolrdId = WorldService.userId;
+        
+        this.localPlayerData.headItem = "";
+        this.localPlayerData.chestItem = "";
+        this.localPlayerData.legsItem = "";
+        this.localPlayerData.footItem = "";
+        
         this._room.Send(MESSAGE.RequestPlayersDataCache, "");
     }
 

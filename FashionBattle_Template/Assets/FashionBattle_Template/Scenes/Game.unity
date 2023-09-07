@@ -3178,10 +3178,17 @@ MonoBehaviour:
   script:
     keys:
     - spawnPosition
+    - _previewer
+    - itemsContent
     unityValues:
     - {fileID: 547851029}
+    - {fileID: 0}
+    - {fileID: 0}
     values:
     - 
+    - 
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":0,\"type\":\"ZEPETO.Mannequin.ItemContent,
+      ZEPETO.Mannequin\",\"isUnity\":false}"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 8d0e44a368c64f7498600c38868607c2, type: 3}
@@ -3259,8 +3266,16 @@ MonoBehaviour:
     - localPlayerData
     - playersData
     - allPlayersReady
+    - localVoteData
+    - voteDatas
+    - currentChatacterVoteId
+    - currentVoteValue
     unityValues:
     - {fileID: 1361057173}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -3269,6 +3284,10 @@ MonoBehaviour:
     - 
     - 
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
+    - 
+    - 
+    - '{"type":"System.String, mscorlib","value":""}'
+    - '{"type":"System.Single, mscorlib","value":"0"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 8a50020a98cbeac40b21e18ea413f2e7, type: 3}
@@ -3537,7 +3556,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     values:
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"UnityEngine.GameObject,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - '{"type":"System.String, mscorlib","value":"5"}'
     unityArrayValues:

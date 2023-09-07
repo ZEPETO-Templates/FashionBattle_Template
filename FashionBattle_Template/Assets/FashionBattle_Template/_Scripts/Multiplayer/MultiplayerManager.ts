@@ -22,14 +22,18 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public multiplay: ZepetoWorldMultiplay;
     
     public localPlayerData: PlayerData;
+    public localVoteData: VoteModel;
     
-    @Header("Players")
     public playersData: PlayerDataModel[] = [];
+    public voteDatas: VoteModel[] = [];
+
+    public currentChatacterVoteId: string;
+    public currentVoteValue: number;
     
     public allPlayersReady: bool = false;
     
     private _room: Room;
-    
+
     Awake() 
     {
         // Singleton pattern
@@ -57,6 +61,9 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     
     private AddMessageHandlers()
     {
+
+        // PLAYER MESSAGE HANDLERS
+
         this._room.AddMessageHandler(MESSAGE.OnPlayersReady, (value: string) =>
         {
             if(value == "True")
@@ -94,6 +101,17 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
             GameManager.instance.SwitchStage(STAGE.RUNWAY);
         });
 
+        // VOTE MESSAGE HANDLERS
+
+        this._room.AddMessageHandler(MESSAGE.OnResetVoteCache, (message) => {
+            this.voteDatas = [];
+        });
+
+        this._room.AddMessageHandler(MESSAGE.OnVoteCacheArrive, (voteData: VoteModel) => {
+            this.voteDatas.push(voteData);
+            GameManager.instance.EvaluateAndSetVote();
+        });
+
     }
 
     private SetInitialPlayerData()
@@ -107,6 +125,11 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public RequestPlayersDataCache()
     {
         this._room.Send(MESSAGE.RequestPlayersDataCache, "");
+    }
+
+    public RequestVoteDataCache() 
+    {
+        this._room.Send(MESSAGE.RequestVoteDataCache, "");
     }
 
     public SendPlayerData()
@@ -125,6 +148,20 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
 
         Debug.LogError("SENDING : " + MESSAGE.SendPlayerData);
         this._room.Send(MESSAGE.SendPlayerData, data.GetObject());
+    }
+
+    public SetVotingData(voteValue: number, characterIdVoted: string)
+    {
+        this.currentChatacterVoteId = characterIdVoted;
+        this.currentVoteValue = voteValue;
+    }
+
+    public SendVotingData()
+    {
+        const data = new RoomData();
+        data.Add("sessionId", this.currentChatacterVoteId);
+        data.Add("voteValue", this.currentVoteValue);
+        this._room.Send(MESSAGE.SendVoteData, data.GetObject());
     }
 
     public SetPlayerIsCustomize(value: bool)
@@ -158,6 +195,17 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this._room.Send(MESSAGE.SendPlayerReady, value);
     }
 
+    public GetPlayerData(sessionId: string) : PlayerDataModel
+    {
+        let result = this.playersData[0];
+        this.playersData.forEach((pd) => {
+            if (pd.ownerSessionId == sessionId) {
+                result = pd;
+            }
+        });
+        return result;
+    }
+
     public GetPlayersAmount() : number
     {
         let result = 0;
@@ -186,9 +234,22 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     {
         return this._room.State;
     }
+
+    public GetWinner() : VoteModel
+    {
+        let winner = this.voteDatas[0]; 
+        this.voteDatas.forEach(vd => {
+            vd.finalVote = vd.totalVote / this.GetPlayersAmount();
+            if (vd.finalVote > winner.finalVote)
+            {
+                winner = vd;
+            }
+        });
+        return winner;
+    }
 }
 
-interface PlayerDataModel {
+export interface PlayerDataModel {
     wolrdId?: string;
     ownerSessionId?: string;
     isReady?: boolean;
@@ -201,6 +262,12 @@ interface PlayerDataModel {
     footItem?: string;
 }
 
+export interface VoteModel {
+    sessionId?: string;
+    totalVote?: number;
+    finalVote?: number;
+}
+
 enum MESSAGE {
     SendPlayerData = "SendPlayerData",
     SendGameStarted = "SendGameStarted",
@@ -210,5 +277,10 @@ enum MESSAGE {
     OnResetPlayerDataCache = "OnResetPlayerDataCache",
     OnPlayersDataCacheArrive = "OnPlayersDataCacheArrive",
     OnPlayersReady = "OnPlayersReady",
-    OnAllPlayersCustomized = "OnAllPlayersCustomized"
+    OnAllPlayersCustomized = "OnAllPlayersCustomized",
+
+    SendVoteData = "SendVoteData",
+    OnResetVoteCache = "OnResetVoteCache",
+    OnVoteCacheArrive = "OnVoteCacheArrive",
+    RequestVoteDataCache = "RequestVoteDataCache"
 }

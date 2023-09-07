@@ -4,12 +4,12 @@ import { IModule } from '../IModule';
 export default class SyncPlayerDataModule extends IModule 
 {
     private playersDataCache: PlayerDataModel[] = [];
+    private voteDataCache: VoteModel[] = [];
     private isGameStarted = false;
 
     async OnCreate() 
     {
         this.server.onMessage(MESSAGE.SendPlayerReady, (client, value: boolean) => {
-            console.log("USER: " + client.sessionId +  " READY :: " + value);
             let playerDataModel = this.GetPlayerDataFromId(client.sessionId);
             playerDataModel.isReady = value;
             this.CheckIfPlayersReady();
@@ -54,9 +54,27 @@ export default class SyncPlayerDataModule extends IModule
                 this.server.broadcast(MESSAGE.OnPlayersDataCacheArrive, pd );
             });
         });
+
+        this.server.onMessage<RecieveVoteModel>(MESSAGE.SendVoteData, (client, message: RecieveVoteModel) => 
+        {
+            let voteDataModel = this.GetVoteDataFromId(client.sessionId);
+            voteDataModel.totalVote += message.voteValue;
+            console.log(voteDataModel.totalVote);
+        });
+        
+        this.server.onMessage(MESSAGE.RequestVoteDataCache, (client, message: string) => {
+            this.server.broadcast(MESSAGE.OnResetVoteCache, "True");
+
+            this.voteDataCache.forEach((vd) => {
+                this.server.broadcast(MESSAGE.OnVoteCacheArrive, vd);
+            });
+        });
+
     }
 
     async OnJoin(client: SandboxPlayer) {
+
+        // Player Model Creation
         const newPlayerData: PlayerDataModel = {
             ownerSessionId: client.sessionId,
             isReady: false,
@@ -71,15 +89,29 @@ export default class SyncPlayerDataModule extends IModule
         this.playersDataCache.push(newPlayerData);
 
         this.server.broadcast(MESSAGE.OnResetPlayerDataCache, "True");
-
         this.playersDataCache.forEach((pd) => {
             this.server.broadcast(MESSAGE.OnPlayersDataCacheArrive, pd);
+        });
+
+        
+        // Vote Model Creation
+        const newVoteData: VoteModel = {
+            sessionId: client.sessionId,
+            totalVote: 0,
+            finalVote: 0,
+        }
+        this.voteDataCache.push(newVoteData);
+        
+        this.server.broadcast(MESSAGE.OnResetVoteCache, "True");
+        this.voteDataCache.forEach((vd) => {
+            this.server.broadcast(MESSAGE.OnVoteCacheArrive, vd);
         });
     }
 
     async OnLeave(client: SandboxPlayer) 
     {
         this.RemovePlayerData(client.sessionId);
+        this.RemoveVoteData(client.sessionId);
     }
 
     OnTick(deltaTime: number) {}
@@ -140,12 +172,34 @@ export default class SyncPlayerDataModule extends IModule
         }
     }
 
+    private RemoveVoteData(sessionId: string)
+    {
+        let playerVoteData = this.GetVoteDataFromId(sessionId);
+
+        let index = this.voteDataCache.findIndex(d => d.sessionId === playerVoteData.sessionId);
+        if (index > -1) {
+            this.voteDataCache.splice(index, 1);
+        }
+    }
+
     private GetPlayerDataFromId(sessionId: string) : PlayerDataModel
     {
         let result = this.playersDataCache[0];
         this.playersDataCache.forEach((pd) => {
             if (pd.ownerSessionId == sessionId) {
                 result = pd;
+            }
+        });
+
+        return result;
+    }
+
+    private GetVoteDataFromId(sessionId: string): VoteModel
+    {
+        let result = this.voteDataCache[0];
+        this.voteDataCache.forEach((vd) => {
+            if (vd.sessionId == sessionId) {
+                result = vd;
             }
         });
 
@@ -196,7 +250,12 @@ enum MESSAGE {
     OnResetPlayerDataCache = "OnResetPlayerDataCache",
     OnPlayersDataCacheArrive = "OnPlayersDataCacheArrive",
     OnPlayersReady = "OnPlayersReady",
-    OnAllPlayersCustomized = "OnAllPlayersCustomized"
+    OnAllPlayersCustomized = "OnAllPlayersCustomized",
+
+    SendVoteData = "SendVoteData",
+    OnResetVoteCache = "OnResetVoteCache",
+    OnVoteCacheArrive = "OnVoteCacheArrive",
+    RequestVoteDataCache = "RequestVoteDataCache"
 }
 
 interface PlayerDataModel {
@@ -210,4 +269,16 @@ interface PlayerDataModel {
     chestItem?: string;
     legsItem?: string;
     footItem?: string;
+}
+
+interface RecieveVoteModel {
+    sessionId?: string;
+    voteValue?: number;
+}
+
+interface VoteModel
+{
+    sessionId?: string;
+    totalVote?: number;
+    finalVote?: number;
 }

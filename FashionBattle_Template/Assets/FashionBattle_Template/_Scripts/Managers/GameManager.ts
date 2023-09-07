@@ -1,6 +1,6 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Debug, GameObject, Time, Transform } from 'UnityEngine';
-import MultiplayerManager, { ITEM_TYPE } from '../Multiplayer/MultiplayerManager';
+import { Debug, GameObject, Input, KeyCode, Time, Transform } from 'UnityEngine';
+import MultiplayerManager, { ITEM_TYPE, VoteModel } from '../Multiplayer/MultiplayerManager';
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import UIManager, { UIPanelType } from './UIManager';
 import PlayerSpawner from '../Multiplayer/PlayerSpawner';
@@ -8,7 +8,8 @@ import PlayerSpawner from '../Multiplayer/PlayerSpawner';
 export enum STAGE {
     START,
     CUSTOMIZATION,
-    RUNWAY
+    RUNWAY,
+    ENDGAME
 }
 
 export default class GameManager extends ZepetoScriptBehaviour 
@@ -19,23 +20,29 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     public playerCount: number;
 
+    @Header("Stage References")
     public stageCustomization: GameObject;
     public stageRunway: GameObject;
+    public stageWinner: GameObject;
 
     public isGameStarted: bool = false;
     public playersReady: bool = false;
     public timeToStart: number;
     public counterToStart: number = 10;
 
+    // Runway
+
+    public currentPlayerIndexInRunway = 0;
+    public totalPlayersInRunway = 0;
+
+    private _winnerId: string;
+
     Awake() {
         // Singleton pattern
         if (GameManager.instance != null) GameObject.Destroy(this.gameObject);
         else GameManager.instance = this;
 
-        this.SwitchStage(STAGE.START);
-
-        this.isPlayerReady = false;
-        this.counterToStart = this.timeToStart;
+        this.InitGame();
     }
 
     Update()
@@ -50,25 +57,97 @@ export default class GameManager extends ZepetoScriptBehaviour
                 this.SwitchStage(STAGE.CUSTOMIZATION);
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            this.SetNextPlayerInRunway();
+        }
     }
 
+    public InitGame()
+    {
+        UIManager.instance.Init();
+
+        this.StartGame();
+    }
+    
+    public StartGame()
+    {
+        this.SwitchStage(STAGE.START);
+        this.isPlayerReady = false;
+        this.counterToStart = this.timeToStart;
+    }
+    
     public SwitchStage(stage: STAGE)
     {
         this.stageCustomization.SetActive(false);
         this.stageRunway.SetActive(false);
-
+        this.stageWinner.SetActive(false);
+        
         switch (stage)
         {
             case STAGE.START:
+                UIManager.instance.SwitchUIPanel(UIPanelType.START);
                 break;
             case STAGE.CUSTOMIZATION:
                 this.stageCustomization.SetActive(true);
                 PlayerSpawner.instance.ShowCharacter(MultiplayerManager.instance.localPlayerData.ownerSessionId);
                 break;
             case STAGE.RUNWAY:
+                PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.localPlayerData.ownerSessionId);
                 this.stageRunway.SetActive(true);
+                
+                this.currentPlayerIndexInRunway = 0;
+                this.totalPlayersInRunway = MultiplayerManager.instance.playersData.length;
+                this.SetNextPlayerInRunway();
+                break;
+            case STAGE.ENDGAME:
+                this.stageWinner.SetActive(true);
+                this.OnGameOver();
                 break;
         }
+    }
+
+    public RestartGame()
+    {
+        PlayerSpawner.instance.HideCharacter(this._winnerId);
+        this.SetGameReadyToStart(false);
+        this.isGameStarted = false;
+        this.StartGame();
+    }
+    
+    public SetNextPlayerInRunway()
+    {
+        if (this.currentPlayerIndexInRunway >= this.totalPlayersInRunway)
+        {
+            this.SwitchStage(STAGE.ENDGAME);
+        }
+        else
+        {
+            // if (this.currentPlayerIndexInRunway != 0){
+            //     PlayerSpawner.instance.HideCharacter(MultiplayerManager.instance.playersData[this.currentPlayerIndexInRunway-1].ownerSessionId);
+            // }
+            UIManager.instance.SetNewxtPlayerToVote(this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway));
+
+            this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
+            this.currentPlayerIndexInRunway++;
+        }
+    }
+
+    private GetPlayerIdByIndex(index: number) : string
+    {
+        return MultiplayerManager.instance.playersData[index].ownerSessionId;
+    }
+
+    public OnCurrentVotingFinish()
+    {
+        MultiplayerManager.instance.SendVotingData();
+        this.SetNextPlayerInRunway();
+    }
+
+    public SetCharacterWithCloth(index: number)
+    {
+        PlayerSpawner.instance.ShowCharacter(MultiplayerManager.instance.playersData[index].ownerSessionId);
     }
 
     public SetGameReadyToStart(value: bool)
@@ -79,6 +158,23 @@ export default class GameManager extends ZepetoScriptBehaviour
         {
             this.counterToStart = this.timeToStart;
         }
+    }
+
+    public EvaluateAndSetVote()
+    {
+        let winnerData : VoteModel = MultiplayerManager.instance.GetWinner();
+        this._winnerId = winnerData.sessionId;
+
+        let winnerName = winnerData.sessionId;
+        let winnerScore = winnerData.finalVote.toString();
+
+        UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+    }
+
+    private OnGameOver()
+    {
+        MultiplayerManager.instance.RequestVoteDataCache();
+        UIManager.instance.SwitchUIPanel(UIPanelType.END);
     }
 
     public OnPlayerReady()

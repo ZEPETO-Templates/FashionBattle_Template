@@ -76,7 +76,6 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
             if (this.timeCounter <= 0)
             {
                 this.isCounterRunning = false;
-
                 GameManager.instance.OnPlayerDoneCustomize();
             }
         }

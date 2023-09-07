@@ -1,9 +1,9 @@
 import { Debug, GameObject } from 'UnityEngine'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import UIPanel from '../UI/UIPanel';
-import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
-import CustomDebug from '../../Z_CustomDebug/CustomDebug';
 import UIPanelStart from '../UI/UIPanelStart';
+import UIPanelGame from '../UI/UIPanelGame';
+import UIPanelEnd from '../UI/UIPanelEnd';
 
 export enum UIPanelType
 {
@@ -29,13 +29,8 @@ export default class UIManager extends ZepetoScriptBehaviour
         if (UIManager.instance != null) GameObject.Destroy(this.gameObject);
         else UIManager.instance = this;
     }
-
-    Start()
-    {
-        this.InitUIManager();
-    }
     
-    public InitUIManager() : void
+    public Init() : void
     {
         this.uiPanels = [];
     
@@ -43,8 +38,18 @@ export default class UIManager extends ZepetoScriptBehaviour
         {
             this.uiPanels[i] = this.uiPanelsGameObject[i].GetComponent<UIPanel>();
         }
-    
-        this.SwitchUIPanel(UIPanelType.START);
+    }
+
+    public SetNewxtPlayerToVote(playerId: string)
+    {
+        let startPanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
+        startPanel.SetNextPlayerToVote(playerId);
+    }
+
+    public SetWinnerPanelData(winnername: string, winnerscore: string)
+    {
+        let endPanel = this.GetUiPanelType(UIPanelType.END).GetComponent<UIPanelEnd>();
+        endPanel.SetEndPanelData(winnername, winnerscore);
     }
 
     public OnStartButton()

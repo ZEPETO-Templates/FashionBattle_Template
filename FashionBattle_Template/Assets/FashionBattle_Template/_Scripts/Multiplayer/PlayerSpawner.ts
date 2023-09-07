@@ -1,17 +1,20 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
-import { SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
+import { LocalPlayer, SpawnInfo, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import {State, Player} from "ZEPETO.Multiplay.Schema";
 import { Debug, GameObject, Transform } from 'UnityEngine';
-import MultiplayerManager from './MultiplayerManager';
-import { WorldService } from 'ZEPETO.World';
-import { StringBuilder } from 'System.Text';
-import GameManager from '../Managers/GameManager';
+import MultiplayerManager, { PlayerDataModel } from './MultiplayerManager';
+import { ItemContent, MannequinPreviewer } from 'ZEPETO.Mannequin';
+import { ZepetoContext, ZepetoPropertyFlag } from 'Zepeto';
 
 // This script spawns a single player
 export default class PlayerSpawner extends ZepetoScriptBehaviour
 {
     public spawnPosition: Transform;
     private _currentPlayers: Map<string, Player> = new Map<string, Player>();
+
+    // ClothingPickup
+    private _previewer: MannequinPreviewer;
+    private itemContent: ItemContent;
 
     /* Singleton */
     private static m_instance: PlayerSpawner = null;
@@ -90,11 +93,57 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         zepetoPlayer.character.gameObject.SetActive(false);
     }
 
+    public UpdateCharacterCloth(sessionId: string)
+    {
+        let playerData : PlayerDataModel = MultiplayerManager.instance.GetPlayerData(sessionId);
+
+        this.itemContent = new ItemContent();
+
+        if (playerData.headItem != "")
+        {
+            this.itemContent.id = playerData.headItem;
+            this.itemContent.property = ZepetoPropertyFlag.AccessoryHeadwear;
+        }
+
+        if (playerData.chestItem != "")
+        {
+            this.itemContent.id = playerData.chestItem;
+            this.itemContent.property = ZepetoPropertyFlag.ClothesTop;
+        }
+
+        if (playerData.legsItem != "")
+        {
+            this.itemContent.id = playerData.legsItem;
+            this.itemContent.property = ZepetoPropertyFlag.ClothesBottom;
+        }
+
+        if (playerData.footItem != "")
+        {
+            this.itemContent.id = playerData.footItem;
+            this.itemContent.property = ZepetoPropertyFlag.ClothesShoes;
+        }
+
+        const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
+        let context: ZepetoContext = zepetoPlayer.character.Context;
+        this._previewer = new MannequinPreviewer(context, [this.itemContent]);
+        this._previewer.PreviewContents();
+    }
+
     public ShowCharacter(sessionId: string)
     {
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
         zepetoPlayer.character.gameObject.SetActive(true);
+
+        this.UpdateCharacterCloth(sessionId);
+    }
+
+    public HideCharacter(sessionId: string)
+    {
+        const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
+        zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
+        zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
+        zepetoPlayer.character.gameObject.SetActive(false);
     }
 }

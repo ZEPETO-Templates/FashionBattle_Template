@@ -71,18 +71,6 @@ export default class SyncPlayerDataModule extends IModule
         this.server.onMessage(MESSAGE.RequestVoteDataCache, (client, message: string) => {
             this.server.broadcast(MESSAGE.OnResetVoteCache, "True");
 
-            let counter : number = 0;
-            this.voteDataCache.forEach((v) => {
-                
-                console.log(" - - - - - : " + counter);
-                console.log(" vd from : " + client.sessionId);
-                console.log(" vd to: " + v.sessionId);
-                console.log(" vt: " + v.totalVote);
-                console.log(" current vf: " + (v.totalVote / this.voteDataCache.length));
-                console.log(" - - - - - ");
-                counter++;
-            });
-
             this.voteDataCache.forEach((vd) => {
                 this.server.broadcast(MESSAGE.OnVoteCacheArrive, vd);
             });
@@ -245,7 +233,6 @@ export default class SyncPlayerDataModule extends IModule
     {
         let result = true;
         this.playersDataCache.forEach((pd) => {
-            console.log("C: " + pd.isCustomized);
             if (pd.isCustomized == false) {
                 result = false;
             }

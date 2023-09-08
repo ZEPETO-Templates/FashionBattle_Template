@@ -4,7 +4,6 @@ import MultiplayerManager, { ITEM_TYPE, VoteModel } from '../Multiplayer/Multipl
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import UIManager, { UIPanelType } from './UIManager';
 import PlayerSpawner from '../Multiplayer/PlayerSpawner';
-import { Debugging } from 'UnityEngine.Rendering.VirtualTexturing';
 
 export enum STAGE {
     START,
@@ -36,7 +35,6 @@ export default class GameManager extends ZepetoScriptBehaviour
     public currentPlayerIndexInRunway = 0;
     public totalPlayersInRunway = 0;
 
-    private _winnerId: string;
     private _currentStage: STAGE;
 
     Awake() {
@@ -168,12 +166,16 @@ export default class GameManager extends ZepetoScriptBehaviour
     public EvaluateAndSetVote()
     {
         let winnerData : VoteModel = MultiplayerManager.instance.GetWinner();
-        this._winnerId = winnerData.sessionId;
 
-        let winnerName = winnerData.sessionId;
+        let winnerName = ZepetoPlayers.instance.GetPlayer(winnerData.sessionId).name;
         let winnerScore = winnerData.finalVote.toString();
         
         if (this._currentStage == STAGE.ENDGAME){
+            PlayerSpawner.instance.HideCurrentZepetoPlayer();
+            if (PlayerSpawner.instance.GetCurrentZepetoPlayerId() == winnerData.sessionId)
+            {
+                Debug.LogError("This is the Bug!");
+            }
             PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
             UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
         }

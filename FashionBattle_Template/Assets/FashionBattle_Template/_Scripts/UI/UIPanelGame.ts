@@ -1,4 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
+import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { RoundedRectangleButton } from 'ZEPETO.World.Gui'
 import VoteButton from './VoteButton';
 import { Debug, Time } from 'UnityEngine';
@@ -42,7 +43,7 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
     public SetNextPlayerToVote(playerId: string)
     {
         this.currentPlayerIdShowed = playerId;
-        this.playerNameTxt.text = playerId; // Change by PlayerName
+        this.playerNameTxt.text = ZepetoPlayers.instance.GetPlayer(playerId).name; // Change by PlayerName
         this.isTimerRunning = true;
         this.voteTimerCounter = this.voteTimerLimit;
 

@@ -158,7 +158,6 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         zepetoPlayer.character.characterController.enabled = false;
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
-        Debug.LogError("SHOW CHARACTER ORIGINAL");
         zepetoPlayer.character.gameObject.SetActive(true);
         zepetoPlayer.character.characterController.enabled = true;
 
@@ -171,7 +170,6 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         zepetoPlayer.character.characterController.enabled = false;
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
-        Debug.LogError("SHOW CHARACTER BY ID");
         zepetoPlayer.character.gameObject.SetActive(true);
         zepetoPlayer.character.characterController.enabled = true;
 
@@ -185,6 +183,11 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         this._currentZepetoChatacterDisplayerd.character.gameObject.transform.position = this.spawnPosition.position;
         this._currentZepetoChatacterDisplayerd.character.gameObject.transform.rotation = this.spawnPosition.rotation;
         this._currentZepetoChatacterDisplayerd.character.gameObject.SetActive(false);
+    }
+
+    public GetCurrentZepetoPlayerId() : string
+    {
+        return this._currentZepetoChatacterDisplayerd.userId;
     }
 
     *WaitAndUpdateClothes(sessionId: string)

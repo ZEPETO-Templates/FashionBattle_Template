@@ -43,8 +43,8 @@ export default class UIManager extends ZepetoScriptBehaviour
 
     public SetNewxtPlayerToVote(playerId: string)
     {
-        let startPanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
-        startPanel.SetNextPlayerToVote(playerId);
+        let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
+        gamePanel.SetNextPlayerToVote(playerId);
     }
 
     public SetWinnerPanelData(winnername: string, winnerscore: string)

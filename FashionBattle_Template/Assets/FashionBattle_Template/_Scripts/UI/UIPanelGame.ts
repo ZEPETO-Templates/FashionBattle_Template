@@ -47,7 +47,7 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
         this.voteTimerCounter = this.voteTimerLimit;
 
         // Default Vote
-        MultiplayerManager.instance.SetVotingData(5, this.currentPlayerIdShowed);
+        this.SetVoteSelection(0);
     }
 
     public SetVoteSelection(voteIndex: number)

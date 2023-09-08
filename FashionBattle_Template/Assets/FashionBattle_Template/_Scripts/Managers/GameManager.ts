@@ -172,10 +172,7 @@ export default class GameManager extends ZepetoScriptBehaviour
         
         if (this._currentStage == STAGE.ENDGAME){
             PlayerSpawner.instance.HideCurrentZepetoPlayer();
-            if (PlayerSpawner.instance.GetCurrentZepetoPlayerId() == winnerData.sessionId)
-            {
-                Debug.LogError("This is the Bug!");
-            }
+            
             PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
             UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
         }

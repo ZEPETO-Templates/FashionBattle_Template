@@ -4,6 +4,7 @@ import MultiplayerManager, { ITEM_TYPE, VoteModel } from '../Multiplayer/Multipl
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import UIManager, { UIPanelType } from './UIManager';
 import PlayerSpawner from '../Multiplayer/PlayerSpawner';
+import { Debugging } from 'UnityEngine.Rendering.VirtualTexturing';
 
 export enum STAGE {
     START,
@@ -36,6 +37,7 @@ export default class GameManager extends ZepetoScriptBehaviour
     public totalPlayersInRunway = 0;
 
     private _winnerId: string;
+    private _currentStage: STAGE;
 
     Awake() {
         // Singleton pattern
@@ -76,6 +78,8 @@ export default class GameManager extends ZepetoScriptBehaviour
     
     public SwitchStage(stage: STAGE)
     {
+        this._currentStage = stage;
+
         this.stageCustomization.SetActive(false);
         this.stageRunway.SetActive(false);
         this.stageWinner.SetActive(false);
@@ -85,12 +89,10 @@ export default class GameManager extends ZepetoScriptBehaviour
             case STAGE.START:
                 UIManager.instance.ResetPanels();
                 UIManager.instance.SwitchUIPanel(UIPanelType.START);
-
-                this.isPlayerReady = false;
-                MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
-
                 break;
             case STAGE.CUSTOMIZATION:
+                MultiplayerManager.instance.SendResetVoteCache();
+                MultiplayerManager.instance.RequestVoteDataCache();
                 this.stageCustomization.SetActive(true);
                 PlayerSpawner.instance.ShowCharacterOriginal(MultiplayerManager.instance.localPlayerData.ownerSessionId);
                 break;
@@ -118,19 +120,18 @@ export default class GameManager extends ZepetoScriptBehaviour
     
     public SetNextPlayerInRunway()
     {
+        MultiplayerManager.instance.RequestVoteDataCache();
+
+        if (this.currentPlayerIndexInRunway != 0){
+            PlayerSpawner.instance.HideCurrentZepetoPlayer();
+        }
+
         if (this.currentPlayerIndexInRunway >= this.totalPlayersInRunway)
         {
-            if (this.currentPlayerIndexInRunway != 0) {
-                PlayerSpawner.instance.HideCurrentZepetoPlayer();
-            }
             this.SwitchStage(STAGE.ENDGAME);
         }
         else
         {
-            if (this.currentPlayerIndexInRunway != 0){
-                PlayerSpawner.instance.HideCurrentZepetoPlayer();
-            }
-
             UIManager.instance.SetNewxtPlayerToVote(this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway));
 
             this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
@@ -169,12 +170,13 @@ export default class GameManager extends ZepetoScriptBehaviour
         let winnerData : VoteModel = MultiplayerManager.instance.GetWinner();
         this._winnerId = winnerData.sessionId;
 
-        PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
-
         let winnerName = winnerData.sessionId;
         let winnerScore = winnerData.finalVote.toString();
-
-        UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+        
+        if (this._currentStage == STAGE.ENDGAME){
+            PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
+            UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+        }
     }
 
     private OnGameOver()
@@ -182,9 +184,6 @@ export default class GameManager extends ZepetoScriptBehaviour
         this.isPlayerReady = false;
         this.OnPlayerDoneCustomize(false);
         MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
-
-
-        MultiplayerManager.instance.RequestVoteDataCache();
         UIManager.instance.SwitchUIPanel(UIPanelType.END);
     }
 

@@ -14,7 +14,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
     public timeLimit: number = 20;
     public timeCounter: number;
 
-    public waitinContainer: GameObject;
+    public waitingContainer: GameObject;
 
     public headItems: string[];
     public chestItems: string[];
@@ -35,8 +35,9 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
         this.timeSlider.maxValue = this.timeLimit;
         this.isCounterRunning = true;
 
-        this.waitinContainer.SetActive(false);
+        this.waitingContainer.SetActive(false);
 
+        // Fist Populate
         this.PopulateButtons(BODYPART_SELECTION.HEAD);
 
         this.selectionButtons[0].OnClick.AddListener(() => {
@@ -57,7 +58,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
 
         this.doneButton.OnClick.AddListener(() => {
             this.isCounterRunning = false;
-            this.waitinContainer.SetActive(true);
+            this.waitingContainer.SetActive(true);
             this.timeCounter = 0;
             this.timeSlider.value = 0;
 
@@ -71,7 +72,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
         this.timeCounter = this.timeLimit;
         this.timeSlider.maxValue = this.timeLimit;
         this.isCounterRunning = true;
-        this.waitinContainer.SetActive(false);
+        this.waitingContainer.SetActive(false);
     }
     
     Update()

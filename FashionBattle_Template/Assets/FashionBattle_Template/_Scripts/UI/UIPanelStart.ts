@@ -28,6 +28,8 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
             this.readyImg.SetActive(GameManager.instance.isPlayerReady);
         });
 
+        this.readyBtn.interactable = false;
+
         this.ShowCountdownText(false);
     }
 
@@ -59,5 +61,10 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     public SetPlayersReady(amount: number)
     {
         this.playersReadyTMP.text = "Ready: " + amount;
+    }
+
+    public SetReadyButtonInteractable()
+    {
+        this.readyBtn.interactable = true;
     }
 }

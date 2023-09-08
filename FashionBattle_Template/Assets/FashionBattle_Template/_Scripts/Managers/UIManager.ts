@@ -85,6 +85,12 @@ export default class UIManager extends ZepetoScriptBehaviour
         startPanel.SetPlayersReady(value);
     }
 
+    public SetRadyButtonInteractable()
+    {
+        let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        startPanel.SetReadyButtonInteractable();
+    }
+
     public SwitchUIPanel(uiPanelType: UIPanelType): void
     {
         this.currentPanelType = uiPanelType;

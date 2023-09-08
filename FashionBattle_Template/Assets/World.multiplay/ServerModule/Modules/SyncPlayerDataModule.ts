@@ -57,12 +57,31 @@ export default class SyncPlayerDataModule extends IModule
 
         this.server.onMessage<IVote>(MESSAGE.SendVoteData, (client, message: IVote) => 
         {
-            let voteDataModel = this.GetVoteDataFromId(client.sessionId);
+            let voteDataModel = this.GetVoteDataFromId(message.sessionId);
             voteDataModel.totalVote += message.voteValue;
+        });
+
+        this.server.onMessage(MESSAGE.SendResetVoteData,(client, message) => {
+            this.voteDataCache.forEach((v) => {
+                v.totalVote = 0;
+                v.finalVote = 0;
+            });
         });
         
         this.server.onMessage(MESSAGE.RequestVoteDataCache, (client, message: string) => {
             this.server.broadcast(MESSAGE.OnResetVoteCache, "True");
+
+            let counter : number = 0;
+            this.voteDataCache.forEach((v) => {
+                
+                console.log(" - - - - - : " + counter);
+                console.log(" vd from : " + client.sessionId);
+                console.log(" vd to: " + v.sessionId);
+                console.log(" vt: " + v.totalVote);
+                console.log(" current vf: " + (v.totalVote / this.voteDataCache.length));
+                console.log(" - - - - - ");
+                counter++;
+            });
 
             this.voteDataCache.forEach((vd) => {
                 this.server.broadcast(MESSAGE.OnVoteCacheArrive, vd);
@@ -99,6 +118,7 @@ export default class SyncPlayerDataModule extends IModule
             totalVote: 0,
             finalVote: 0,
         }
+
         this.voteDataCache.push(newVoteData);
         
         this.server.broadcast(MESSAGE.OnResetVoteCache, "True");
@@ -252,6 +272,7 @@ enum MESSAGE {
     OnAllPlayersCustomized = "OnAllPlayersCustomized",
 
     SendVoteData = "SendVoteData",
+    SendResetVoteData = "SendResetVoteData",
     OnResetVoteCache = "OnResetVoteCache",
     OnVoteCacheArrive = "OnVoteCacheArrive",
     RequestVoteDataCache = "RequestVoteDataCache"
@@ -271,7 +292,7 @@ interface PlayerDataModel {
 }
 
 interface IVote {
-    sessionId?: string;
+    sessionId: string;
     voteValue: number;
 }
 

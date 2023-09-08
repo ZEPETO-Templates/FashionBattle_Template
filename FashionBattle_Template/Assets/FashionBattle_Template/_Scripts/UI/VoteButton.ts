@@ -17,8 +17,8 @@ export default class VoteButton extends ZepetoScriptBehaviour
     {    
         this._uiPanelGame = this.uiPanelGame.GetComponent<UIPanelGame>();
 
-        // By default we set all the stars on
-        this.selectedIMG.SetActive(true);
+        // By default we set all the stars off
+        this.selectedIMG.SetActive(false);
 
         this.voteButton.OnClick.AddListener(()=>{
             this._uiPanelGame.SetVoteSelection(this.buttonIndex);

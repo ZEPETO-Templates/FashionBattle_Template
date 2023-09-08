@@ -39,6 +39,8 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         // Singleton pattern
         if (MultiplayerManager.instance != null) GameObject.Destroy(this.gameObject);
         else MultiplayerManager.instance = this;
+        
+        this.SetInitialPlayerData();
     }
 
     Start() 
@@ -50,7 +52,10 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
             this._room = room;
             this._room.OnStateChange += this.OnStateChange;
             this.AddMessageHandlers();
-            this.SetInitialPlayerData();
+
+            this.localPlayerData.ownerSessionId = this._room.SessionId;
+            this.SetPlayerReady(this.localPlayerData.isReady);
+            this._room.Send(MESSAGE.RequestPlayersDataCache, "");
         }
     }
 
@@ -109,7 +114,10 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
 
         this._room.AddMessageHandler(MESSAGE.OnVoteCacheArrive, (voteData: VoteModel) => {
             this.voteDatas.push(voteData);
-            GameManager.instance.EvaluateAndSetVote();
+            if (this.voteDatas.length == this.playersData.length)
+            {
+                GameManager.instance.EvaluateAndSetVote();
+            }
         });
 
     }
@@ -117,20 +125,26 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     private SetInitialPlayerData()
     {
         this.localPlayerData = new PlayerData();
-        this.localPlayerData.ownerSessionId = this._room.SessionId;
         this.localPlayerData.wolrdId = WorldService.userId;
         
+        this.localPlayerData.isReady = false;
+        this.localPlayerData.isWinner = false;
+        this.localPlayerData.isCustomized = false;
+
         this.localPlayerData.headItem = "";
         this.localPlayerData.chestItem = "";
         this.localPlayerData.legsItem = "";
         this.localPlayerData.footItem = "";
-        
-        this._room.Send(MESSAGE.RequestPlayersDataCache, "");
     }
 
     public RequestPlayersDataCache()
     {
         this._room.Send(MESSAGE.RequestPlayersDataCache, "");
+    }
+
+    public SendResetVoteCache()
+    {
+        this._room.Send(MESSAGE.SendResetVoteData, "");
     }
 
     public RequestVoteDataCache() 
@@ -152,7 +166,6 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         data.Add("legsItem", this.localPlayerData.legsItem);
         data.Add("footItem", this.localPlayerData.footItem);
 
-        Debug.LogError("SENDING : " + MESSAGE.SendPlayerData);
         this._room.Send(MESSAGE.SendPlayerData, data.GetObject());
     }
 
@@ -286,6 +299,7 @@ enum MESSAGE {
     OnAllPlayersCustomized = "OnAllPlayersCustomized",
 
     SendVoteData = "SendVoteData",
+    SendResetVoteData = "SendResetVoteData",
     OnResetVoteCache = "OnResetVoteCache",
     OnVoteCacheArrive = "OnVoteCacheArrive",
     RequestVoteDataCache = "RequestVoteDataCache"

@@ -4,6 +4,7 @@ export default class PlayerData extends ZepetoScriptBehaviour
 {
     public wolrdId: string;
     public ownerSessionId: string;
+    
     public isReady: boolean;
     public isWinner: boolean; 
     public isCustomized: boolean;

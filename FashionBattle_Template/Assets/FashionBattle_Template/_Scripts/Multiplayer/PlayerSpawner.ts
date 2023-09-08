@@ -5,6 +5,7 @@ import { Debug, GameObject, Input, KeyCode, Transform, WaitForSeconds } from 'Un
 import MultiplayerManager, { PlayerDataModel } from './MultiplayerManager';
 import { ItemContent, MannequinPreviewer } from 'ZEPETO.Mannequin';
 import { ZepetoContext, ZepetoPropertyFlag } from 'Zepeto';
+import UIManager from '../Managers/UIManager';
 
 // This script spawns a single player
 export default class PlayerSpawner extends ZepetoScriptBehaviour
@@ -49,9 +50,12 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {
             ZepetoPlayers.instance.ZepetoCamera.gameObject.SetActive(false);
             
-            Debug.LogError("ADDED ZEPETO PLAYER ID : " + sessionId);
+            
+            UIManager.instance.SetRadyButtonInteractable();
             const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
-            zepetoPlayer.character.gameObject.SetActive(false);
+
+            this._currentZepetoChatacterDisplayerd = zepetoPlayer;
+            this.HideCurrentZepetoPlayer();
         });
     }
     
@@ -154,6 +158,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         zepetoPlayer.character.characterController.enabled = false;
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
+        Debug.LogError("SHOW CHARACTER ORIGINAL");
         zepetoPlayer.character.gameObject.SetActive(true);
         zepetoPlayer.character.characterController.enabled = true;
 
@@ -166,20 +171,13 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         zepetoPlayer.character.characterController.enabled = false;
         zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
         zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
+        Debug.LogError("SHOW CHARACTER BY ID");
         zepetoPlayer.character.gameObject.SetActive(true);
         zepetoPlayer.character.characterController.enabled = true;
 
         this._currentZepetoChatacterDisplayerd = zepetoPlayer;
 
         this.StartCoroutine(this.WaitAndUpdateClothes(sessionId));
-    }
-
-    public HideCharacter(sessionId: string)
-    {
-        const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
-        zepetoPlayer.character.gameObject.transform.position = this.spawnPosition.position;
-        zepetoPlayer.character.gameObject.transform.rotation = this.spawnPosition.rotation;
-        zepetoPlayer.character.gameObject.SetActive(false);
     }
 
     public HideCurrentZepetoPlayer()

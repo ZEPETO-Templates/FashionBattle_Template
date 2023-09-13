@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: e72d994da723f2d4393599d0e2b3ec00
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass ClothingManager extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        // Singleton
+    pattern\r\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(ClothingManager.instance,
+    null))\r\n            UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n       
+    else\r\n            ClothingManager.instance = this;\r\n    }\r\n}\r\nexports.default
+    = ClothingManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2xvdGhpbmdNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ2xvdGhpbmdNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXlDO0FBQ3pDLGlEQUFzRDtBQUV0RCxNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQVNoRSxLQUFLO1FBQ0gsb0JBQW9CO1FBQ3BCLElBYksscUNBQXFCLENBa0I4Nk0sYUFBYyxDQUxsOU0sZUFBZSxDQUFDLFFBQVEsRUFBSSxJQUFJO1lBQUUsd0JBQVUsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDOztZQUNyRSxlQUFlLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztJQUN2QyxDQUFDO0NBRUY7QUFmRCxrQ0FlQyJ9","assetPath":"Assets/FashionBattle_Template/_Scripts/Managers/ClothingManager.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"headItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["\"Items
+    for each part (itemId)\""]}]},{"assembly":"mscorlib","name":"chestItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"legsItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"shoesItems","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ClothingManager","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 7bcf5ee352bf79c1a667e92affb8863c
+  onlyWriteTrigger: 0

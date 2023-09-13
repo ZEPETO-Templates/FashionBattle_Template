@@ -1,139 +1,150 @@
-import { Debug, GameObject, Time } from 'UnityEngine'
-import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
-import UIManager, { UIPanelType } from '../Managers/UIManager';
-import CustomizationButton from './CustomizationButton';
-import { Slider } from 'UnityEngine.UI';
-import GameManager from '../Managers/GameManager';
-import { ITEM_TYPE } from '../Multiplayer/MultiplayerManager';
+import { Debug, GameObject, Time } from "UnityEngine";
+import { ZepetoScriptBehaviour } from "ZEPETO.Script";
+import { RoundedRectangleButton } from "ZEPETO.World.Gui";
+import UIManager, { UIPanelType } from "../Managers/UIManager";
+import CustomizationButton from "./CustomizationButton";
+import { Slider } from "UnityEngine.UI";
+import GameManager from "../Managers/GameManager";
+import { ITEM_TYPE } from "../Multiplayer/MultiplayerManager";
+import ClothingManager from "../Managers/ClothingManager";
 
-export default class UIPanelCustomization extends ZepetoScriptBehaviour {
+export default class UIPanelCustomization extends ZepetoScriptBehaviour 
+{
+  public timeSlider: Slider;
 
-    public timeSlider: Slider;
-    public isCounterRunning: bool = false;
-    public timeLimit: number = 20;
-    public timeCounter: number;
+  @HideInInspector() public isCounterRunning: bool = false;
+  @HideInInspector() public timeCounter: number;
 
-    public loadingPanel: GameObject;
+  public loadingPanel: GameObject;
 
-    public waitingContainer: GameObject;
+  public waitingContainer: GameObject;
 
-    public headItems: string[];
-    public chestItems: string[];
-    public legsItems: string[];
-    public shoesItems: string[];
+  public doneButton: RoundedRectangleButton;
 
-    public selectionButtons: RoundedRectangleButton[]
-    public itemButtons: GameObject[]
+  public selectionButtons: RoundedRectangleButton[];
+  public itemButtons: GameObject[];
 
-    public doneButton: RoundedRectangleButton;
+  public bodyPartSelected: BODYPART_SELECTION = BODYPART_SELECTION.HEAD;
 
-    public bodyPartSelected: BODYPART_SELECTION = BODYPART_SELECTION.HEAD;
+  Start() 
+  {
+    this.timeCounter = GameManager.instance.customizationTimeLimit;
+    this.timeSlider.maxValue = GameManager.instance.customizationTimeLimit;
+    this.isCounterRunning = true;
 
+    this.waitingContainer.SetActive(false);
 
-    Start()
+    // Fist Populate
+    this.PopulateButtons(BODYPART_SELECTION.HEAD);
+
+    this.selectionButtons[0].OnClick.AddListener(() => 
     {
-        this.timeCounter = this.timeLimit;
-        this.timeSlider.maxValue = this.timeLimit;
-        this.isCounterRunning = true;
+      this.PopulateButtons(BODYPART_SELECTION.HEAD);
+    });
 
-        this.waitingContainer.SetActive(false);
+    this.selectionButtons[1].OnClick.AddListener(() => 
+    {
+      this.PopulateButtons(BODYPART_SELECTION.CHEST);
+    });
 
-        // Fist Populate
-        this.PopulateButtons(BODYPART_SELECTION.HEAD);
+    this.selectionButtons[2].OnClick.AddListener(() => 
+    {
+      this.PopulateButtons(BODYPART_SELECTION.LEGS);
+    });
 
-        this.selectionButtons[0].OnClick.AddListener(() => {
-            this.PopulateButtons(BODYPART_SELECTION.HEAD);
-        });
+    this.selectionButtons[3].OnClick.AddListener(() => 
+    {
+      this.PopulateButtons(BODYPART_SELECTION.SHOES);
+    });
 
-        this.selectionButtons[1].OnClick.AddListener(() => {
-            this.PopulateButtons(BODYPART_SELECTION.CHEST);
-        });
+    this.doneButton.OnClick.AddListener(() => 
+    {
+      this.isCounterRunning = false;
+      this.waitingContainer.SetActive(true);
+      this.timeCounter = 0;
+      this.timeSlider.value = 0;
 
-        this.selectionButtons[2].OnClick.AddListener(() => {
-            this.PopulateButtons(BODYPART_SELECTION.LEGS);
-        });
+      GameManager.instance.OnPlayerDoneCustomize(true);
+    });
+  }
 
-        this.selectionButtons[3].OnClick.AddListener(() => {
-            this.PopulateButtons(BODYPART_SELECTION.SHOES);
-        });
+  public ResetPanel() 
+  {
+    this.timeCounter = GameManager.instance.customizationTimeLimit;
+    this.timeSlider.maxValue = GameManager.instance.customizationTimeLimit;
+    this.isCounterRunning = true;
+    this.waitingContainer.SetActive(false);
+  }
 
-        this.doneButton.OnClick.AddListener(() => {
-            this.isCounterRunning = false;
-            this.waitingContainer.SetActive(true);
-            this.timeCounter = 0;
-            this.timeSlider.value = 0;
+  Update() 
+  {
+    if (this.isCounterRunning) 
+    {
+      this.timeCounter -= Time.deltaTime;
+      this.timeSlider.value = this.timeCounter;
 
-            GameManager.instance.OnPlayerDoneCustomize(true);
-        });
-
+      if (this.timeCounter <= 0) 
+      {
+        this.isCounterRunning = false;
+        GameManager.instance.OnPlayerDoneCustomize(true);
+      }
     }
+  }
 
-    public ResetPanel()
+  public PopulateButtons(selection: BODYPART_SELECTION) 
+  {
+    let i = 0;
+    switch (selection) 
     {
-        this.timeCounter = this.timeLimit;
-        this.timeSlider.maxValue = this.timeLimit;
-        this.isCounterRunning = true;
-        this.waitingContainer.SetActive(false);
-    }
-    
-    Update()
-    {
-        if (this.isCounterRunning)
+      case BODYPART_SELECTION.HEAD:
+        this.itemButtons.forEach((element) => 
         {
-            this.timeCounter -= Time.deltaTime;
-            this.timeSlider.value = this.timeCounter;
-
-            if (this.timeCounter <= 0)
-            {
-                this.isCounterRunning = false;
-                GameManager.instance.OnPlayerDoneCustomize(true);
-            }
-        }
-    }
-
-    public PopulateButtons(selection :BODYPART_SELECTION)
-    {
-        let i = 0;
-        switch(selection)
+          element
+            .GetComponent<CustomizationButton>()
+            .SetItemId(ITEM_TYPE.HEAD, ClothingManager.instance.headItems[i]);
+          i++;
+        });
+        break;
+      case BODYPART_SELECTION.CHEST:
+        this.itemButtons.forEach((element) => 
         {
-            case BODYPART_SELECTION.HEAD:
-                this.itemButtons.forEach(element => {
-                    element.GetComponent<CustomizationButton>().SetItemId(ITEM_TYPE.HEAD, this.headItems[i]);
-                    i++;
-                });
-                break;
-            case BODYPART_SELECTION.CHEST:
-                this.itemButtons.forEach(element => {
-                    element.GetComponent<CustomizationButton>().SetItemId(ITEM_TYPE.CHEST, this.chestItems[i]);
-                    i++;
-                });
-                break;
-            case BODYPART_SELECTION.LEGS:
-                this.itemButtons.forEach(element => {
-                    element.GetComponent<CustomizationButton>().SetItemId(ITEM_TYPE.LEGS, this.legsItems[i]);
-                    i++;
-                });
-                break;
-            case BODYPART_SELECTION.SHOES:
-                this.itemButtons.forEach(element => {
-                    element.GetComponent<CustomizationButton>().SetItemId(ITEM_TYPE.FOOT, this.shoesItems[i]);
-                    i++;
-                });
-                break;
-        }
+          element
+            .GetComponent<CustomizationButton>()
+            .SetItemId(ITEM_TYPE.CHEST, ClothingManager.instance.chestItems[i]);
+          i++;
+        });
+        break;
+      case BODYPART_SELECTION.LEGS:
+        this.itemButtons.forEach((element) => 
+        {
+          element
+            .GetComponent<CustomizationButton>()
+            .SetItemId(ITEM_TYPE.LEGS, ClothingManager.instance.legsItems[i]);
+          i++;
+        });
+        break;
+      case BODYPART_SELECTION.SHOES:
+        this.itemButtons.forEach((element) => 
+        {
+          element
+            .GetComponent<CustomizationButton>()
+            .SetItemId(ITEM_TYPE.FOOT, ClothingManager.instance.shoesItems[i]);
+          i++;
+        });
+        break;
     }
+  }
 
-    public SetLoadingPanel(value: bool)
-    {
-        this.loadingPanel.SetActive(value);
-    }
-
+  public SetLoadingPanel(value: bool) 
+  {
+    this.loadingPanel.SetActive(value);
+  }
 }
 
-enum BODYPART_SELECTION {
-    HEAD = "Head",
-    CHEST = "Chest",
-    LEGS = "Legs",
-    SHOES = "Shoes"
+enum BODYPART_SELECTION 
+{
+  HEAD = "Head",
+  CHEST = "Chest",
+  LEGS = "Legs",
+  SHOES = "Shoes",
 }

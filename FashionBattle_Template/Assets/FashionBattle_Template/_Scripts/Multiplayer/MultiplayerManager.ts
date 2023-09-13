@@ -8,30 +8,32 @@ import UIManager, { UIPanelType } from '../Managers/UIManager';
 import { State } from 'ZEPETO.Multiplay.Schema';
 import PlayerSpawner from './PlayerSpawner';
 
-export enum ITEM_TYPE {
+export enum ITEM_TYPE 
+{
     HEAD,
     CHEST,
     LEGS,
     FOOT
 }
 
-export default class MultiplayerManager extends ZepetoScriptBehaviour {
+export default class MultiplayerManager extends ZepetoScriptBehaviour 
+{
 
     public static instance: MultiplayerManager;
 
     public multiplay: ZepetoWorldMultiplay;
-    
+
     public localPlayerData: PlayerData;
     public localVoteData: VoteModel;
-    
+
     public playersData: PlayerDataModel[] = [];
     public voteDatas: VoteModel[] = [];
 
-    public currentChatacterVoteId: string;
-    public currentVoteValue: number;
-    
-    public allPlayersReady: bool = false;
-    
+    @HideInInspector() public currentChatacterVoteId: string;
+    @HideInInspector() public currentVoteValue: number;
+
+    @HideInInspector() public allPlayersReady: bool = false;
+
     private _room: Room;
 
     Awake() 
@@ -39,16 +41,17 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         // Singleton pattern
         if (MultiplayerManager.instance != null) GameObject.Destroy(this.gameObject);
         else MultiplayerManager.instance = this;
-        
+
         this.SetInitialPlayerData();
     }
 
     Start() 
-    {    
+    {
         if (!this.multiplay)
             this.multiplay = this.GetComponent<ZepetoWorldMultiplay>();
         if (!this.multiplay) console.warn("Add ZepetoWorldMultiplay First");
-        this.multiplay.RoomJoined += (room: Room) => {
+        this.multiplay.RoomJoined += (room: Room) => 
+        {
             this._room = room;
             this._room.OnStateChange += this.OnStateChange;
             this.AddMessageHandlers();
@@ -63,19 +66,19 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     {
         PlayerSpawner.instance.OnStateChange(state, isFirst);
     }
-    
-    private AddMessageHandlers()
+
+    private AddMessageHandlers() 
     {
 
         // PLAYER MESSAGE HANDLERS
 
-        this._room.AddMessageHandler(MESSAGE.OnPlayersReady, (value: string) =>
+        this._room.AddMessageHandler(MESSAGE.OnPlayersReady, (value: string) => 
         {
-            if(value == "True")
+            if (value == "True") 
             {
                 this.allPlayersReady = true;
             }
-            else if(value == "False")
+            else if (value == "False") 
             {
                 this.allPlayersReady = false;
             }
@@ -93,14 +96,14 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this._room.AddMessageHandler(MESSAGE.OnPlayersDataCacheArrive, (playerData: PlayerDataModel) => 
         {
             this.playersData.push(playerData);
-            if(UIManager.instance.currentPanelType == UIPanelType.START)
+            if (UIManager.instance.currentPanelType == UIPanelType.START) 
             {
                 UIManager.instance.SetPlayersOnline(this.GetPlayersAmount());
                 UIManager.instance.SetPlayersReady(this.GetPlayersReady());
             }
         });
 
-        this._room.AddMessageHandler(MESSAGE.OnAllPlayersCustomized, (value) =>
+        this._room.AddMessageHandler(MESSAGE.OnAllPlayersCustomized, (value) => 
         {
             UIManager.instance.SwitchUIPanel(UIPanelType.GAME);
             GameManager.instance.SwitchStage(STAGE.RUNWAY);
@@ -108,13 +111,15 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
 
         // VOTE MESSAGE HANDLERS
 
-        this._room.AddMessageHandler(MESSAGE.OnResetVoteCache, (message) => {
+        this._room.AddMessageHandler(MESSAGE.OnResetVoteCache, (message) => 
+        {
             this.voteDatas = [];
         });
 
-        this._room.AddMessageHandler(MESSAGE.OnVoteCacheArrive, (voteData: VoteModel) => {
+        this._room.AddMessageHandler(MESSAGE.OnVoteCacheArrive, (voteData: VoteModel) => 
+        {
             this.voteDatas.push(voteData);
-            if (this.voteDatas.length == this.playersData.length)
+            if (this.voteDatas.length == this.playersData.length) 
             {
                 GameManager.instance.EvaluateAndSetVote();
             }
@@ -122,10 +127,10 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
 
     }
 
-    private SetInitialPlayerData()
+    private SetInitialPlayerData() 
     {
         this.localPlayerData = new PlayerData();
-        
+
         this.localPlayerData.isReady = false;
         this.localPlayerData.isWinner = false;
         this.localPlayerData.isCustomized = false;
@@ -136,12 +141,12 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this.localPlayerData.footItem = "";
     }
 
-    public RequestPlayersDataCache()
+    public RequestPlayersDataCache() 
     {
         this._room.Send(MESSAGE.RequestPlayersDataCache, "");
     }
 
-    public SendResetVoteCache()
+    public SendResetVoteCache() 
     {
         this._room.Send(MESSAGE.SendResetVoteData, "");
     }
@@ -151,14 +156,14 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this._room.Send(MESSAGE.RequestVoteDataCache, "");
     }
 
-    public SendPlayerData()
+    public SendPlayerData() 
     {
         const data = new RoomData();
         data.Add("ownerSessionId", this.localPlayerData.ownerSessionId);
         data.Add("isReady", this.localPlayerData.isReady);
         data.Add("isWinner", this.localPlayerData.isWinner);
         data.Add("isCustomized", this.localPlayerData.isCustomized);
-        
+
         data.Add("headItem", this.localPlayerData.headItem);
         data.Add("chestItem", this.localPlayerData.chestItem);
         data.Add("legsItem", this.localPlayerData.legsItem);
@@ -167,13 +172,13 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this._room.Send(MESSAGE.SendPlayerData, data.GetObject());
     }
 
-    public SetVotingData(voteValue: number, characterIdVoted: string)
+    public SetVotingData(voteValue: number, characterIdVoted: string) 
     {
         this.currentChatacterVoteId = characterIdVoted;
         this.currentVoteValue = voteValue;
     }
 
-    public SendVotingData()
+    public SendVotingData() 
     {
         const data = new RoomData();
         data.Add("sessionId", this.currentChatacterVoteId);
@@ -181,15 +186,15 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         this._room.Send(MESSAGE.SendVoteData, data.GetObject());
     }
 
-    public SetPlayerIsCustomize(value: bool)
+    public SetPlayerIsCustomize(value: bool) 
     {
         this.localPlayerData.isCustomized = value;
         this.SendPlayerData();
     }
 
-    public SetItemInPlayerData(itemType: ITEM_TYPE, itemId: string)
+    public SetItemInPlayerData(itemType: ITEM_TYPE, itemId: string) 
     {
-        switch (itemType)
+        switch (itemType) 
         {
             case ITEM_TYPE.HEAD:
                 this.localPlayerData.headItem = itemId;
@@ -206,35 +211,38 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         }
     }
 
-    public SetPlayerReady(value: boolean)
+    public SetPlayerReady(value: boolean) 
     {
         this.localPlayerData.isReady = value;
         this._room.Send(MESSAGE.SendPlayerReady, value);
     }
 
-    public GetPlayerData(sessionId: string) : PlayerDataModel
+    public GetPlayerData(sessionId: string): PlayerDataModel 
     {
         let result = this.playersData[0];
-        this.playersData.forEach((pd) => {
-            if (pd.ownerSessionId == sessionId) {
+        this.playersData.forEach((pd) => 
+        {
+            if (pd.ownerSessionId == sessionId) 
+            {
                 result = pd;
             }
         });
         return result;
     }
 
-    public GetPlayersAmount() : number
+    public GetPlayersAmount(): number 
     {
         let result = 0;
         result = this.playersData.length;
         return result;
     }
 
-    public GetPlayersReady() : number
+    public GetPlayersReady(): number 
     {
         let result = 0;
-        this.playersData.forEach(element => {
-            if(element.isReady)
+        this.playersData.forEach(element => 
+            {
+            if (element.isReady) 
             {
                 result++;
             }
@@ -242,22 +250,23 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
         return result;
     }
 
-    public GetRoom() : Room
+    public GetRoom(): Room 
     {
         return this._room;
     }
 
-    public GetState() : State
+    public GetState(): State 
     {
         return this._room.State;
     }
 
-    public GetWinner() : VoteModel
+    public GetWinner(): VoteModel 
     {
-        let winner = this.voteDatas[0]; 
-        this.voteDatas.forEach(vd => {
+        let winner = this.voteDatas[0];
+        this.voteDatas.forEach(vd => 
+            {
             vd.finalVote = vd.totalVote / this.GetPlayersAmount();
-            if (vd.finalVote > winner.finalVote)
+            if (vd.finalVote > winner.finalVote) 
             {
                 winner = vd;
             }
@@ -266,7 +275,8 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     }
 }
 
-export interface PlayerDataModel {
+export interface PlayerDataModel 
+{
     ownerSessionId?: string;
     isReady?: boolean;
     isWinner?: boolean;
@@ -278,13 +288,15 @@ export interface PlayerDataModel {
     footItem?: string;
 }
 
-export interface VoteModel {
+export interface VoteModel 
+{
     sessionId?: string;
     totalVote?: number;
     finalVote?: number;
 }
 
-enum MESSAGE {
+enum MESSAGE 
+{
     SendPlayerData = "SendPlayerData",
     SendGameStarted = "SendGameStarted",
     SendPlayerReady = "SendPlayerReady",

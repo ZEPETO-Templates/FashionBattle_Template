@@ -1,215 +1,249 @@
-import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { Debug, GameObject, Input, KeyCode, Time, Transform } from 'UnityEngine';
-import MultiplayerManager, { ITEM_TYPE, VoteModel } from '../Multiplayer/MultiplayerManager';
-import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
-import UIManager, { UIPanelType } from './UIManager';
-import PlayerSpawner from '../Multiplayer/PlayerSpawner';
+/** @format */
 
-export enum STAGE {
-    START,
-    CUSTOMIZATION,
-    RUNWAY,
-    ENDGAME
+import { ZepetoScriptBehaviour } from "ZEPETO.Script";
+import {
+  Debug,
+  GameObject,
+  Input,
+  KeyCode,
+  Time,
+  Transform,
+} from "UnityEngine";
+import MultiplayerManager, {
+  ITEM_TYPE,
+  VoteModel,
+} from "../Multiplayer/MultiplayerManager";
+import { ZepetoPlayers } from "ZEPETO.Character.Controller";
+import UIManager, { UIPanelType } from "./UIManager";
+import PlayerSpawner from "../Multiplayer/PlayerSpawner";
+
+export enum STAGE 
+{
+  START,
+  CUSTOMIZATION,
+  RUNWAY,
+  ENDGAME,
 }
 
 export default class GameManager extends ZepetoScriptBehaviour 
 {
-    public static instance: GameManager;
+  public static instance: GameManager;
 
-    public isPlayerReady: bool = false;
+  @HideInInspector() public isPlayerReady: bool = false;
 
-    public playerCount: number;
+  @HideInInspector() public playerCount: number;
 
-    @Header("Stage References")
-    public stageCustomization: GameObject;
-    public stageRunway: GameObject;
-    public stageWinner: GameObject;
+  @Header("Stage References")
+  public stageCustomization: GameObject;
+  public stageRunway: GameObject;
+  public stageWinner: GameObject;
 
-    public isGameStarted: bool = false;
-    public playersReady: bool = false;
-    public timeToStart: number;
-    public counterToStart: number = 10;
+  @HideInInspector() public isGameStarted: bool = false;
+  @HideInInspector() public playersReady: bool = false;
 
-    // Runway
+  @Header("Settings")
+  public timeToStart: number;
+  public counterToStart: number = 10;
+  public voteTimerLimit: number = 10;
+  public customizationTimeLimit: number = 10;
 
-    public currentPlayerIndexInRunway = 0;
-    public totalPlayersInRunway = 0;
+  // Runway
 
-    private _currentStage: STAGE;
+  @HideInInspector() public currentPlayerIndexInRunway = 0;
+  @HideInInspector() public totalPlayersInRunway = 0;
 
-    Awake() {
-        // Singleton pattern
-        if (GameManager.instance != null) GameObject.Destroy(this.gameObject);
-        else GameManager.instance = this;
+  private _currentStage: STAGE;
 
-        this.InitGame();
-    }
+  Awake() 
+  {
+    // Singleton pattern
+    if (GameManager.instance != null) GameObject.Destroy(this.gameObject);
+    else GameManager.instance = this;
+  }
 
-    Update()
+  Start() 
+  {
+    this.InitGame();
+  }
+
+  Update() 
+  {
+    if (this.playersReady && !this.isGameStarted) 
     {
-        if (this.playersReady && !this.isGameStarted)
-        {
-            this.counterToStart -= Time.deltaTime;
-            if(this.counterToStart < 0)
-            {
-                this.isGameStarted = true;
-                UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
-                this.SwitchStage(STAGE.CUSTOMIZATION);
-            }
-        }
+      this.counterToStart -= Time.deltaTime;
+      if (this.counterToStart < 0) 
+      {
+        this.isGameStarted = true;
+        UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
+        this.SwitchStage(STAGE.CUSTOMIZATION);
+      }
     }
+  }
 
-    public InitGame()
-    {
-        UIManager.instance.Init();
+  public InitGame() 
+  {
+    UIManager.instance.Init();
 
-        this.StartGame();
-    }
-    
-    public StartGame()
-    {
-        this.isGameStarted = false;
-        this.isPlayerReady = false;
-        this.counterToStart = this.timeToStart;
-        this.SwitchStage(STAGE.START);
-    }
-    
-    public SwitchStage(stage: STAGE)
-    {
-        this._currentStage = stage;
+    this.StartGame();
+  }
 
-        this.stageCustomization.SetActive(false);
-        this.stageRunway.SetActive(false);
-        this.stageWinner.SetActive(false);
-        
-        switch (stage)
-        {
-            case STAGE.START:
-                UIManager.instance.ResetPanels();
-                UIManager.instance.SwitchUIPanel(UIPanelType.START);
-                break;
-            case STAGE.CUSTOMIZATION:
-                MultiplayerManager.instance.SendResetVoteCache();
-                MultiplayerManager.instance.RequestVoteDataCache();
-                this.stageCustomization.SetActive(true);
-                PlayerSpawner.instance.ShowCharacterOriginal(MultiplayerManager.instance.localPlayerData.ownerSessionId);
-                break;
-            case STAGE.RUNWAY:
-                PlayerSpawner.instance.HideCurrentZepetoPlayer();
-                this.stageRunway.SetActive(true);
-                
-                this.currentPlayerIndexInRunway = 0;
-                this.totalPlayersInRunway = MultiplayerManager.instance.playersData.length;
-                this.SetNextPlayerInRunway();
-                break;
-            case STAGE.ENDGAME:
-                this.stageWinner.SetActive(true);
-                this.OnGameOver();
-                break;
-        }
-    }
+  public StartGame() 
+  {
+    this.isGameStarted = false;
+    this.isPlayerReady = false;
+    this.counterToStart = this.timeToStart;
+    this.SwitchStage(STAGE.START);
+  }
 
-    public RestartGame()
+  public SwitchStage(stage: STAGE) 
+  {
+    this._currentStage = stage;
+
+    this.stageCustomization.SetActive(false);
+    this.stageRunway.SetActive(false);
+    this.stageWinner.SetActive(false);
+
+    switch (stage) 
     {
-        PlayerSpawner.instance.HideCurrentZepetoPlayer();
-        this.SetGameReadyToStart(false);
-        this.StartGame();
-    }
-    
-    public SetNextPlayerInRunway()
-    {
+      case STAGE.START:
+        UIManager.instance.ResetPanels();
+        UIManager.instance.SwitchUIPanel(UIPanelType.START);
+        break;
+      case STAGE.CUSTOMIZATION:
+        MultiplayerManager.instance.SendResetVoteCache();
         MultiplayerManager.instance.RequestVoteDataCache();
+        this.stageCustomization.SetActive(true);
+        PlayerSpawner.instance.ShowCharacterOriginal(
+          MultiplayerManager.instance.localPlayerData.ownerSessionId
+        );
+        break;
+      case STAGE.RUNWAY:
+        PlayerSpawner.instance.HideCurrentZepetoPlayer();
+        this.stageRunway.SetActive(true);
 
-        if (this.currentPlayerIndexInRunway != 0){
-            PlayerSpawner.instance.HideCurrentZepetoPlayer();
-        }
-
-        if (this.currentPlayerIndexInRunway >= this.totalPlayersInRunway)
-        {
-            this.SwitchStage(STAGE.ENDGAME);
-        }
-        else
-        {
-            UIManager.instance.SetNewxtPlayerToVote(this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway));
-
-            this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
-            this.currentPlayerIndexInRunway++;
-        }
-    }
-
-    private GetPlayerIdByIndex(index: number) : string
-    {
-        return MultiplayerManager.instance.playersData[index].ownerSessionId;
-    }
-
-    public OnCurrentVotingFinish()
-    {
-        MultiplayerManager.instance.SendVotingData();
+        this.currentPlayerIndexInRunway = 0;
+        this.totalPlayersInRunway =
+          MultiplayerManager.instance.playersData.length;
         this.SetNextPlayerInRunway();
+        break;
+      case STAGE.ENDGAME:
+        this.stageWinner.SetActive(true);
+        this.OnGameOver();
+        break;
     }
+  }
 
-    public SetCharacterWithCloth(index: number)
+  public RestartGame() 
+  {
+    PlayerSpawner.instance.HideCurrentZepetoPlayer();
+    this.SetGameReadyToStart(false);
+    this.StartGame();
+  }
+
+  public SetNextPlayerInRunway() 
+  {
+    MultiplayerManager.instance.RequestVoteDataCache();
+
+    if (this.currentPlayerIndexInRunway != 0) 
     {
-        PlayerSpawner.instance.ShowCharacterWithCloth(MultiplayerManager.instance.playersData[index].ownerSessionId);
+      PlayerSpawner.instance.HideCurrentZepetoPlayer();
     }
 
-    public SetGameReadyToStart(value: bool)
+    if (this.currentPlayerIndexInRunway >= this.totalPlayersInRunway) 
     {
-        this.playersReady = value;
-        UIManager.instance.SetCounterToStart(value);
-        if(!value)
-        {
-            this.counterToStart = this.timeToStart;
-        }
-    }
-
-    public EvaluateAndSetVote()
+      this.SwitchStage(STAGE.ENDGAME);
+    } else 
     {
-        let winnerData : VoteModel = MultiplayerManager.instance.GetWinner();
+      UIManager.instance.SetNewxtPlayerToVote(
+        this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway)
+      );
 
-        let winnerName = ZepetoPlayers.instance.GetPlayer(winnerData.sessionId).name;
-        let winnerScore = winnerData.finalVote.toString();
-        
-        if (this._currentStage == STAGE.ENDGAME){
-            PlayerSpawner.instance.HideCurrentZepetoPlayer();
-            
-            PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
-            UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
-        }
+      this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
+      this.currentPlayerIndexInRunway++;
     }
+  }
 
-    private OnGameOver()
+  private GetPlayerIdByIndex(index: number): string 
+  {
+    return MultiplayerManager.instance.playersData[index].ownerSessionId;
+  }
+
+  public OnCurrentVotingFinish() 
+  {
+    MultiplayerManager.instance.SendVotingData();
+    this.SetNextPlayerInRunway();
+  }
+
+  public SetCharacterWithCloth(index: number) 
+  {
+    PlayerSpawner.instance.ShowCharacterWithCloth(
+      MultiplayerManager.instance.playersData[index].ownerSessionId
+    );
+  }
+
+  public SetGameReadyToStart(value: bool) 
+  {
+    this.playersReady = value;
+    UIManager.instance.SetCounterToStart(value);
+    if (!value) 
     {
-        this.isPlayerReady = false;
-        this.OnPlayerDoneCustomize(false);
-        MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
-        UIManager.instance.SwitchUIPanel(UIPanelType.END);
+      this.counterToStart = this.timeToStart;
     }
+  }
 
-    public OnPlayerReady()
+  public EvaluateAndSetVote() 
+  {
+    let winnerData: VoteModel = MultiplayerManager.instance.GetWinner();
+
+    let winnerName = ZepetoPlayers.instance.GetPlayer(
+      winnerData.sessionId
+    ).name;
+    let winnerScore = winnerData.finalVote.toString();
+
+    if (this._currentStage == STAGE.ENDGAME) 
     {
-        this.isPlayerReady = !this.isPlayerReady;
-        MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
-    }
+      PlayerSpawner.instance.HideCurrentZepetoPlayer();
 
-    public OnPlayerDoneCustomize(value: boolean)
+      PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
+      UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+    }
+  }
+
+  private OnGameOver() 
+  {
+    this.isPlayerReady = false;
+    this.OnPlayerDoneCustomize(false);
+    MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
+    UIManager.instance.SwitchUIPanel(UIPanelType.END);
+  }
+
+  public OnPlayerReady() 
+  {
+    this.isPlayerReady = !this.isPlayerReady;
+    MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
+  }
+
+  public OnPlayerDoneCustomize(value: boolean) 
+  {
+    MultiplayerManager.instance.SetPlayerIsCustomize(value);
+  }
+
+  // Method to change the costume of the local player using the provided item code.
+  public ChangeCostume(itemType: ITEM_TYPE, itemCode: string) 
+  {
+    // Use the LocalPlayer property to access the local player instance and set their costume using the provided item code.
+
+    UIManager.instance.SetLoadingPanel(true);
+
+    ZepetoPlayers.instance.LocalPlayer.SetCostume(itemCode, () => 
     {
-        MultiplayerManager.instance.SetPlayerIsCustomize(value);
-    }
+      // Once the costume change is complete, log a message indicating the successful change.
+      console.log(`Set Costume Complete : $
+      {itemCode}`);
 
-    // Method to change the costume of the local player using the provided item code.
-    public ChangeCostume(itemType: ITEM_TYPE ,itemCode: string) {
-        // Use the LocalPlayer property to access the local player instance and set their costume using the provided item code.
+      UIManager.instance.SetLoadingPanel(false);
+    });
 
-        UIManager.instance.SetLoadingPanel(true);
-
-        ZepetoPlayers.instance.LocalPlayer.SetCostume(itemCode, () => {
-            // Once the costume change is complete, log a message indicating the successful change.
-            console.log(`Set Costume Complete : ${itemCode}`);
-        
-            UIManager.instance.SetLoadingPanel(false);
-        });
-
-        MultiplayerManager.instance.SetItemInPlayerData(itemType, itemCode);
-    }
+    MultiplayerManager.instance.SetItemInPlayerData(itemType, itemCode);
+  }
 }

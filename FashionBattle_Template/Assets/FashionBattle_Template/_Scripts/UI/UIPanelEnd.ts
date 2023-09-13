@@ -3,8 +3,8 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import GameManager from '../Managers/GameManager';
 import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
 
-export default class UIPanelEnd extends ZepetoScriptBehaviour {
-
+export default class UIPanelEnd extends ZepetoScriptBehaviour 
+{
     public winnerName: TMP_Text;
     public winnerScore: TMP_Text;
 
@@ -12,7 +12,8 @@ export default class UIPanelEnd extends ZepetoScriptBehaviour {
 
     Start()
     {
-        this.restartButton.OnClick.AddListener(() => {
+        this.restartButton.OnClick.AddListener(() => 
+        {
             GameManager.instance.RestartGame();
         });        
     }

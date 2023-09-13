@@ -6,7 +6,7 @@ import UIPanelGame from '../UI/UIPanelGame';
 import UIPanelEnd from '../UI/UIPanelEnd';
 import UIPanelCustomization from '../UI/UIPanelCustomization';
 
-export enum UIPanelType
+export enum UIPanelType 
 {
     START,
     LOBBY,
@@ -16,55 +16,56 @@ export enum UIPanelType
     NONE
 }
 
-export default class UIManager extends ZepetoScriptBehaviour
+export default class UIManager extends ZepetoScriptBehaviour 
 {
     public static instance: UIManager;
 
     public uiPanelsGameObject: GameObject[];
     private uiPanels: UIPanel[];
 
-    public currentPanelType: UIPanelType = UIPanelType.NONE;
+    @HideInInspector() public currentPanelType: UIPanelType = UIPanelType.NONE;
 
-    Awake() {
+    Awake() 
+    {
         // Singleton pattern
         if (UIManager.instance != null) GameObject.Destroy(this.gameObject);
         else UIManager.instance = this;
     }
-    
-    public Init() : void
+
+    public Init(): void 
     {
         this.uiPanels = [];
-    
-        for (var i = 0; i < this.uiPanelsGameObject.length; i++)
+
+        for (var i = 0; i < this.uiPanelsGameObject.length; i++) 
         {
             this.uiPanels[i] = this.uiPanelsGameObject[i].GetComponent<UIPanel>();
         }
     }
 
-    public SetNewxtPlayerToVote(playerId: string)
+    public SetNewxtPlayerToVote(playerId: string) 
     {
         let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
         gamePanel.SetNextPlayerToVote(playerId);
     }
 
-    public SetWinnerPanelData(winnername: string, winnerscore: string)
+    public SetWinnerPanelData(winnername: string, winnerscore: string) 
     {
         let endPanel = this.GetUiPanelType(UIPanelType.END).GetComponent<UIPanelEnd>();
         endPanel.SetEndPanelData(winnername, winnerscore);
     }
 
-    public SetLoadingPanel(value: bool)
+    public SetLoadingPanel(value: bool) 
     {
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
         customizationPanel.SetLoadingPanel(value);
     }
 
-    public OnStartButton()
+    public OnStartButton() 
     {
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
-    public ResetPanels()
+    public ResetPanels() 
     {
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
         customizationPanel.ResetPanel();
@@ -73,37 +74,37 @@ export default class UIManager extends ZepetoScriptBehaviour
         startPanel.ResetPanel();
     }
 
-    public SetCounterToStart(value: bool)
+    public SetCounterToStart(value: bool) 
     {
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         startPanel.ShowCountdownText(value);
     }
-    
-    public SetPlayersOnline(value: number)
+
+    public SetPlayersOnline(value: number) 
     {
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         startPanel.SetPlayersCount(value);
     }
 
-    public SetPlayersReady(value: number)
+    public SetPlayersReady(value: number) 
     {
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         startPanel.SetPlayersReady(value);
     }
 
-    public SetReadyButtonInteractable()
+    public SetReadyButtonInteractable() 
     {
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         startPanel.SetReadyButtonInteractable();
     }
 
-    public SwitchUIPanel(uiPanelType: UIPanelType): void
+    public SwitchUIPanel(uiPanelType: UIPanelType): void 
     {
         this.currentPanelType = uiPanelType;
 
-        for (var i = 0; i < this.uiPanels.length; i++)
+        for (var i = 0; i < this.uiPanels.length; i++) 
         {
-            if (this.uiPanels[i].uiPanelType == uiPanelType)
+            if (this.uiPanels[i].uiPanelType == uiPanelType) 
             {
                 this.uiPanels[i].Show(true);
             }
@@ -114,11 +115,13 @@ export default class UIManager extends ZepetoScriptBehaviour
         }
     }
 
-    private GetUiPanelType(uiPanelType: UIPanelType) : UIPanel
+    private GetUiPanelType(uiPanelType: UIPanelType): UIPanel 
     {
-        let result = this.uiPanels[i];  
-        for (var i = 0; i < this.uiPanels.length; i++) {
-            if (this.uiPanels[i].uiPanelType == uiPanelType) {
+        let result = this.uiPanels[i];
+        for (var i = 0; i < this.uiPanels.length; i++) 
+        {
+            if (this.uiPanels[i].uiPanelType == uiPanelType) 
+            {
                 result = this.uiPanels[i];
             }
         }

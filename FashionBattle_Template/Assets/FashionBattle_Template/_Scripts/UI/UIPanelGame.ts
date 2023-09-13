@@ -1,80 +1,85 @@
-import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
-import { RoundedRectangleButton } from 'ZEPETO.World.Gui'
-import VoteButton from './VoteButton';
-import { Debug, Time } from 'UnityEngine';
-import MultiplayerManager from '../Multiplayer/MultiplayerManager';
-import { TMP_Text } from 'TMPro';
-import GameManager from '../Managers/GameManager';
-import { Slider } from 'UnityEngine.UI';
+import { ZepetoScriptBehaviour } from "ZEPETO.Script";
+import { ZepetoPlayers } from "ZEPETO.Character.Controller";
+import { RoundedRectangleButton } from "ZEPETO.World.Gui";
+import VoteButton from "./VoteButton";
+import { Debug, Time } from "UnityEngine";
+import MultiplayerManager from "../Multiplayer/MultiplayerManager";
+import { TMP_Text } from "TMPro";
+import GameManager from "../Managers/GameManager";
+import { Slider } from "UnityEngine.UI";
 
 export default class UIPanelGame extends ZepetoScriptBehaviour 
 {
-    public currentPlayerIdShowed: string;
-    public voteButtons : RoundedRectangleButton[];
+  @HideInInspector() public currentPlayerIdShowed: string;
+  public voteButtons: RoundedRectangleButton[];
 
-    public timeSlider: Slider;
-    public playerNameTxt: TMP_Text;
+  public timeSlider: Slider;
+  public playerNameTxt: TMP_Text;
 
-    public isTimerRunning: boolean = true;
-    public voteTimerLimit: number = 10;
-    public voteTimerCounter: number = 0;
-    
-    Start()
+  @HideInInspector() public isTimerRunning: boolean = true;
+  @HideInInspector() public voteTimerCounter: number = 0;
+
+  Start() 
+  {
+    this.timeSlider.maxValue = GameManager.instance.voteTimerLimit;
+  }
+
+  Update() 
+  {
+    if (this.isTimerRunning) 
     {
-        this.timeSlider.maxValue = this.voteTimerLimit;
-    }
+      this.voteTimerCounter -= Time.deltaTime;
+      this.timeSlider.value = this.voteTimerCounter;
 
-    Update()
+      if (this.voteTimerCounter <= 0) 
+      {
+        this.isTimerRunning = false;
+        this.timeSlider.value = 0;
+        this.OnFinishVoting();
+      }
+    }
+  }
+
+  public SetNextPlayerToVote(playerId: string) 
+  {
+    this.currentPlayerIdShowed = playerId;
+    this.playerNameTxt.text = ZepetoPlayers.instance.GetPlayer(playerId).name; // Change by PlayerName
+    this.isTimerRunning = true;
+    this.voteTimerCounter = GameManager.instance.voteTimerLimit;
+
+    // Default Vote
+    this.SetVoteSelection(0);
+  }
+
+  public SetVoteSelection(voteIndex: number) 
+  {
+    Debug.LogError("SetVoteSelection: " + voteIndex);
+    this.voteButtons.forEach((element) => 
     {
-        if (this.isTimerRunning) {
-            this.voteTimerCounter -= Time.deltaTime;
-            this.timeSlider.value = this.voteTimerCounter; 
+      let voteButton = element.GetComponent<VoteButton>();
+      if (voteButton.buttonIndex <= voteIndex) 
+      {
+        voteButton.SetSelectedImg(true);
+      } else 
+      {
+        voteButton.SetSelectedImg(false);
+      }
+    });
 
-            if (this.voteTimerCounter <= 0)
-            {
-                this.isTimerRunning = false;
-                this.timeSlider.value = 0;
-                this.OnFinishVoting();
-            }
-        }
-    }
+    this.OnVoteSelection(voteIndex);
+  }
 
-    public SetNextPlayerToVote(playerId: string)
-    {
-        this.currentPlayerIdShowed = playerId;
-        this.playerNameTxt.text = ZepetoPlayers.instance.GetPlayer(playerId).name; // Change by PlayerName
-        this.isTimerRunning = true;
-        this.voteTimerCounter = this.voteTimerLimit;
+  public OnVoteSelection(voteIndex: number) 
+  {
+    MultiplayerManager.instance.SetVotingData(
+      voteIndex,
+      this.currentPlayerIdShowed
+    );
+  }
 
-        // Default Vote
-        this.SetVoteSelection(0);
-    }
-
-    public SetVoteSelection(voteIndex: number)
-    {
-        Debug.LogError("SetVoteSelection: " + voteIndex);
-        this.voteButtons.forEach(element => {
-            let voteButton = element.GetComponent<VoteButton>();
-            if (voteButton.buttonIndex <= voteIndex) {
-                voteButton.SetSelectedImg(true);
-            }
-            else {
-                voteButton.SetSelectedImg(false);
-            }
-        });
-        
-        this.OnVoteSelection(voteIndex);
-    }
-
-    public OnVoteSelection(voteIndex : number)
-    {
-        MultiplayerManager.instance.SetVotingData(voteIndex, this.currentPlayerIdShowed);
-    }
-
-    public OnFinishVoting()
-    {
-        Debug.LogError("OnFinishVoting");
-        GameManager.instance.OnCurrentVotingFinish();
-    }
+  public OnFinishVoting() 
+  {
+    Debug.LogError("OnFinishVoting");
+    GameManager.instance.OnCurrentVotingFinish();
+  }
 }

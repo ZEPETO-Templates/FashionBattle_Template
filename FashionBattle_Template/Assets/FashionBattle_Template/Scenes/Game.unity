@@ -1751,6 +1751,34 @@ PrefabInstance:
     m_TransformParent: {fileID: 1145105009}
     m_Modifications:
     - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.keys.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.values.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.keys.Array.data[11]
+      value: voteTimerLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.keys.Array.data[12]
+      value: customizationTimeLimit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.values.Array.data[11]
+      value: '{"type":"System.Single, mscorlib","value":"20"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.values.Array.data[12]
+      value: '{"type":"System.Single, mscorlib","value":"10"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
+      propertyPath: script.unityValues.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524861927796190479, guid: 0ac60efe4f1835b43af2d56fce6bbf1e, type: 3}
       propertyPath: script.unityValues.Array.data[1]
       value: 
       objectReference: {fileID: 1699743058}

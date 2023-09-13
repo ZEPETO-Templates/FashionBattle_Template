@@ -125,7 +125,6 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     private SetInitialPlayerData()
     {
         this.localPlayerData = new PlayerData();
-        this.localPlayerData.wolrdId = WorldService.userId;
         
         this.localPlayerData.isReady = false;
         this.localPlayerData.isWinner = false;
@@ -155,7 +154,6 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
     public SendPlayerData()
     {
         const data = new RoomData();
-        data.Add("wolrdId", this.localPlayerData.wolrdId);
         data.Add("ownerSessionId", this.localPlayerData.ownerSessionId);
         data.Add("isReady", this.localPlayerData.isReady);
         data.Add("isWinner", this.localPlayerData.isWinner);

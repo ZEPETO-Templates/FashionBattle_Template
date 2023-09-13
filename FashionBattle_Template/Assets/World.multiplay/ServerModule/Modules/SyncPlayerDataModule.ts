@@ -98,7 +98,6 @@ export default class SyncPlayerDataModule extends IModule
         this.playersDataCache.forEach((pd) => {
             this.server.broadcast(MESSAGE.OnPlayersDataCacheArrive, pd);
         });
-
         
         // Vote Model Creation
         const newVoteData: VoteModel = {
@@ -143,7 +142,6 @@ export default class SyncPlayerDataModule extends IModule
     {
         let playerDataModel = this.GetPlayerDataFromId(client.sessionId);
         
-        playerDataModel.wolrdId = playerData.wolrdId;
         playerDataModel.ownerSessionId = playerData.ownerSessionId;
         playerDataModel.isReady = playerData.isReady;
         playerDataModel.isWinner = playerData.isWinner;
@@ -171,9 +169,7 @@ export default class SyncPlayerDataModule extends IModule
 
     private RemovePlayerData(sessionId: string)
     {
-        let playerDataModel = this.GetPlayerDataFromId(sessionId);
-
-        let index = this.playersDataCache.findIndex(d => d.ownerSessionId === playerDataModel.ownerSessionId);
+        let index = this.playersDataCache.findIndex(d => d.ownerSessionId === sessionId);
         if (index > -1) {
             this.playersDataCache.splice(index, 1);
         }
@@ -266,7 +262,6 @@ enum MESSAGE {
 }
 
 interface PlayerDataModel {
-    wolrdId?: string;
     ownerSessionId?: string;
     isReady?: boolean;
     isWinner?: boolean;

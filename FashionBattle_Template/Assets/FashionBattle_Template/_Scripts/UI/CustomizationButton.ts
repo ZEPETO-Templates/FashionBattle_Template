@@ -2,7 +2,7 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { RoundedRectangleButton } from 'ZEPETO.World.Gui'
 import GameManager from '../Managers/GameManager';
 import DownloadThumbnailSample from './DownloadThumbnailSample';
-import { GameObject } from 'UnityEngine';
+import { Color, GameObject } from 'UnityEngine';
 import { ITEM_TYPE } from '../Multiplayer/MultiplayerManager';
 
 export default class CustomizationButton extends ZepetoScriptBehaviour 
@@ -13,10 +13,14 @@ export default class CustomizationButton extends ZepetoScriptBehaviour
     public btn: RoundedRectangleButton;
     public thumbnail: GameObject;
 
+    private index: number;
+
     Start() 
     {    
-        this.btn.OnClick.AddListener(()=> {
+        this.btn.OnClick.AddListener(()=> 
+        {
             GameManager.instance.ChangeCostume(this.itemType, this.itemId);
+            this.SelectButton();
         });
     }
 
@@ -27,4 +31,13 @@ export default class CustomizationButton extends ZepetoScriptBehaviour
         this.thumbnail.GetComponent<DownloadThumbnailSample>().ClearAndReloadImage(itemId);
     }
 
+    public SelectButton()
+    {
+        this.btn.color = Color.black;
+    }
+
+    public ResetButton()
+    {
+        this.btn.color = Color.white;
+    }
 }

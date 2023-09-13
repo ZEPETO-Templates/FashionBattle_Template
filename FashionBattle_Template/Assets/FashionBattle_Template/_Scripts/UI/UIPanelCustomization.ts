@@ -7,6 +7,7 @@ import { Slider } from "UnityEngine.UI";
 import GameManager from "../Managers/GameManager";
 import { ITEM_TYPE } from "../Multiplayer/MultiplayerManager";
 import ClothingManager from "../Managers/ClothingManager";
+import CustomButton from "./CustomButton";
 
 export default class UIPanelCustomization extends ZepetoScriptBehaviour 
 {
@@ -36,25 +37,30 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
 
     // Fist Populate
     this.PopulateButtons(BODYPART_SELECTION.HEAD);
+    this.HighlightButtons(0);
 
     this.selectionButtons[0].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.HEAD);
+      this.HighlightButtons(0);
     });
 
     this.selectionButtons[1].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.CHEST);
+      this.HighlightButtons(1);
     });
 
     this.selectionButtons[2].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.LEGS);
+      this.HighlightButtons(2);
     });
 
     this.selectionButtons[3].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.SHOES);
+      this.HighlightButtons(3);
     });
 
     this.doneButton.OnClick.AddListener(() => 
@@ -99,8 +105,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
       case BODYPART_SELECTION.HEAD:
         this.itemButtons.forEach((element) => 
         {
-          element
-            .GetComponent<CustomizationButton>()
+          element.GetComponent<CustomizationButton>()
             .SetItemId(ITEM_TYPE.HEAD, ClothingManager.instance.headItems[i]);
           i++;
         });
@@ -133,6 +138,14 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
         });
         break;
     }
+  }
+  HighlightButtons(index: number)
+  {
+    for (let i = 0; i < this.selectionButtons.Length; i++) {
+      this.selectionButtons[i].GetComponent<CustomButton>().ResetButton();
+    }
+
+    this.selectionButtons[index].GetComponent<CustomButton>().SelectButton();
   }
 
   public SetLoadingPanel(value: bool) 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2520848045569880427}
   - component: {fileID: 2520848045569880425}
   - component: {fileID: 2520848045569880426}
+  - component: {fileID: 383328719033319186}
   m_Layer: 0
   m_Name: btn_Chest
   m_TagString: Untagged
@@ -93,6 +94,36 @@ MonoBehaviour:
   _disableColor: {r: 0.8, g: 0.8, b: 0.827451, a: 1}
   useIconDisableColor: 0
   IconDisableColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &383328719033319186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520848045569880428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyRootMotion: 0
+  script:
+    keys:
+    - iconRef
+    - defaultColor
+    - highlightColor
+    unityValues:
+    - {fileID: 2520848046124901546}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - 
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":1.0}"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
+    isExpaned: 0
 --- !u!1 &2520848045686471524
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +234,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2520848045731790655
 CanvasRenderer:
@@ -226,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -329,6 +360,7 @@ GameObject:
   - component: {fileID: 2520848045772023280}
   - component: {fileID: 2520848045772023278}
   - component: {fileID: 2520848045772023279}
+  - component: {fileID: 109438434442808455}
   m_Layer: 0
   m_Name: btn_Lesgs
   m_TagString: Untagged
@@ -411,6 +443,36 @@ MonoBehaviour:
   _disableColor: {r: 0.8, g: 0.8, b: 0.827451, a: 1}
   useIconDisableColor: 0
   IconDisableColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &109438434442808455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520848045772023281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyRootMotion: 0
+  script:
+    keys:
+    - iconRef
+    - defaultColor
+    - highlightColor
+    unityValues:
+    - {fileID: 2520848045847253108}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - 
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":1.0}"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
+    isExpaned: 0
 --- !u!1 &2520848045847253110
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -547,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.35686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -599,12 +661,15 @@ MonoBehaviour:
     - itemId
     - btn
     - thumbnail
+    - itemType
     unityValues:
     - {fileID: 0}
     - {fileID: 2520848045860629737}
     - {fileID: 6448280448502800945}
+    - {fileID: 0}
     values:
     - '{"type":"System.String, mscorlib","value":""}'
+    - 
     - 
     - 
     unityArrayValues: []
@@ -845,6 +910,7 @@ GameObject:
   - component: {fileID: 2520848045886072059}
   - component: {fileID: 2520848045886072057}
   - component: {fileID: 2520848045886072058}
+  - component: {fileID: 3079575508002026737}
   m_Layer: 0
   m_Name: btn_Shoes
   m_TagString: Untagged
@@ -927,6 +993,36 @@ MonoBehaviour:
   _disableColor: {r: 0.8, g: 0.8, b: 0.827451, a: 1}
   useIconDisableColor: 0
   IconDisableColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &3079575508002026737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520848045886072060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyRootMotion: 0
+  script:
+    keys:
+    - iconRef
+    - defaultColor
+    - highlightColor
+    unityValues:
+    - {fileID: 2520848046286717317}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - 
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":1.0}"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
+    isExpaned: 0
 --- !u!1 &2520848046042743689
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,6 +1034,7 @@ GameObject:
   - component: {fileID: 2520848046042743688}
   - component: {fileID: 2520848046042743686}
   - component: {fileID: 2520848046042743687}
+  - component: {fileID: 3853628056805558466}
   m_Layer: 0
   m_Name: btn_Head
   m_TagString: Untagged
@@ -1020,6 +1117,36 @@ MonoBehaviour:
   _disableColor: {r: 0.8, g: 0.8, b: 0.827451, a: 1}
   useIconDisableColor: 0
   IconDisableColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &3853628056805558466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520848046042743689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyRootMotion: 0
+  script:
+    keys:
+    - iconRef
+    - defaultColor
+    - highlightColor
+    unityValues:
+    - {fileID: 2520848045731790592}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - 
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
+    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":1.0}"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
+    isExpaned: 0
 --- !u!1 &2520848046095500775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1323,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2520848046124901545
 CanvasRenderer:
@@ -1219,7 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1427,7 +1554,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -40, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2520848046286717316
 CanvasRenderer:
@@ -1450,7 +1577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1707,28 +1834,18 @@ MonoBehaviour:
     keys:
     - itemButtons
     - selectionButtons
-    - shoesItems
-    - legsItems
-    - chestItems
-    - headItems
     - doneButton
     - isCounterRunning
     - timeSlider
-    - timeLimit
     - timeCounter
     - waitingContainer
     - loadingPanel
     unityValues:
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
     - {fileID: 6448280448487593124}
     - {fileID: 0}
     - {fileID: 2520848045884827449}
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 6448280448404930085}
     - {fileID: 6717497619277933862}
@@ -1737,18 +1854,9 @@ MonoBehaviour:
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":4,\"length\":4,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"System.String,
-      mscorlib\",\"isUnity\":false}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":4,\"length\":4,\"type\":\"System.String,
-      mscorlib\",\"isUnity\":false}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":8,\"length\":4,\"type\":\"System.String,
-      mscorlib\",\"isUnity\":false}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":12,\"length\":4,\"type\":\"System.String,
-      mscorlib\",\"isUnity\":false}"}'
     - 
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - 
-    - '{"type":"System.Single, mscorlib","value":"20"}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
     - 
     - 
@@ -1761,23 +1869,7 @@ MonoBehaviour:
     - {fileID: 2520848045569880426}
     - {fileID: 2520848045772023279}
     - {fileID: 2520848045886072058}
-    arrayValues:
-    - CR_64d72761683b04310880da8e
-    - CN_SH_660
-    - JP_SH_225
-    - JP_SH_217
-    - CR_64c71efba7fa290b171536a0
-    - CN_ANIME_BTM_22
-    - JP_BTM_282
-    - ANIME_BTM_3
-    - CR_6489cfd1ff8ac745815c6e76
-    - CN_ANIME_TOP_18
-    - JP_TOP_279
-    - TOP_1473
-    - CR_64c5ed831df5e918f47bf833
-    - HEADWEAR_643
-    - JP_HEADWEAR_168
-    - HEADWEAR_549
+    arrayValues: []
     script: {fileID: 4458252877524076426, guid: e60aaf9e0b8890b4086bfbf128e2cd64, type: 3}
     isExpaned: 0
 --- !u!1 &2520848046805162932
@@ -2348,7 +2440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2400,12 +2492,15 @@ MonoBehaviour:
     - itemId
     - btn
     - thumbnail
+    - itemType
     unityValues:
     - {fileID: 0}
     - {fileID: 2520848047268925437}
     - {fileID: 6448280447400738835}
+    - {fileID: 0}
     values:
     - '{"type":"System.String, mscorlib","value":""}'
+    - 
     - 
     - 
     unityArrayValues: []
@@ -2834,7 +2929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.33333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2886,12 +2981,15 @@ MonoBehaviour:
     - itemId
     - btn
     - thumbnail
+    - itemType
     unityValues:
     - {fileID: 0}
     - {fileID: 2520848047536111535}
     - {fileID: 6448280449081126732}
+    - {fileID: 0}
     values:
     - '{"type":"System.String, mscorlib","value":""}'
+    - 
     - 
     - 
     unityArrayValues: []
@@ -2996,7 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3048,12 +3146,15 @@ MonoBehaviour:
     - itemId
     - btn
     - thumbnail
+    - itemType
     unityValues:
     - {fileID: 0}
     - {fileID: 2520848047687673519}
     - {fileID: 6448280447490962230}
+    - {fileID: 0}
     values:
     - '{"type":"System.String, mscorlib","value":""}'
+    - 
     - 
     - 
     unityArrayValues: []
@@ -3411,7 +3512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6448280448089950913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3486,7 +3587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6448280448337003430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3831,7 +3932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6448280448821935563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4006,7 +4107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6448280449138437110
 RectTransform:
   m_ObjectHideFlags: 0

@@ -11,8 +11,12 @@
 			}
 		],
 		"types": [
-			"./Assets/FashionBattle_Template/Multiplayer/World.multiplay/SchemaTypes",
+			"./Assets/World.multiplay/SchemaTypes",
 			"./Library/PackageCache/zepeto.mannequin@1.2.1/Script",
+			"./Library/PackageCache/zepeto.module@1.0.0/Core/Runtime",
+			"./Library/PackageCache/zepeto.module@1.0.0/Shop/Runtime",
+			"./Library/PackageCache/zepeto.module@1.0.0/Social/Runtime",
+			"./Library/PackageCache/zepeto.module@1.0.0/Teleport/Runtime",
 			"./Library/PackageCache/zepeto.world@1.21.3",
 			"./Library/PackageCache/zepeto.world@1.21.3/typings/InputSystem",
 			"./Library/PackageCache/zepeto.world@1.21.3/typings/PostProcessing/Editor",

@@ -14,6 +14,8 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
     public timeLimit: number = 20;
     public timeCounter: number;
 
+    public loadingPanel: GameObject;
+
     public waitingContainer: GameObject;
 
     public headItems: string[];
@@ -120,6 +122,11 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour {
                 });
                 break;
         }
+    }
+
+    public SetLoadingPanel(value: bool)
+    {
+        this.loadingPanel.SetActive(value);
     }
 
 }

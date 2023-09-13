@@ -200,9 +200,14 @@ export default class GameManager extends ZepetoScriptBehaviour
     // Method to change the costume of the local player using the provided item code.
     public ChangeCostume(itemType: ITEM_TYPE ,itemCode: string) {
         // Use the LocalPlayer property to access the local player instance and set their costume using the provided item code.
+
+        UIManager.instance.SetLoadingPanel(true);
+
         ZepetoPlayers.instance.LocalPlayer.SetCostume(itemCode, () => {
             // Once the costume change is complete, log a message indicating the successful change.
             console.log(`Set Costume Complete : ${itemCode}`);
+        
+            UIManager.instance.SetLoadingPanel(false);
         });
 
         MultiplayerManager.instance.SetItemInPlayerData(itemType, itemCode);

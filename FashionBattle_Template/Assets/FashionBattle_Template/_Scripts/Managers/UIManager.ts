@@ -53,6 +53,12 @@ export default class UIManager extends ZepetoScriptBehaviour
         endPanel.SetEndPanelData(winnername, winnerscore);
     }
 
+    public SetLoadingPanel(value: bool)
+    {
+        let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
+        customizationPanel.SetLoadingPanel(value);
+    }
+
     public OnStartButton()
     {
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
@@ -85,7 +91,7 @@ export default class UIManager extends ZepetoScriptBehaviour
         startPanel.SetPlayersReady(value);
     }
 
-    public SetRadyButtonInteractable()
+    public SetReadyButtonInteractable()
     {
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         startPanel.SetReadyButtonInteractable();

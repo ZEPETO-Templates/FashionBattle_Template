@@ -51,7 +51,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
             ZepetoPlayers.instance.ZepetoCamera.gameObject.SetActive(false);
             
             
-            UIManager.instance.SetRadyButtonInteractable();
+            UIManager.instance.SetReadyButtonInteractable();
             const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
 
             this._currentZepetoChatacterDisplayerd = zepetoPlayer;

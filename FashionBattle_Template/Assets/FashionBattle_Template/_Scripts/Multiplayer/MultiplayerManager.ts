@@ -267,7 +267,6 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour {
 }
 
 export interface PlayerDataModel {
-    wolrdId?: string;
     ownerSessionId?: string;
     isReady?: boolean;
     isWinner?: boolean;

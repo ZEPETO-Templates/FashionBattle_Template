@@ -2,7 +2,7 @@ import { ZepetoScriptBehaviour } from "ZEPETO.Script";
 import { ZepetoPlayers } from "ZEPETO.Character.Controller";
 import { RoundedRectangleButton } from "ZEPETO.World.Gui";
 import VoteButton from "./VoteButton";
-import { Debug, Time } from "UnityEngine";
+import { Debug, GameObject, Time } from "UnityEngine";
 import MultiplayerManager from "../Multiplayer/MultiplayerManager";
 import { TMP_Text } from "TMPro";
 import GameManager from "../Managers/GameManager";
@@ -15,6 +15,10 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
 
   public timeSlider: Slider;
   public playerNameTxt: TMP_Text;
+
+  public votingPanel: GameObject;
+
+  private _isLocalPlayerVoting: bool = false;
 
   @HideInInspector() public isTimerRunning: boolean = true;
   @HideInInspector() public voteTimerCounter: number = 0;
@@ -71,10 +75,19 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
 
   public OnVoteSelection(voteIndex: number) 
   {
-    MultiplayerManager.instance.SetVotingData(
-      voteIndex,
-      this.currentPlayerIdShowed
-    );
+    if(!this._isLocalPlayerVoting)
+    {
+      MultiplayerManager.instance.SetVotingData(
+        voteIndex,
+        this.currentPlayerIdShowed
+      );
+    }
+  }
+
+  public SetVotingPanel(value: bool)
+  {
+    this._isLocalPlayerVoting = !value;
+    this.votingPanel.SetActive(value);
   }
 
   public OnFinishVoting() 

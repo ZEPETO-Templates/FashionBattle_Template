@@ -152,11 +152,13 @@ export default class GameManager extends ZepetoScriptBehaviour
     if (this.currentPlayerIndexInRunway >= this.totalPlayersInRunway) 
     {
       this.SwitchStage(STAGE.ENDGAME);
-    } else 
+    } 
+    else 
     {
-      UIManager.instance.SetNewxtPlayerToVote(
-        this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway)
-      );
+      let playerSessionId = this.GetPlayerIdByIndex(this.currentPlayerIndexInRunway);
+
+      UIManager.instance.SetNewxtPlayerToVote(playerSessionId);
+      UIManager.instance.SetVotingPanel(!ZepetoPlayers.instance.GetPlayer(playerSessionId).isLocalPlayer);
 
       this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
       this.currentPlayerIndexInRunway++;

@@ -26,6 +26,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
 
   public bodyPartSelected: BODYPART_SELECTION = BODYPART_SELECTION.HEAD;
 
+
   Start() 
   {
     this.timeCounter = GameManager.instance.customizationTimeLimit;

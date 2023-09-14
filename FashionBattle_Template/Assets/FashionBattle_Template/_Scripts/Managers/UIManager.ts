@@ -47,7 +47,7 @@ export default class UIManager extends ZepetoScriptBehaviour
         let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
         gamePanel.SetNextPlayerToVote(playerId);
     }
-
+    
     public SetWinnerPanelData(winnername: string, winnerscore: string) 
     {
         let endPanel = this.GetUiPanelType(UIPanelType.END).GetComponent<UIPanelEnd>();
@@ -58,6 +58,12 @@ export default class UIManager extends ZepetoScriptBehaviour
     {
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
         customizationPanel.SetLoadingPanel(value);
+    }
+
+    public SetVotingPanel(value: bool) 
+    {
+        let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
+        gamePanel.SetVotingPanel(value);
     }
 
     public OnStartButton() 

@@ -905,30 +905,21 @@ MonoBehaviour:
   applyRootMotion: 0
   script:
     keys:
-    - voteButtons
-    - currentPlayerIdShowed
+    - votingPanel
     - playerNameTxt
-    - isTimerRunning
-    - voteTimerLimit
-    - voteTimerCounter
     - timeSlider
+    - voteButtons
     unityValues:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 915512015332314504}
     - {fileID: 915512015332314583}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
     - {fileID: 7446637309031758072}
+    - {fileID: 0}
     values:
+    - 
+    - 
+    - 
     - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":5,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
-    - '{"type":"System.String, mscorlib","value":""}'
-    - 
-    - '{"type":"System.Boolean, mscorlib","value":"False"}'
-    - '{"type":"System.Single, mscorlib","value":"10"}'
-    - '{"type":"System.Single, mscorlib","value":"0"}'
-    - 
     unityArrayValues:
     - {fileID: 915512015332314136}
     - {fileID: 915512015332314132}

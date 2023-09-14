@@ -8,25 +8,27 @@ import GameManager from "../Managers/GameManager";
 import { ITEM_TYPE } from "../Multiplayer/MultiplayerManager";
 import ClothingManager from "../Managers/ClothingManager";
 
+// This class controls the view of the panel for customization options.
 export default class UIPanelCustomization extends ZepetoScriptBehaviour 
 {
-  public timeSlider: Slider;
+  @Header("Time")
+  public timeSlider: Slider; // The time slider control in the panel.
 
-  @HideInInspector() public isCounterRunning: bool = false;
-  @HideInInspector() public timeCounter: number;
+  @HideInInspector() public isCounterRunning: bool = false; // Indicates whether a counter is currently running 
+  @HideInInspector() public timeCounter: number; // The current time counter value reference
 
-  public loadingPanel: GameObject;
+  public loadingPanel: GameObject; // The loading panel reference
 
-  public waitingContainer: GameObject;
+  public waitingContainer: GameObject; // The waiting container reference
 
-  public doneButton: RoundedRectangleButton;
+  public doneButton: RoundedRectangleButton; // The done button reference
 
-  public selectionButtons: RoundedRectangleButton[];
-  public itemButtons: GameObject[];
+  public selectionButtons: RoundedRectangleButton[]; // An array of selection buttons 
+  public itemButtons: GameObject[]; // An array of items buttons 
 
   public bodyPartSelected: BODYPART_SELECTION = BODYPART_SELECTION.HEAD;
 
-
+   // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time
   Start() 
   {
     this.timeCounter = GameManager.instance.customizationTimeLimit;
@@ -69,14 +71,16 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     });
   }
 
+   // This method resets the UI panel to its initial state for customization.
   public ResetPanel() 
   {
-    this.timeCounter = GameManager.instance.customizationTimeLimit;
-    this.timeSlider.maxValue = GameManager.instance.customizationTimeLimit;
-    this.isCounterRunning = true;
-    this.waitingContainer.SetActive(false);
+    this.timeCounter = GameManager.instance.customizationTimeLimit; // Set the time counter
+    this.timeSlider.maxValue = GameManager.instance.customizationTimeLimit; // Set the time slider's maximum value
+    this.isCounterRunning = true; // Start the counter
+    this.waitingContainer.SetActive(false); // Hide the waiting container
   }
 
+    // Update is called every frame, if the MonoBehaviour is enabled
   Update() 
   {
     if (this.isCounterRunning) 

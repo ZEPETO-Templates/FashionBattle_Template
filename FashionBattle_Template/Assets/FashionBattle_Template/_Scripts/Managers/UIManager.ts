@@ -71,6 +71,7 @@ export default class UIManager extends ZepetoScriptBehaviour
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
+    //This method reset all panels
     public ResetPanels() 
     {
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
@@ -104,23 +105,30 @@ export default class UIManager extends ZepetoScriptBehaviour
         startPanel.SetReadyButtonInteractable();
     }
 
+    //This method controls the visual panels, recive the UIPanelType and find it in all panels for activate.
     public SwitchUIPanel(uiPanelType: UIPanelType): void 
     {
+        //We change the current panel type for the new one
         this.currentPanelType = uiPanelType;
 
+        //We go through all the references of the ui panels
         for (var i = 0; i < this.uiPanels.length; i++) 
         {
+            //Check if the type in "i" is the same as the new one
             if (this.uiPanels[i].uiPanelType == uiPanelType) 
             {
+                //If it is correct, activate the panel with the corresponding type
                 this.uiPanels[i].Show(true);
             }
             else 
             {
+                //If it is not correct, deactivate the panel
                 this.uiPanels[i].Show(false);
             }
         }
     }
 
+    //This method returns a panel with the correct UIPanel type
     private GetUiPanelType(uiPanelType: UIPanelType): UIPanel 
     {
         let result = this.uiPanels[i];

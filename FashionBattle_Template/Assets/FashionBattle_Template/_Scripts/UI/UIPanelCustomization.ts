@@ -38,6 +38,11 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
 
     this.waitingContainer.SetActive(false);
 
+    this.itemButtons.forEach((element) => 
+    {
+      element.GetComponent<CustomizationButton>().SetUiParentPanel(this.gameObject);
+    });
+
     // Fist Populate
     this.PopulateButtons(BODYPART_SELECTION.HEAD);
     this.HighlightButtons(0);
@@ -144,9 +149,10 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
         break;
     }
   }
+
   HighlightButtons(index: number)
   {
-    for (let i = 0; i < this.selectionButtons.Length; i++) {
+    for (let i = 0; i < this.selectionButtons.length; i++) {
       this.selectionButtons[i].GetComponent<CustomButton>().ResetButton();
     }
 
@@ -157,6 +163,15 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
   {
     this.loadingPanel.SetActive(value);
   }
+
+  public OnSelectItemButton()
+  {
+    this.itemButtons.forEach((element) => 
+    {
+      element.GetComponent<CustomizationButton>().SetSelected(false);
+    });
+  }
+
 }
 
 enum BODYPART_SELECTION 

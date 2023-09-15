@@ -20,9 +20,12 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
-    UIManager_1 = require(\"../Managers/UIManager\");\r\nclass UIPanel extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    UIManager_1 = require(\"../Managers/UIManager\");\r\n// This class controls the
+    view of the UI panel\r\nclass UIPanel extends ZEPETO_Script_1.ZepetoScriptBehaviour
     {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.uiPanelType
-    = UIManager_1.UIPanelType.NONE;\r\n    }\r\n    Show(value) {\r\n        this.gameObject.SetActive(value);\r\n   
-    }\r\n}\r\nexports.default = UIPanel;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJUGFuZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQscURBQW1EO0FBRW5ELE1BQXFCLE9BQVEsU0FBUSxxQ0FBcUI7SUFBMUQ7O1FBRVcsZ0JBQVcsR0FBZ0IsdUJBQVcsQ0FBQyxJQUFJLENBQUM7SUFNdkQsQ0FBQztJQUpVLElBQUksQ0FBQyxLQUFXO1FBRW5CLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ3JDLENBQUM7Q0FDSjtBQVJELDBCQVFDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanel.ts","manifest":{"properties":[{"assembly":"","name":"uiPanelType","type":"UIPanelType","isArray":false,"initValue":["NONE"],"enumKeys":["START","LOBBY","GAME","CUSTOMIZATION","END","NONE"],"enumValues":["0","1","2","3","4","5"],"attributes":[]}],"name":"UIPanel","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 0f20a4fbb0c7da6df3cbd6517862dac1
+    = UIManager_1.UIPanelType.NONE; // The type of UI panel reference\r\n    }\r\n   
+    // Show or hide the UI panel.\r\n    Show(value) {\r\n        // Set the visibility
+    of the GameObject\r\n        this.gameObject.SetActive(value);\r\n    }\r\n}\r\nexports.default
+    = UIPanel;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJUGFuZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFDckQscURBQW1EO0FBRW5ELCtDQUErQztBQUMvQyxNQUFxQixPQUFRLFNBQVEscUNBQXFCO0lBQTFEOztRQUVXLGdCQUFXLEdBQWdCLHVCQUFXLENBQUMsSUFBSSxDQUFDLENBQUksaUNBQWlDO0lBUTVGLENBQUM7SUFORyw2QkFBNkI7SUFDdEIsSUFBSSxDQUFDLEtBQVc7UUFFdEIsdUNBQXVDO1FBQ3BDLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ3JDLENBQUM7Q0FDSjtBQVZELDBCQVVDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanel.ts","manifest":{"properties":[{"assembly":"","name":"uiPanelType","type":"UIPanelType","isArray":false,"initValue":["NONE"],"enumKeys":["START","LOBBY","GAME","CUSTOMIZATION","END","NONE"],"enumValues":["0","1","2","3","4","5"],"attributes":[]}],"name":"UIPanel","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: d0cd183dbc45af352e6949e13b11d184
   onlyWriteTrigger: 0

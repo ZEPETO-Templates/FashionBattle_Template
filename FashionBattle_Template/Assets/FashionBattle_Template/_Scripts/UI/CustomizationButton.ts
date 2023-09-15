@@ -4,40 +4,52 @@ import GameManager from '../Managers/GameManager';
 import DownloadThumbnailSample from './DownloadThumbnailSample';
 import { Color, GameObject } from 'UnityEngine';
 import { ITEM_TYPE } from '../Multiplayer/MultiplayerManager';
+import UIPanelCustomization from './UIPanelCustomization';
 
 export default class CustomizationButton extends ZepetoScriptBehaviour 
 {
-    public itemId: string;
-    public itemType: ITEM_TYPE;
-
     public btn: RoundedRectangleButton;
     public thumbnail: GameObject;
-
-    private index: number;
+    public selectedImage: GameObject;
+    
+    private _uiPanelCustomization: GameObject;
+    private _itemId: string;
+    private _itemType: ITEM_TYPE;
 
     Start() 
     {    
         this.btn.OnClick.AddListener(()=> 
         {
-            GameManager.instance.ChangeCostume(this.itemType, this.itemId);
+            GameManager.instance.ChangeCostume(this._itemType, this._itemId);
             this.SelectButton();
         });
     }
 
     public SetItemId(itemType: ITEM_TYPE ,itemId: string)
     {
-        this.itemId = itemId;
-        this.itemType = itemType;
+        this._itemId = itemId;
+        this._itemType = itemType;
         this.thumbnail.GetComponent<DownloadThumbnailSample>().ClearAndReloadImage(itemId);
     }
 
     public SelectButton()
     {
-        this.btn.color = Color.black;
+        this._uiPanelCustomization.GetComponent<UIPanelCustomization>().OnSelectItemButton();
+        this.SetSelected(true);
     }
 
     public ResetButton()
     {
         this.btn.color = Color.white;
+    }
+
+    public SetUiParentPanel(uiPanelCustomization: GameObject)
+    {
+        this._uiPanelCustomization = uiPanelCustomization;
+    }
+
+    public SetSelected(value: boolean)
+    {
+        this.selectedImage.SetActive(value);
     }
 }

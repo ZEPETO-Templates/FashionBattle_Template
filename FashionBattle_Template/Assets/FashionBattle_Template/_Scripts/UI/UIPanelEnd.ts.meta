@@ -21,11 +21,17 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
     GameManager_1 = require(\"../Managers/GameManager\");\r\nconst ZEPETO_World_Gui_1
-    = require(\"ZEPETO.World.Gui\");\r\nclass UIPanelEnd extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    Start() {\r\n        this.restartButton.OnClick.AddListener(() => {\r\n           
-    GameManager_1.default.instance.RestartGame();\r\n        });\r\n    }\r\n   
-    SetEndPanelData(winnername, winnerscore) {\r\n        this.winnerName.text =
-    winnername;\r\n        this.winnerScore.text = \"Score: \" + winnerscore + \"!\";\r\n   
-    }\r\n}\r\nexports.default = UIPanelEnd;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbEVuZC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJUGFuZWxFbmQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBcUQ7QUFDckQseURBQWtEO0FBQ2xELHVEQUEwRDtBQUUxRCxNQUFxQixVQUFXLFNBQVEscUNBQXFCO0lBT3pELEtBQUs7UUFFRCxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBRXhDLHFCQUFXLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQ3ZDLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVNLGVBQWUsQ0FBQyxVQUFrQixFQUFFLFdBQW1CO1FBRTFELElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxHQUFHLFVBQVUsQ0FBQztRQUNsQyxJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksR0FBRyxTQUFTLEdBQUcsV0FBVyxHQUFHLEdBQUcsQ0FBQztJQUMxRCxDQUFDO0NBQ0o7QUFwQkQsNkJBb0JDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanelEnd.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"winnerName","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"Unity.TextMeshPro","name":"winnerScore","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"ZEPETO.World.Gui","name":"restartButton","type":"ZEPETO.World.Gui.RoundedRectangleButton","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIPanelEnd","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 9f072e5210298c4af766aed4b627da3e
+    = require(\"ZEPETO.World.Gui\");\r\n// This class controls the view of the endgame
+    panel\r\nclass UIPanelEnd extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n   
+    // Start is called on the frame when a script is enabled just before any of the
+    Update methods is called the first time\r\n    Start() {\r\n        // The call
+    to the method to restart the game is assigned to the button event\r\n       
+    this.restartButton.OnClick.AddListener(() => {\r\n            GameManager_1.default.instance.RestartGame();\r\n       
+    });\r\n    }\r\n    // This method set the name and the winner''s score\r\n   
+    SetEndPanelData(winnername, winnerscore) {\r\n        // Set the name of the
+    winner to the winnerName text element.\r\n        this.winnerName.text = winnername;\r\n       
+    // Set the winner''s score to the winnerScore text element, with an additional
+    message\r\n        this.winnerScore.text = \"Score: \" + winnerscore + \"!\";\r\n   
+    }\r\n}\r\nexports.default = UIPanelEnd;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlQYW5lbEVuZC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlVJUGFuZWxFbmQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxpREFBcUQ7QUFDckQseURBQWtEO0FBQ2xELHVEQUEwRDtBQUUxRCxvREFBb0Q7QUFDcEQsTUFBcUIsVUFBVyxTQUFRLHFDQUFxQjtJQU96RCx1SEFBdUg7SUFDdkgsS0FBSztRQUVMLDZFQUE2RTtRQUN6RSxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBRXhDLHFCQUFXLENBQUMsUUFBUSxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQ3ZDLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELGtEQUFrRDtJQUMzQyxlQUFlLENBQUMsVUFBa0IsRUFBRSxXQUFtQjtRQUU5RCw2REFBNkQ7UUFDekQsSUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLEdBQUcsVUFBVSxDQUFDO1FBRWxDLHFGQUFxRjtRQUNyRixJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksR0FBRyxTQUFTLEdBQUcsV0FBVyxHQUFHLEdBQUcsQ0FBQztJQUMxRCxDQUFDO0NBQ0o7QUExQkQsNkJBMEJDIn0=","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/UIPanelEnd.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"winnerName","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"Unity.TextMeshPro","name":"winnerScore","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"ZEPETO.World.Gui","name":"restartButton","type":"ZEPETO.World.Gui.RoundedRectangleButton","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UIPanelEnd","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: c276ca5de8565e321c2d56e1309fbeef
   onlyWriteTrigger: 0

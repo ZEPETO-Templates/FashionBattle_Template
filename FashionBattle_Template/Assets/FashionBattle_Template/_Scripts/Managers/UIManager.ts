@@ -18,13 +18,14 @@ export enum UIPanelType
 
 export default class UIManager extends ZepetoScriptBehaviour 
 {
-    public static instance: UIManager;
+    public static instance: UIManager; // Singleton instance variable
 
-    public uiPanelsGameObject: GameObject[];
-    private uiPanels: UIPanel[];
+    public uiPanelsGameObject: GameObject[]; // Reference to all panels in scene
+    private uiPanels: UIPanel[]; // Reference to save all UIPanel scripts
 
-    @HideInInspector() public currentPanelType: UIPanelType = UIPanelType.NONE;
+    @HideInInspector() public currentPanelType: UIPanelType = UIPanelType.NONE; // This variable saves the current panel type
 
+    // Awake is called when an enabled script instance is being loaded.
     Awake() 
     {
         // Singleton pattern
@@ -32,16 +33,19 @@ export default class UIManager extends ZepetoScriptBehaviour
         else UIManager.instance = this;
     }
 
+    // This method is responsible for starting all systems
     public Init(): void 
     {
-        this.uiPanels = [];
+        this.uiPanels = []; //First start the array
 
         for (var i = 0; i < this.uiPanelsGameObject.length; i++) 
         {
+            //Then, get the reference of the scripts of each panel in the scene
             this.uiPanels[i] = this.uiPanelsGameObject[i].GetComponent<UIPanel>();
         }
     }
 
+    //This method is used to update the next player to vote
     public SetNewxtPlayerToVote(playerId: string) 
     {
         let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();

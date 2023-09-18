@@ -29,7 +29,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
 
   public bodyPartSelected: BODYPART_SELECTION = BODYPART_SELECTION.HEAD;
 
-   // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time
+  // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time
   Start() 
   {
     this.timeCounter = GameManager.instance.customizationTimeLimit;

@@ -66,6 +66,7 @@ export default class GameManager extends ZepetoScriptBehaviour
     this.InitGame();
   }
 
+  // Update is called every frame, if the MonoBehaviour is enabled
   Update() 
   {
     if (this.playersReady && !this.isGameStarted) 

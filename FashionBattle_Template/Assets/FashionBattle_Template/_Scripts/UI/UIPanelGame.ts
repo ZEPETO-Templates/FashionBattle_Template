@@ -36,7 +36,7 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
     this.timeSlider.maxValue = GameManager.instance.voteTimerLimit;
   }
 
-    // Update is called every frame, if the MonoBehaviour is enabled
+  // Update is called every frame, if the MonoBehaviour is enabled
   Update() 
   {
     if (this.isTimerRunning) // Check if the voting timer is currently running.

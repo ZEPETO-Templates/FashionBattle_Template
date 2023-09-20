@@ -1,7 +1,6 @@
-import { Debug, GameObject, Time } from "UnityEngine";
+import { GameObject, Time } from "UnityEngine";
 import { ZepetoScriptBehaviour } from "ZEPETO.Script";
 import { RoundedRectangleButton } from "ZEPETO.World.Gui";
-import UIManager, { UIPanelType } from "../Managers/UIManager";
 import CustomizationButton from "./CustomizationButton";
 import { Slider } from "UnityEngine.UI";
 import GameManager from "../Managers/GameManager";
@@ -51,24 +50,28 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     {
       this.PopulateButtons(BODYPART_SELECTION.HEAD);
       this.HighlightButtons(0);
+      this.OnSelectItemButton();
     });
 
     this.selectionButtons[1].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.CHEST);
       this.HighlightButtons(1);
+      this.OnSelectItemButton();
     });
 
     this.selectionButtons[2].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.LEGS);
       this.HighlightButtons(2);
+      this.OnSelectItemButton();
     });
 
     this.selectionButtons[3].OnClick.AddListener(() => 
     {
       this.PopulateButtons(BODYPART_SELECTION.SHOES);
       this.HighlightButtons(3);
+      this.OnSelectItemButton();
     });
 
     this.doneButton.OnClick.AddListener(() => 
@@ -82,7 +85,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     });
   }
 
-   // This method resets the UI panel to its initial state for customization.
+  // This method resets the UI panel to its initial state for customization.
   public ResetPanel() 
   {
     this.timeCounter = GameManager.instance.customizationTimeLimit; // Set the time counter
@@ -91,7 +94,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     this.waitingContainer.SetActive(false); // Hide the waiting container
   }
 
-    // Update is called every frame, if the MonoBehaviour is enabled
+  // Update is called every frame, if the MonoBehaviour is enabled
   Update() 
   {
     if (this.isCounterRunning) 

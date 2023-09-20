@@ -228,7 +228,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
 
     public ResetCharacterClothes()
     {
-        Debug.LogError("Reset Character Clothes");
+        
     }
 
     *WaitAndUpdateClothes(sessionId: string)

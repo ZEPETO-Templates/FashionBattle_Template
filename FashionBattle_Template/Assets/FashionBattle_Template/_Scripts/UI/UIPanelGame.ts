@@ -77,7 +77,6 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
 
   public SetVoteSelection(voteIndex: number) 
   {
-    Debug.LogError("SetVoteSelection: " + voteIndex);
     this.voteButtons.forEach((element) => 
     {
       let voteButton = element.GetComponent<VoteButton>();

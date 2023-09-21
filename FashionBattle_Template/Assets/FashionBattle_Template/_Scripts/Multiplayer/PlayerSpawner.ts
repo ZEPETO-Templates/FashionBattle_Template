@@ -15,7 +15,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
     
     // ClothingPickup
     public _previewer: MannequinPreviewer;
-    public itemsContent: ItemContent[];
+    @HideInInspector() public itemsContent: ItemContent[];
     
     private itemContentHead: ItemContent;
     private itemContentChest: ItemContent;

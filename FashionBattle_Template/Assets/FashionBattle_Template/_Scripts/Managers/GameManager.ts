@@ -41,7 +41,7 @@ export default class GameManager extends ZepetoScriptBehaviour
 
   @Header("Settings")
   public timeToStart: number; //Total time to start the game
-  public counterToStart: number = 10; //Counter used to update when all players are ready
+  @HideInInspector()public counterToStart: number = 10; //Counter used to update when all players are ready
   public voteTimerLimit: number = 10; //Total time for voting
   public customizationTimeLimit: number = 10; //Total time for customization
 

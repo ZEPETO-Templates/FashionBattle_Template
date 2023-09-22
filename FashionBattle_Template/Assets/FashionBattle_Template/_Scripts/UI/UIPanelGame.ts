@@ -57,6 +57,7 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
     }
   }
 
+  // This method is used to update to next player to vote
   public SetNextPlayerToVote(playerId: string) 
   {
    // Update the ID of the current player to be displayed.
@@ -75,20 +76,27 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
     this.SetVoteSelection(0);
   }
 
+  // This method is used to show or hide stars in voting panel
   public SetVoteSelection(voteIndex: number) 
   {
     this.voteButtons.forEach((element) => 
     {
+      // We obtain the VoteButton component
       let voteButton = element.GetComponent<VoteButton>();
+
+      // Check if button index is same or minor of vote index value
       if (voteButton.buttonIndex <= voteIndex) 
       {
+        //If correct, show a star
         voteButton.SetSelectedImg(true);
       } else 
       {
+        //If not a correct, hide a star
         voteButton.SetSelectedImg(false);
       }
     });
 
+    // Call the function OnVoteSelection with vote index value
     this.OnVoteSelection(voteIndex);
   }
 
@@ -104,15 +112,17 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
     }
   }
 
+  // This method is used to show or hide the voting panel
   public SetVotingPanel(value: bool)
   {
     this._isLocalPlayerVoting = !value;
     this.votingPanel.SetActive(value);
   }
 
+  // This method is called on finish voting
   public OnFinishVoting() 
   {
-    Debug.LogError("OnFinishVoting");
+    // Call the function OnCurrentVotingFinish
     GameManager.instance.OnCurrentVotingFinish();
   }
 }

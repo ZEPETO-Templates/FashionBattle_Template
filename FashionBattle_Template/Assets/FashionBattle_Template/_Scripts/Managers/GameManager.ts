@@ -63,19 +63,28 @@ export default class GameManager extends ZepetoScriptBehaviour
   // Start is called on the frame when a script is enabled just before any of the Update methods are called the first time
   Start() 
   {
+    // Call the function InitGame
     this.InitGame();
   }
 
   // Update is called every frame, if the MonoBehaviour is enabled
   Update() 
   {
+    // Check if the playersReady value is true and isGameStarted value is false
     if (this.playersReady && !this.isGameStarted) 
     {
+      // We subtract 1 real second from the counter
       this.counterToStart -= Time.deltaTime;
+
+      // Check if the counter values is minor of cero
       if (this.counterToStart < 0) 
       {
+        // We set the isGameStarted value to true
         this.isGameStarted = true;
+        // Call the SwitchUIPanel function to switch to the Cutomization panel
         UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
+
+        // Call the function SwitchStage
         this.SwitchStage(STAGE.CUSTOMIZATION);
       }
     }
@@ -101,7 +110,7 @@ export default class GameManager extends ZepetoScriptBehaviour
   //This method is responsible for controlling the stages and panels that are displayed on the screen
   public SwitchStage(stage: STAGE) 
   {
-    // First we save the current stage
+    // We save the current stage
     this._currentStage = stage;
 
     // We disable all stages screens.
@@ -197,7 +206,7 @@ export default class GameManager extends ZepetoScriptBehaviour
 
       //Call the method for change player cloth
       this.SetCharacterWithCloth(this.currentPlayerIndexInRunway);
-      //Upgrade the index
+      // We upgrade the index
       this.currentPlayerIndexInRunway++;
     }
   }
@@ -208,15 +217,19 @@ export default class GameManager extends ZepetoScriptBehaviour
     return MultiplayerManager.instance.playersData[index].ownerSessionId;
   }
 
+  // This method is used to notify the server and change current player in runway
   public OnCurrentVotingFinish() 
   {
+    // Call the function SendVotingData
     MultiplayerManager.instance.SendVotingData();
+    // Call the function SetNextPlayerInRunway
     this.SetNextPlayerInRunway();
   }
 
   //This method is used to call the method responsible for changing the player's clothes.
   public SetCharacterWithCloth(index: number) 
   {
+    // Call the function ShowCharacterWithCloth witch current player index
     PlayerSpawner.instance.ShowCharacterWithCloth(
       MultiplayerManager.instance.playersData[index].ownerSessionId
     );
@@ -230,26 +243,38 @@ export default class GameManager extends ZepetoScriptBehaviour
 
     //Call the funtion SetCounterToStart
     UIManager.instance.SetCounterToStart(value);
+
+    // Check if the value is false
     if (!value) 
     {
+      // We set the counters to start game
       this.counterToStart = this.timeToStart;
     }
   }
 
   public EvaluateAndSetVote() 
   {
+     // We obtain the winner's data
     let winnerData: VoteModel = MultiplayerManager.instance.GetWinner();
 
+    // We obtain the winner's name
     let winnerName = ZepetoPlayers.instance.GetPlayer(
       winnerData.sessionId
     ).name;
+
+    // We obtain the winner's score
     let winnerScore = winnerData.finalVote.toString();
 
+    // Check if the current stage is ENDGAME 
     if (this._currentStage == STAGE.ENDGAME) 
     {
+      // Call the function HideCurrentZepetoPlayer
       PlayerSpawner.instance.HideCurrentZepetoPlayer();
 
+      // Call the function ShowCharacterWithCloth with winner session id     
       PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
+
+      // Call the function SetWinnerPanelData with winner name and winner score 
       UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
     }
   }
@@ -268,14 +293,20 @@ export default class GameManager extends ZepetoScriptBehaviour
     UIManager.instance.SwitchUIPanel(UIPanelType.END);
   }
 
+  // This method is used to notify the server when the local player is ready
   public OnPlayerReady() 
   {
+    // We change the value of ready players to the new value
     this.isPlayerReady = !this.isPlayerReady;
+
+    // Call the function SetPlayerReady
     MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
   }
 
+  // This method is used to notify the server when the local player is done change customize
   public OnPlayerDoneCustomize(value: boolean) 
   {
+    // Call the function SetPlayerIsCustomize
     MultiplayerManager.instance.SetPlayerIsCustomize(value);
   }
 

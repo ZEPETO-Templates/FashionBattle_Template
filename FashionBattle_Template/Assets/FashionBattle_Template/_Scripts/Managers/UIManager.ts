@@ -45,67 +45,96 @@ export default class UIManager extends ZepetoScriptBehaviour
         }
     }
 
-    //This method is used to update the next player to vote
+    // This method is used to update the next player to vote
     public SetNewxtPlayerToVote(playerId: string) 
     {
+        // We obtain the component UIPanelGame
         let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
+        // Call the function SetNextPlayerToVote with the player identifier value
         gamePanel.SetNextPlayerToVote(playerId);
     }
     
+    // This method is used to update the winner data
     public SetWinnerPanelData(winnername: string, winnerscore: string) 
     {
+        // We obtain the component UIPanelEnd
         let endPanel = this.GetUiPanelType(UIPanelType.END).GetComponent<UIPanelEnd>();
+        // Call the function SetEndPanelData with the winner name and winner score value
         endPanel.SetEndPanelData(winnername, winnerscore);
     }
 
+    // This method is used to show loading panel
     public SetLoadingPanel(value: bool) 
     {
+        // We obtain the component UIPanelCustomization
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
+        // Call the function SetLoadingPanel with the new value
         customizationPanel.SetLoadingPanel(value);
     }
 
+    // This method is used to show voting panel
     public SetVotingPanel(value: bool) 
     {
+        // We obtain the component UIPanelGame
         let gamePanel = this.GetUiPanelType(UIPanelType.GAME).GetComponent<UIPanelGame>();
+        // Call the function SetVotingPanel with the new value
         gamePanel.SetVotingPanel(value);
     }
 
+    // This mehod is used when click on start button
     public OnStartButton() 
     {
+        // Call the function SwitchUIPanel with value CUSTOMIZATION
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
     //This method reset all panels
     public ResetPanels() 
     {
+        // We obtain the component UIPanelCustomization
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
+        // Call the function ResetPanel
         customizationPanel.ResetPanel();
 
+        // We obtain the component UIPanelStarts
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        // Call the function ResetPanel
         startPanel.ResetPanel();
     }
 
+    // This method is used to update the counter to start game
     public SetCounterToStart(value: bool) 
     {
+        // We obtain the component UIPanelStart
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        // Call the function ShowCountdownText with the new value
         startPanel.ShowCountdownText(value);
     }
 
+    // This method is used to set all players in game
     public SetPlayersOnline(value: number) 
     {
+        // We obtain the component UIPanelStart
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        // Call the function SetPlayersCount with the new value
         startPanel.SetPlayersCount(value);
     }
 
+    // This method is used to set all ready players
     public SetPlayersReady(value: number) 
     {
+        // We obtain the component UIPanelStart
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        // Call the function SetPlayersReady with the new value
         startPanel.SetPlayersReady(value);
     }
 
+    // This method is used to set ready button interactable
     public SetReadyButtonInteractable() 
     {
+        // We obtain the component UIPanelStart
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
+        // Call the function SetReadyButtonInteractable
         startPanel.SetReadyButtonInteractable();
     }
 

@@ -118,7 +118,6 @@ export default class GameManager extends ZepetoScriptBehaviour
         UIManager.instance.ResetPanels();
         // And we switch the current UI for start game
         UIManager.instance.SwitchUIPanel(UIPanelType.START);
-        PlayerSpawner.instance.ResetCharacterClothes();
         break;
       // When current stage is "CUSTOMIZATION"        
       case STAGE.CUSTOMIZATION:
@@ -131,6 +130,11 @@ export default class GameManager extends ZepetoScriptBehaviour
         PlayerSpawner.instance.ShowCharacterOriginal(
           MultiplayerManager.instance.localPlayerData.ownerSessionId
         );
+
+        PlayerSpawner.instance.ResetPreviewData(
+          MultiplayerManager.instance.localPlayerData.ownerSessionId
+        );
+
         break;
       // When current stage is "RUNWAY"         
       case STAGE.RUNWAY:

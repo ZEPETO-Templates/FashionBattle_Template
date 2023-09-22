@@ -180,10 +180,13 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
 
     public SendVotingData() 
     {
-        const data = new RoomData();
-        data.Add("sessionId", this.currentChatacterVoteId);
-        data.Add("voteValue", this.currentVoteValue);
-        this._room.Send(MESSAGE.SendVoteData, data.GetObject());
+        if(this.currentChatacterVoteId != this.localPlayerData.ownerSessionId)
+        {
+            const data = new RoomData();
+            data.Add("sessionId", this.currentChatacterVoteId);
+            data.Add("voteValue", this.currentVoteValue);
+            this._room.Send(MESSAGE.SendVoteData, data.GetObject());
+        }
     }
 
     public SetPlayerIsCustomize(value: bool) 

@@ -24,12 +24,6 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
 
     private _currentZepetoChatacterDisplayerd : ZepetoPlayer;
 
-    private _originalItemContentHead: ItemContent;
-    private _originalItemContentChest: ItemContent;
-    private _originalItemContentLegs: ItemContent;
-    private _originalItemContentShoes: ItemContent;
-    private _originalPreviewer: MannequinPreviewer;
-    
     /* Singleton */
     private static m_instance: PlayerSpawner = null;
     public static get instance(): PlayerSpawner 
@@ -114,6 +108,13 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
 
     public ResetPreviewData(sessionId: string)
     {
+        if(this._previewer != null)
+        {
+            this._previewer.ResetContents();
+            this._previewer = null;
+            this.itemsContent = [];
+        }
+
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
         let context: ZepetoContext = zepetoPlayer.character.Context;
 
@@ -137,12 +138,8 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         this.itemContentShoes.property = ZepetoPropertyFlag.ClothesShoes;
         this.itemsContent.push(this.itemContentShoes);
 
-        if(this._originalPreviewer == null) 
-        {
-            this._originalPreviewer = new MannequinPreviewer(context, this.itemsContent);
-        }
-
-        this._originalPreviewer.PreviewContents();
+        this._previewer = new MannequinPreviewer(context, this.itemsContent);
+        this._previewer.PreviewContents();
     }
     
     public UpdateCharacterCloth(sessionId: string)
@@ -186,10 +183,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
         let context: ZepetoContext = zepetoPlayer.character.Context;
 
-        if(this._previewer == null) 
-        {
-            this._previewer = new MannequinPreviewer(context, this.itemsContent);
-        }
+        this._previewer = new MannequinPreviewer(context, this.itemsContent);
         this._previewer.PreviewContents();
     }
 

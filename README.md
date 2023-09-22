@@ -1,17 +1,17 @@
 
-# Find a pair game
+# Fashion Battle Template
 
 ## 📢 About
 
-Nice to meet you Creators! 👋 Welcome to Runner template guide!
+Nice to meet you Creators! 👋 Welcome to Fashion Battle guide!
 
-With Runner you can create amazing worlds to play with your friends!
+With Fashion Battle you can create amazing worlds to play with your friends!
 
 Now, are you ready to start?
 
   
 
-## ❓ How to create with Runner template
+## ❓ How to create with Fashion Battle Template
 
 :wrench: Installation and settings
 

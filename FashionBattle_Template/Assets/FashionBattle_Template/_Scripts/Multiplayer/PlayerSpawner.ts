@@ -68,14 +68,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
     
     private Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.LogError("RESET CLOTH");
-            this._previewer.ResetContent(ZepetoPropertyFlag.AccessoryHeadwear);
-            this._previewer.ResetContent(ZepetoPropertyFlag.ClothesTop);
-            this._previewer.ResetContent(ZepetoPropertyFlag.ClothesBottom);
-            this._previewer.ResetContent(ZepetoPropertyFlag.ClothesShoes);
-        }
+     
     }
 
     /** multiplayer Spawn **/
@@ -119,28 +112,36 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
         ZepetoPlayers.instance.RemovePlayer(sessionId);
     }
 
-    public SaveOriginalPreviewData(sessionId: string)
+    public ResetPreviewData(sessionId: string)
     {
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
         let context: ZepetoContext = zepetoPlayer.character.Context;
 
-        this._originalItemContentHead = new ItemContent();
-        this._originalItemContentHead.id = "";
-        this._originalItemContentHead.property = ZepetoPropertyFlag.AccessoryHeadwear;
+        this.itemContentHead = new ItemContent();
+        this.itemContentHead.id = "";
+        this.itemContentHead.property = ZepetoPropertyFlag.AccessoryHeadwear;
+        this.itemsContent.push(this.itemContentHead);
 
-        this._originalItemContentChest = new ItemContent();
-        this._originalItemContentChest.id = "";
-        this._originalItemContentHead.property = ZepetoPropertyFlag.ClothesTop;
+        this.itemContentChest = new ItemContent();
+        this.itemContentChest.id = "";
+        this.itemContentChest.property = ZepetoPropertyFlag.ClothesTop;
+        this.itemsContent.push(this.itemContentChest);
 
-        this._originalItemContentLegs = new ItemContent();
-        this._originalItemContentLegs.id = "";
-        this._originalItemContentHead.property = ZepetoPropertyFlag.ClothesBottom;
+        this.itemContentLegs = new ItemContent();
+        this.itemContentLegs.id = "";
+        this.itemContentLegs.property = ZepetoPropertyFlag.ClothesBottom;
+        this.itemsContent.push(this.itemContentLegs);
 
-        this._originalItemContentShoes = new ItemContent();
-        this._originalItemContentShoes.id = "";
-        this._originalItemContentHead.property = ZepetoPropertyFlag.ClothesShoes;
+        this.itemContentShoes = new ItemContent();
+        this.itemContentShoes.id = "";
+        this.itemContentShoes.property = ZepetoPropertyFlag.ClothesShoes;
+        this.itemsContent.push(this.itemContentShoes);
 
-        this._originalPreviewer = new MannequinPreviewer(context, this.itemsContent);
+        if(this._originalPreviewer == null) 
+        {
+            this._originalPreviewer = new MannequinPreviewer(context, this.itemsContent);
+        }
+
         this._originalPreviewer.PreviewContents();
     }
     
@@ -184,7 +185,11 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
 
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
         let context: ZepetoContext = zepetoPlayer.character.Context;
-        this._previewer = new MannequinPreviewer(context, this.itemsContent);
+
+        if(this._previewer == null) 
+        {
+            this._previewer = new MannequinPreviewer(context, this.itemsContent);
+        }
         this._previewer.PreviewContents();
     }
 
@@ -224,11 +229,6 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
     public GetCurrentZepetoPlayerId() : string
     {
         return this._currentZepetoChatacterDisplayerd.userId;
-    }
-
-    public ResetCharacterClothes()
-    {
-        
     }
 
     *WaitAndUpdateClothes(sessionId: string)

@@ -292,6 +292,8 @@ export default class GameManager extends ZepetoScriptBehaviour
     //Call the function OnPlayerDoneCustomize with value false
     this.OnPlayerDoneCustomize(false);
     MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);
+    
+    MultiplayerManager.instance.ResetPlayerData();
 
     //Call the function SwitchUIPanel with value END
     UIManager.instance.SwitchUIPanel(UIPanelType.END);

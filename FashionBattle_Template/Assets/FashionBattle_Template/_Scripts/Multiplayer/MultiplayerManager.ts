@@ -172,6 +172,20 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
         this._room.Send(MESSAGE.SendPlayerData, data.GetObject());
     }
 
+    public ResetPlayerData()
+    {
+        this.localPlayerData.isReady = false;
+        this.localPlayerData.isWinner = false;
+        this.localPlayerData.isCustomized = false;
+
+        this.localPlayerData.headItem = "";
+        this.localPlayerData.chestItem = "";
+        this.localPlayerData.legsItem = "";
+        this.localPlayerData.footItem = "";
+
+        this.SendPlayerData();
+    }
+
     public SetVotingData(voteValue: number, characterIdVoted: string) 
     {
         this.currentChatacterVoteId = characterIdVoted;

@@ -268,7 +268,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
         let winner = this.voteDatas[0];
         this.voteDatas.forEach(vd => 
             {
-            vd.finalVote = vd.totalVote / this.GetPlayersAmount();
+            vd.finalVote = vd.totalVote / (this.GetPlayersAmount() - 1);
             if (vd.finalVote > winner.finalVote) 
             {
                 winner = vd;

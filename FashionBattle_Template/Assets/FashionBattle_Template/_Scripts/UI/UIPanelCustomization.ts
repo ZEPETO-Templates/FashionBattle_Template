@@ -59,7 +59,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
       // Call the function HighlightButtons with value 0
       this.HighlightButtons(0);
       // Call the function OnSelectItemButton
-      this.OnSelectItemButton();
+      this.SwitchOffAllItemButtons();
     });
 
     // We add action on click the chest button    
@@ -70,7 +70,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
       // Call the function HighlightButtons with value 1
       this.HighlightButtons(1);
       // Call the function OnSelectItemButton
-      this.OnSelectItemButton();
+      this.SwitchOffAllItemButtons();
     });
 
     // We add action on click the legs button    
@@ -81,7 +81,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
       // Call the function HighlightButtons with value 2
       this.HighlightButtons(2);
       // Call the function OnSelectItemButton
-      this.OnSelectItemButton();
+      this.SwitchOffAllItemButtons();
     });
 
     // We add action on click the shoes button  
@@ -92,7 +92,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
       // Call the function HighlightButtons with value 3
       this.HighlightButtons(3);
       // Call the function OnSelectItemButton
-      this.OnSelectItemButton();
+      this.SwitchOffAllItemButtons();
     });
 
     // We add action on click the done button
@@ -119,6 +119,10 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     this.timeSlider.maxValue = GameManager.instance.customizationTimeLimit; // Set the time slider's maximum value
     this.isCounterRunning = true; // Start the counter
     this.waitingContainer.SetActive(false); // Hide the waiting container
+
+    this.PopulateButtons(BODYPART_SELECTION.HEAD);
+    this.HighlightButtons(0);
+    this.SwitchOffAllItemButtons();
   }
 
   // Update is called every frame, if the MonoBehaviour is enabled
@@ -199,7 +203,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
   }
 
   // This method is used to highlight buttons
-  HighlightButtons(index: number)
+  public HighlightButtons(index: number)
   {
     // We reset all highlight buttons
     for (let i = 0; i < this.selectionButtons.length; i++) {
@@ -216,12 +220,11 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     this.loadingPanel.SetActive(value);
   }
 
-  // This method is used to highlight item buttons
-  public OnSelectItemButton()
+  // This method is used to switch off the highlight item buttons
+  public SwitchOffAllItemButtons()
   {
     this.itemButtons.forEach((element) => 
     {
-      // We set highlight button      
       element.GetComponent<CustomizationButton>().SetSelected(false);
     });
   }

@@ -1824,6 +1824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage Mannequin
       objectReference: {fileID: 0}
+    - target: {fileID: 6919514463609871436, guid: afe30653fcb9b764392d466435bcb9ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6919514463609871437, guid: afe30653fcb9b764392d466435bcb9ff, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1937,7 +1941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7369137067774776990, guid: 6340478b5d2967d4781b09336d161721, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6340478b5d2967d4781b09336d161721, type: 3}

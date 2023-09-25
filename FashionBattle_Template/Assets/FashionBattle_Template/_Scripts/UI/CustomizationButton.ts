@@ -47,7 +47,7 @@ export default class CustomizationButton extends ZepetoScriptBehaviour
     public SelectButton()
     {
         // Call to the function OnSelectItemButton
-        this._uiPanelCustomization.GetComponent<UIPanelCustomization>().OnSelectItemButton();
+        this._uiPanelCustomization.GetComponent<UIPanelCustomization>().SwitchOffAllItemButtons();
 
         // Call to the function SetSelected with value true
         this.SetSelected(true);

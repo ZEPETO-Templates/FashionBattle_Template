@@ -227,6 +227,7 @@ export default class PlayerSpawner extends ZepetoScriptBehaviour
 
     *WaitAndUpdateClothes(sessionId: string)
     {
+        this.ResetPreviewData(sessionId);
         yield new WaitForSeconds(1);
         this.UpdateCharacterCloth(sessionId);
     }

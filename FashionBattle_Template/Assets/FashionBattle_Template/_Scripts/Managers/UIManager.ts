@@ -88,15 +88,19 @@ export default class UIManager extends ZepetoScriptBehaviour
         this.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
     }
 
-    //This method reset all panels
-    public ResetPanels() 
+    //This method reset the Customization panel
+    public ResetCustomizationPanel()
     {
         // We obtain the component UIPanelCustomization
         let customizationPanel = this.GetUiPanelType(UIPanelType.CUSTOMIZATION).GetComponent<UIPanelCustomization>();
         // Call the function ResetPanel
         customizationPanel.ResetPanel();
+    }
 
-        // We obtain the component UIPanelStarts
+    //This method reset the Start panel
+    public ResetStartPanel() 
+    {
+        // We obtain the component UIPanelStart
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         // Call the function ResetPanel
         startPanel.ResetPanel();

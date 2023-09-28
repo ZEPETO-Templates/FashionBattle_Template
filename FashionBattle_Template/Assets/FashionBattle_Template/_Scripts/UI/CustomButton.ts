@@ -22,7 +22,7 @@ export default class CustomButton extends ZepetoScriptBehaviour {
         this.iconRef.color = this.highlightColor;
     }
 
-    // This methos is responsible to reset button color
+    // This method is responsible to reset button color
     public ResetButton()
     {
         // Set the main color to default

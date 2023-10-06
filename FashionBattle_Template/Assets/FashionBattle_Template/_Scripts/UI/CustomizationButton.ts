@@ -53,7 +53,7 @@ export default class CustomizationButton extends ZepetoScriptBehaviour
         this.SetSelected(true);
     }
 
-    // This methos is responsible to reset button color and reset hightlight
+    // This method is responsible to reset button color and reset hightlight
     public ResetButton()
     {
         // Set the button color to white (Default color)

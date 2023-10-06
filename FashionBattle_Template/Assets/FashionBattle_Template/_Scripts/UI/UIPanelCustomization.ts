@@ -47,7 +47,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
       element.GetComponent<CustomizationButton>().SetUiParentPanel(this.gameObject);
     });
 
-    // Fist Populate
+    // First Populate
     this.PopulateButtons(BODYPART_SELECTION.HEAD);
     this.HighlightButtons(0);
 
@@ -147,7 +147,7 @@ export default class UIPanelCustomization extends ZepetoScriptBehaviour
     }
   }
 
-  // This methos is used to populate buttons
+  // This method is used to populate buttons
   public PopulateButtons(selection: BODYPART_SELECTION) 
   {
     // We Create a variable to store a temporary number

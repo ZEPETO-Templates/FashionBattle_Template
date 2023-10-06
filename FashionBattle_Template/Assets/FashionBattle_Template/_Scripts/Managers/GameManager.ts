@@ -81,7 +81,7 @@ export default class GameManager extends ZepetoScriptBehaviour
       {
         // We set the isGameStarted value to true
         this.isGameStarted = true;
-        // Call the SwitchUIPanel function to switch to the Cutomization panel
+        // Call the SwitchUIPanel function to switch to the Customization panel
         UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
 
         // Call the function SwitchStage
@@ -137,7 +137,7 @@ export default class GameManager extends ZepetoScriptBehaviour
         MultiplayerManager.instance.SendResetVoteCache();
         MultiplayerManager.instance.RequestVoteDataCache();
 
-        // We acitvate the custimization screen        
+        // We activate the customization screen        
         this.stageCustomization.SetActive(true);
 
         PlayerSpawner.instance.ShowCharacterOriginal(
@@ -153,7 +153,7 @@ export default class GameManager extends ZepetoScriptBehaviour
       case STAGE.RUNWAY:
         // We hide the current player
         PlayerSpawner.instance.HideCurrentZepetoPlayer();
-        // We acitvate the runway screen
+        // We activate the runway screen
         this.stageRunway.SetActive(true);
 
         // Set the current player index in 0
@@ -168,7 +168,7 @@ export default class GameManager extends ZepetoScriptBehaviour
         break;
       // When current stage is "ENDGAME"           
       case STAGE.ENDGAME:
-        // We acitvate the winner screen
+        // We activate the winner screen
         this.stageWinner.SetActive(true);
         // Call to the function OnGameOver
         this.OnGameOver();
@@ -237,7 +237,7 @@ export default class GameManager extends ZepetoScriptBehaviour
   //This method is used to call the method responsible for changing the player's clothes.
   public SetCharacterWithCloth(index: number) 
   {
-    // Call the function ShowCharacterWithCloth witch current player index
+    // Call the function ShowCharacterWithCloth with current player index
     PlayerSpawner.instance.ShowCharacterWithCloth(
       MultiplayerManager.instance.playersData[index].ownerSessionId
     );
@@ -249,7 +249,7 @@ export default class GameManager extends ZepetoScriptBehaviour
     //First set the playersReady with the value returns by server
     this.playersReady = value;
 
-    //Call the funtion SetCounterToStart
+    //Call the function SetCounterToStart
     UIManager.instance.SetCounterToStart(value);
 
     // Check if the value is false

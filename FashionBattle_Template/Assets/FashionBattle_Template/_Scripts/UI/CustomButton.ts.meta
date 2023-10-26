@@ -25,9 +25,9 @@ ScriptedImporter:
     {\r\n        // Saves the icon ref\r\n        this.iconRef.sprite = iconSprite;\r\n   
     }\r\n    // This method is called on click button, is responsible to change hightlight\r\n   
     SelectButton() {\r\n        // Set the main color to hightlight color\r\n       
-    this.iconRef.color = this.highlightColor;\r\n    }\r\n    // This methos is responsible
+    this.iconRef.color = this.highlightColor;\r\n    }\r\n    // This method is responsible
     to reset button color\r\n    ResetButton() {\r\n        // Set the main color
     to default\r\n        this.iconRef.color = this.defaultColor;\r\n    }\r\n}\r\nexports.default
     = CustomButton;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VzdG9tQnV0dG9uLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ3VzdG9tQnV0dG9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBRUEsaURBQXFEO0FBRXJELE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFNM0QsdUVBQXVFO0lBQ2hFLGVBQWUsQ0FBQyxVQUFrQjtRQUVyQyxxQkFBcUI7UUFDckIsSUFBSSxDQUFDLE9BQU8sQ0FBQyxNQUFNLEdBQUcsVUFBVSxDQUFDO0lBQ3JDLENBQUM7SUFFRCw2RUFBNkU7SUFDdEUsWUFBWTtRQUVmLHlDQUF5QztRQUN6QyxJQUFJLENBQUMsT0FBTyxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUMsY0FBYyxDQUFDO0lBQzdDLENBQUM7SUFFRCxtREFBbUQ7SUFDNUMsV0FBVztRQUVkLGdDQUFnQztRQUNoQyxJQUFJLENBQUMsT0FBTyxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUMsWUFBWSxDQUFDO0lBQzNDLENBQUM7Q0FFSjtBQTNCRCwrQkEyQkMifQ==","assetPath":"Assets/FashionBattle_Template/_Scripts/UI/CustomButton.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"iconRef","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"defaultColor","type":"UnityEngine.Color","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"highlightColor","type":"UnityEngine.Color","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"CustomButton","description":"","hasAnimatorMove":false},"isCompiled":true}'
-  typescriptHash: 11afb2554e001d2616acc2d341b65044
+  typescriptHash: b05039eede53454f5eb3156a13229d18
   onlyWriteTrigger: 0

@@ -1061,6 +1061,10 @@ PrefabInstance:
       value: StarButton (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"System.Single, mscorlib","value":"2"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.unityValues.Array.data[1]
       value: 
       objectReference: {fileID: 915512015332314502}
@@ -1179,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.values.Array.data[2]
-      value: '{"type":"System.Single, mscorlib","value":"0"}'
+      value: '{"type":"System.Single, mscorlib","value":"1"}'
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.unityValues.Array.data[1]
@@ -1300,7 +1304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.values.Array.data[2]
-      value: '{"type":"System.Single, mscorlib","value":"2"}'
+      value: '{"type":"System.Single, mscorlib","value":"3"}'
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.unityValues.Array.data[1]
@@ -1421,7 +1425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.values.Array.data[2]
-      value: '{"type":"System.Single, mscorlib","value":"4"}'
+      value: '{"type":"System.Single, mscorlib","value":"5"}'
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.unityValues.Array.data[1]
@@ -1542,7 +1546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.values.Array.data[2]
-      value: '{"type":"System.Single, mscorlib","value":"3"}'
+      value: '{"type":"System.Single, mscorlib","value":"4"}'
       objectReference: {fileID: 0}
     - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
       propertyPath: script.unityValues.Array.data[1]

@@ -1060,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.unityValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 915512015332314502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
 --- !u!114 &5666127643488551129 stripped
@@ -1173,6 +1177,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"System.Single, mscorlib","value":"0"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.unityValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 915512015332314502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
 --- !u!114 &7413906711392228974 stripped
@@ -1286,6 +1298,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"System.Single, mscorlib","value":"2"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.unityValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 915512015332314502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
 --- !u!224 &1932964200034784910 stripped
@@ -1399,6 +1419,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"System.Single, mscorlib","value":"4"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.unityValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 915512015332314502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
 --- !u!224 &389065935425229067 stripped
@@ -1512,6 +1540,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.values.Array.data[2]
+      value: '{"type":"System.Single, mscorlib","value":"3"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102910018065716055, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
+      propertyPath: script.unityValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 915512015332314502}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bcc95051d56ec4f8cfed0ec64ab2b2, type: 3}
 --- !u!114 &2371174631325550185 stripped

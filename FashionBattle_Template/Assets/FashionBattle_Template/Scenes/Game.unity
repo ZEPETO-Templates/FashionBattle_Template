@@ -1160,6 +1160,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1145105009}
     m_Modifications:
+    - target: {fileID: 773790406101698340, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
+      propertyPath: script.arrayValues.Array.data[0]
+      value: F_HAIR_634
+      objectReference: {fileID: 0}
+    - target: {fileID: 773790406101698340, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
+      propertyPath: script.arrayValues.Array.data[4]
+      value: JP_OTR_85
+      objectReference: {fileID: 0}
+    - target: {fileID: 773790406101698340, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
+      propertyPath: script.arrayValues.Array.data[8]
+      value: JP_BTM_282
+      objectReference: {fileID: 0}
+    - target: {fileID: 773790406101698340, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
+      propertyPath: script.arrayValues.Array.data[12]
+      value: SH_1204
+      objectReference: {fileID: 0}
     - target: {fileID: 916664436176309483, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1534,6 +1550,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7413906711392228975, guid: 653b7008f3673ae479b0a7456eb0887a, type: 3}
+      propertyPath: script.unityValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 7774137088798748964}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653b7008f3673ae479b0a7456eb0887a, type: 3}
 --- !u!1 &7774137088798748964 stripped

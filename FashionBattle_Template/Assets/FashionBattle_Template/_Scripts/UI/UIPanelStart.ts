@@ -5,11 +5,11 @@ import UIManager from '../Managers/UIManager';
 import { TMP_Text } from 'TMPro';
 import MultiplayerManager from '../Multiplayer/MultiplayerManager';
 import GameManager from '../Managers/GameManager';
-
+import { Button } from 'UnityEngine.UI'
 export default class UIPanelStart extends ZepetoScriptBehaviour 
 {
     @Header("BUTTONS")
-    @SerializeField() readyBtn: RoundedRectangleButton; // Reference to the play button
+    @SerializeField() readyBtn: Button; // Reference to the play button
 
     @Header("READY IMG")
     @SerializeField() readyImg: GameObject; // Reference to the ready image
@@ -26,20 +26,26 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
         this.readyImg.SetActive(GameManager.instance.isPlayerReady);
 
         // Add action on click the main button
-        this.readyBtn.OnClick.AddListener(() => {
-            // Call to the function OnPlayerReady
-            GameManager.instance.OnPlayerReady();
-
-            // Change the ready image value by the GameManager reference
-            this.readyImg.SetActive(GameManager.instance.isPlayerReady);
-        });
-
+        this.readyBtn.onClick.AddListener( () => {
+            this.OnClick();
+        } );
+    
         // Set interactable button to false
         this.readyBtn.interactable = false;
 
         // Call to the function ShowCountdownText with value false
         this.ShowCountdownText(false);
     }
+
+
+
+    OnClick (): void { 
+        // Call to the function OnPlayerReady
+        GameManager.instance.OnPlayerReady();
+
+        // Change the ready image value by the GameManager reference
+        this.readyImg.SetActive(GameManager.instance.isPlayerReady);
+     }
 
     // Update is called every frame, if the MonoBehaviour is enabled
     Update()

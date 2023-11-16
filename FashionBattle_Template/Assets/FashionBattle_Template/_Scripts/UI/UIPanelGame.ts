@@ -1,12 +1,12 @@
 import { ZepetoScriptBehaviour } from "ZEPETO.Script";
 import { ZepetoPlayers } from "ZEPETO.Character.Controller";
-import { RoundedRectangleButton } from "ZEPETO.World.Gui";
+import { RoundedRectangleButton, ZepetoText } from "ZEPETO.World.Gui";
 import VoteButton from "./VoteButton";
 import { Debug, GameObject, Time } from "UnityEngine";
 import MultiplayerManager from "../Multiplayer/MultiplayerManager";
 import { TMP_Text } from "TMPro";
 import GameManager from "../Managers/GameManager";
-import { Slider } from "UnityEngine.UI";
+import { Slider, Button } from "UnityEngine.UI";
 
 // This class controls the view of the game panel
 export default class UIPanelGame extends ZepetoScriptBehaviour 
@@ -14,13 +14,13 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
   @HideInInspector() public currentPlayerIdShowed: string; // The ID of the current player displayed on the screen
 
   @Header("Vote Buttons")
-  public voteButtons: RoundedRectangleButton[];// An array of voting buttons.
+  public voteButtons: Button[];// An array of voting buttons.
 
    @Header("Time Slider")
   public timeSlider: Slider; // The time slider control in the panel.
 
     @Header("Player Name Txt")
-  public playerNameTxt: TMP_Text; // The text displaying the player's name.
+  public playerNameTxt: ZepetoText; // The text displaying the player's name.
 
   public votingPanel: GameObject;
 

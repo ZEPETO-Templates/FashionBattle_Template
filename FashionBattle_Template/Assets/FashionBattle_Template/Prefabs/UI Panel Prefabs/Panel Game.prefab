@@ -167,17 +167,20 @@ MonoBehaviour:
     - playerNameTxt
     - timeSlider
     - voteButtons
+    - voteText
     unityValues:
     - {fileID: 3403538858140942821}
     - {fileID: 2562339128313796850}
     - {fileID: 1419544543968316406}
     - {fileID: 0}
+    - {fileID: 2562339128313796813}
     values:
     - 
     - 
     - 
     - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":5,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
+    - 
     unityArrayValues:
     - {fileID: 6912310570673622053}
     - {fileID: 478860103677600509}
@@ -427,7 +430,7 @@ GameObject:
   - component: {fileID: 5028678913888887385}
   - component: {fileID: 2562339128313796813}
   m_Layer: 5
-  m_Name: TMP_vote
+  m_Name: Vote Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

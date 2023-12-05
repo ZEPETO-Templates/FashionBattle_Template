@@ -16,6 +16,7 @@ import MultiplayerManager, {
 import { ZepetoPlayers } from "ZEPETO.Character.Controller";
 import UIManager, { UIPanelType } from "./UIManager";
 import PlayerSpawner from "../Multiplayer/PlayerSpawner";
+import UIPanelTheme from '../UI/UIPanelTheme';
 
 export enum STAGE 
 {
@@ -38,19 +39,24 @@ export default class GameManager extends ZepetoScriptBehaviour
 
   @HideInInspector() public isGameStarted: bool = false; // Flag to know if the game are started
   @HideInInspector() public playersReady: bool = false; // Flag to know if all the players are ready
+  @HideInInspector() public theme: bool = false; // Flag to know if there are theme
 
   @Header("Settings")
   public timeToStart: number; //Total time to start the game
   @HideInInspector()public counterToStart: number = 10; //Counter used to update when all players are ready
   public voteTimerLimit: number = 10; //Total time for voting
   public customizationTimeLimit: number = 10; //Total time for customization
+  public customizationTimeTheme: number = 5; //Total time for theme panel
 
   // Runway
-
   @HideInInspector() public currentPlayerIndexInRunway = 0; // This variable saves the current player index in runway
   @HideInInspector() public totalPlayersInRunway = 0; // This variable saves the total players in runway
 
   private _currentStage: STAGE; // This variable saves the current stage
+
+
+  public startPanel: GameObject; // Reference to the runway stage
+  public themePanel: GameObject; // Reference to the winner stage
 
   // Awake is called when an enabled script instance is being loaded.
   Awake() 
@@ -81,16 +87,23 @@ export default class GameManager extends ZepetoScriptBehaviour
       {
         // We set the isGameStarted value to true
         this.isGameStarted = true;
-        // Call the SwitchUIPanel function to switch to the Customization panel
-        UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
 
-        // Call the function SwitchStage
-        this.SwitchStage(STAGE.CUSTOMIZATION);
-      }
+        // Set Theme Panel
+         this.themePanel.SetActive(true);
+         this.startPanel.SetActive(false);
+         UIPanelTheme.instance.StartTheme();
+      }    
     }
   }
-
-  // This method is responsible for starting all systems
+  
+public StartCustomization()
+{
+       // Call the SwitchUIPanel function to switch to the Customization panel
+       UIManager.instance.SwitchUIPanel(UIPanelType.CUSTOMIZATION);
+       // Call the function SwitchStage
+       this.SwitchStage(STAGE.CUSTOMIZATION);
+}
+ // This method is responsible for starting all systems
   public InitGame() 
   {
     UIManager.instance.Init();
@@ -103,6 +116,9 @@ export default class GameManager extends ZepetoScriptBehaviour
   {
     this.isGameStarted = false;
     this.isPlayerReady = false;
+    GameManager.instance.theme = false;
+    this.themePanel.SetActive(false);
+    this.startPanel.SetActive(true);
     this.counterToStart = this.timeToStart;
     this.SwitchStage(STAGE.START);
   }
@@ -292,7 +308,7 @@ export default class GameManager extends ZepetoScriptBehaviour
   {
     //Set the isPlayerReady to false
     this.isPlayerReady = false;
-
+    GameManager.instance.theme = false;
     //Call the function OnPlayerDoneCustomize with value false
     this.OnPlayerDoneCustomize(false);
     MultiplayerManager.instance.SetPlayerReady(this.isPlayerReady);

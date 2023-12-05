@@ -5,6 +5,7 @@ import UIPanelStart from '../UI/UIPanelStart';
 import UIPanelGame from '../UI/UIPanelGame';
 import UIPanelEnd from '../UI/UIPanelEnd';
 import UIPanelCustomization from '../UI/UIPanelCustomization';
+import UIPanelTheme from '../UI/UIPanelTheme';
 
 export enum UIPanelType 
 {
@@ -104,6 +105,10 @@ export default class UIManager extends ZepetoScriptBehaviour
         let startPanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelStart>();
         // Call the function ResetPanel
         startPanel.ResetPanel();
+
+        let themePanel = this.GetUiPanelType(UIPanelType.START).GetComponent<UIPanelTheme>();
+        // Call the function ResetPanel
+        themePanel.ResetThemePanel();
     }
 
     // This method is used to update the counter to start game

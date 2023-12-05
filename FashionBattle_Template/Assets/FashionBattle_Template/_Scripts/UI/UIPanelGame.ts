@@ -21,7 +21,7 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
 
     @Header("Player Name Txt")
   public playerNameTxt: ZepetoText; // The text displaying the player's name.
-
+  public voteText: ZepetoText; // The text displaying the text vote
   public votingPanel: GameObject;
 
   private _isLocalPlayerVoting: bool = false;
@@ -117,6 +117,15 @@ export default class UIPanelGame extends ZepetoScriptBehaviour
   {
     this._isLocalPlayerVoting = !value;
     this.votingPanel.SetActive(value);
+
+    if (value== true)
+    {
+      this.voteText.text = "Cast your vote!"; 
+    }
+    else
+    {
+      this.voteText.text = "Waiting for other users...!"; 
+    }
   }
 
   // This method is called on finish voting

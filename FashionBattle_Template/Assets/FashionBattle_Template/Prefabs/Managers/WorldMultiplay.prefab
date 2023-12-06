@@ -77,8 +77,10 @@ MonoBehaviour:
     - voteDatas
     - currentChatacterVoteId
     - currentVoteValue
+    - themeText
     unityValues:
     - {fileID: 1467009759539735637}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -95,7 +97,14 @@ MonoBehaviour:
     - 
     - '{"type":"System.String, mscorlib","value":""}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":5,\"type\":\"System.String,
+      mscorlib\",\"isUnity\":false}"}'
     unityArrayValues: []
-    arrayValues: []
+    arrayValues:
+    - Halloween
+    - Valentine's Day
+    - Christmas
+    - Thanksgiving
+    - New Year
     script: {fileID: 4458252877524076426, guid: 8a50020a98cbeac40b21e18ea413f2e7, type: 3}
     isExpaned: 0

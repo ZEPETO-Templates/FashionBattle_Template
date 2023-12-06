@@ -3,6 +3,7 @@ import { ZepetoText } from 'ZEPETO.World.Gui';
 import { GameObject, Time } from "UnityEngine";
 import { Slider } from "UnityEngine.UI";
 import GameManager from "../Managers/GameManager";
+import MultiplayerManager from '../Multiplayer/MultiplayerManager';
 
 // This class controls the theme panel
 export default class UIPanelTheme extends ZepetoScriptBehaviour {
@@ -15,8 +16,6 @@ export default class UIPanelTheme extends ZepetoScriptBehaviour {
     @HideInInspector() public timeCounter: number; // Time counter variable
     public selectThemeText: ZepetoText; // Reference to the selected theme
 
-    @Header("Themes")
-    public themeText: string[]; // This variable saves all themes
     @HideInInspector() public theme: bool = false;  // Flag to know if there are themes
 
     // Awake is called when an enabled script instance is being loaded.
@@ -54,32 +53,19 @@ export default class UIPanelTheme extends ZepetoScriptBehaviour {
      }
    }
 
-// This method get a random theme 
-   public GetTextThemeRandom(): string {
-     // Check if themeText is null or empty
-    if (this.themeText == null || this.themeText.length === 0) {
-        return;
-    }
-    const randomT = Math.floor(Math.random() * this.themeText.length);
-    return this.themeText[randomT];
-  }
-
-
     // This method is responsible to reset panel
     public ResetThemePanel()
     {
          this.timeCounter = 5;
         GameManager.instance.theme = false;
         this.isCounterRunning = false; // Start the counter
-        //const selectTheme = this.GetTextThemeRandom(); // Get a random theme 
-       // this.selectThemeText.text = selectTheme; //    // Set text to the selectThemeText
     }
 
     public StartTheme() 
-  {     this.timeCounter = 5;
+   { this.timeCounter = 5;
     this.timeSlider.maxValue = GameManager.instance.customizationTimeTheme;   // Set the maximum value of the time slider from GameManager
     this.isCounterRunning = true; // Start the counter
-    const selectTheme = this.GetTextThemeRandom(); // Get a random theme 
+    const selectTheme = MultiplayerManager.instance.GetTextThemeRandom(); // Get a random theme 
     this.selectThemeText.text = selectTheme; //    // Set text to the selectThemeText
-  }
+   }
 }

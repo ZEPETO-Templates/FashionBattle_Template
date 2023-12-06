@@ -6,6 +6,8 @@ export default class SyncPlayerDataModule extends IModule
     private playersDataCache: PlayerDataModel[] = [];
     private voteDataCache: VoteModel[] = [];
     private isGameStarted = false;
+    private currentTheme: number = 0;
+    private themeAmount: number = 5; 
 
     async OnCreate() 
     {
@@ -76,6 +78,11 @@ export default class SyncPlayerDataModule extends IModule
             });
         });
 
+        this.server.onMessage(MESSAGE.RequestTheme, (client, message: string) => {
+            client.send(MESSAGE.OnThemeArrive, this.GetCurrentTheme);
+        });
+    
+        this.SetNewTheme();
     }
 
     async OnJoin(client: SandboxPlayer) {
@@ -209,6 +216,16 @@ export default class SyncPlayerDataModule extends IModule
         return result;
     }
 
+    private GetCurrentTheme(): number
+    {
+        return this.currentTheme;
+    }
+
+    private SetNewTheme()
+    {
+        this.currentTheme = Math.random() * this.themeAmount; 
+    }
+
     private CheckIfPlayersReady()
     {
         let result = true;
@@ -258,7 +275,10 @@ enum MESSAGE {
     SendResetVoteData = "SendResetVoteData",
     OnResetVoteCache = "OnResetVoteCache",
     OnVoteCacheArrive = "OnVoteCacheArrive",
-    RequestVoteDataCache = "RequestVoteDataCache"
+    RequestVoteDataCache = "RequestVoteDataCache",
+
+    RequestTheme = "RequestTheme",
+    OnThemeArrive = "OnThemeArrive",
 }
 
 interface PlayerDataModel {

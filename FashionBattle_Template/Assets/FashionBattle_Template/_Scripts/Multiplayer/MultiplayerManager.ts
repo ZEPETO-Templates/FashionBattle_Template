@@ -36,6 +36,12 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
 
     private _room: Room;
 
+    @Header("Themes")
+    public themeText: string[]; // This variable saves all themes
+    @HideInInspector() public theme: string;
+
+    private currentTheme: number = 0;
+
     Awake() 
     {
         // Singleton pattern
@@ -59,6 +65,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
             this.localPlayerData.ownerSessionId = this._room.SessionId;
             this.SetPlayerReady(this.localPlayerData.isReady);
             this._room.Send(MESSAGE.RequestPlayersDataCache, "");
+            this.GetTextThemeRandom();
         }
     }
 
@@ -123,6 +130,13 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
             {
                 GameManager.instance.EvaluateAndSetVote();
             }
+        });
+
+        // THEME MESSAGE HANDLERS
+
+        this._room.AddMessageHandler(MESSAGE.OnThemeArrive, (message: string) => 
+        {
+           this.currentTheme = parseInt(message);
         });
 
     }
@@ -290,6 +304,11 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
         });
         return winner;
     }
+
+    public GetTextThemeRandom(): string 
+    {
+        return this.themeText[this.currentTheme];
+    }
 }
 
 export interface PlayerDataModel 
@@ -328,5 +347,8 @@ enum MESSAGE
     SendResetVoteData = "SendResetVoteData",
     OnResetVoteCache = "OnResetVoteCache",
     OnVoteCacheArrive = "OnVoteCacheArrive",
-    RequestVoteDataCache = "RequestVoteDataCache"
+    RequestVoteDataCache = "RequestVoteDataCache",
+
+    RequestTheme = "RequestTheme",
+    OnThemeArrive = "OnThemeArrive",
 }

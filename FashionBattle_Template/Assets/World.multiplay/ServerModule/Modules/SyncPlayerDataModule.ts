@@ -7,7 +7,7 @@ export default class SyncPlayerDataModule extends IModule
     private voteDataCache: VoteModel[] = [];
     private isGameStarted = false;
     private currentTheme: number = 0;
-    private themeAmount: number = 5; 
+    private themeAmount: number = 6; 
 
     async OnCreate() 
     {
@@ -224,6 +224,9 @@ export default class SyncPlayerDataModule extends IModule
     private SetNewTheme()
     {
         this.currentTheme = Math.random() * this.themeAmount; 
+        console.log("Rand Theme Number : " + this.currentTheme);
+        console.log("Rand Theme max : " + (1 * this.currentTheme));
+        console.log("Rand Theme min : " + (0 * this.currentTheme));
     }
 
     private CheckIfPlayersReady()
@@ -238,6 +241,11 @@ export default class SyncPlayerDataModule extends IModule
         this.isGameStarted = result;
 
         console.log("ALL PLAYERS READY :: " + result);
+
+        if(result)
+        {
+            this.SetNewTheme();
+        }
 
         this.server.broadcast(MESSAGE.OnPlayersReady, result);
     }

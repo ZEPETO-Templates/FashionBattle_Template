@@ -55,8 +55,8 @@ export default class GameManager extends ZepetoScriptBehaviour
   private _currentStage: STAGE; // This variable saves the current stage
 
 
-  public startPanel: GameObject; // Reference to the runway stage
-  public themePanel: GameObject; // Reference to the winner stage
+  public lobbyPanel: GameObject; // Reference to the lobbyPanel
+  public themePanel: GameObject; // Reference to the themePanel
 
   // Awake is called when an enabled script instance is being loaded.
   Awake() 
@@ -90,7 +90,7 @@ export default class GameManager extends ZepetoScriptBehaviour
 
         // Set Theme Panel
          this.themePanel.SetActive(true);
-         this.startPanel.SetActive(false);
+         this.lobbyPanel.SetActive(false);
          UIPanelTheme.instance.StartTheme();
       }    
     }
@@ -118,7 +118,7 @@ public StartCustomization()
     this.isPlayerReady = false;
     GameManager.instance.theme = false;
     this.themePanel.SetActive(false);
-    this.startPanel.SetActive(true);
+    this.lobbyPanel.SetActive(true);
     this.counterToStart = this.timeToStart;
     this.SwitchStage(STAGE.START);
   }

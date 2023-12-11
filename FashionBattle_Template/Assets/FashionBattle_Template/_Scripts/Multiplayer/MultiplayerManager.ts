@@ -37,7 +37,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
     private _room: Room;
 
     @Header("Themes")
-    public themeText: string[]; // This variable saves all themes
+    public themeText: string[] = []; // This variable saves all themes
     @HideInInspector() public theme: string;
 
     private currentTheme: number = 0;
@@ -65,7 +65,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
             this.localPlayerData.ownerSessionId = this._room.SessionId;
             this.SetPlayerReady(this.localPlayerData.isReady);
             this._room.Send(MESSAGE.RequestPlayersDataCache, "");
-            this.GetTextThemeRandom();
+            this.GetThemeName();
         }
     }
 
@@ -305,7 +305,7 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
         return winner;
     }
 
-    public GetTextThemeRandom(): string 
+    public GetThemeName(): string 
     {
         return this.themeText[this.currentTheme];
     }

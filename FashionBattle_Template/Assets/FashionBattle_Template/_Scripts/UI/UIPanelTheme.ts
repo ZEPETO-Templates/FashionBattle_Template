@@ -65,7 +65,7 @@ export default class UIPanelTheme extends ZepetoScriptBehaviour {
    { this.timeCounter = 5;
     this.timeSlider.maxValue = GameManager.instance.customizationTimeTheme;   // Set the maximum value of the time slider from GameManager
     this.isCounterRunning = true; // Start the counter
-    const selectTheme = MultiplayerManager.instance.GetTextThemeRandom(); // Get a random theme 
+    const selectTheme = MultiplayerManager.instance.GetThemeName(); // Get the current theme in MultiplayerManager
     this.selectThemeText.text = selectTheme; //    // Set text to the selectThemeText
    }
 }

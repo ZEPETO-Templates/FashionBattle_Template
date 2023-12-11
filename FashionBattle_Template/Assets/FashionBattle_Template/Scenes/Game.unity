@@ -837,12 +837,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.values.Array.data[8]
-      value: '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":6,\"type\":\"System.String,
+      value: '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":5,\"type\":\"System.String,
         mscorlib\",\"isUnity\":false}"}'
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.arrayValues.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.unityValues.Array.size
@@ -850,23 +850,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.arrayValues.Array.data[0]
-      value: 
+      value: Halloween
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.arrayValues.Array.data[1]
-      value: 
+      value: Valentines's Day
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.arrayValues.Array.data[2]
-      value: 
+      value: Christmas
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.arrayValues.Array.data[3]
-      value: 
+      value: Thanksgiving
       objectReference: {fileID: 0}
     - target: {fileID: 1467009759539735638, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}
       propertyPath: script.arrayValues.Array.data[4]
-      value: 
+      value: New Year
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165fec9160e40b849bd9e3483e1af185, type: 3}

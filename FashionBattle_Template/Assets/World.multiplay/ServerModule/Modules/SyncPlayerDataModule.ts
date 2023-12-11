@@ -7,7 +7,7 @@ export default class SyncPlayerDataModule extends IModule
     private voteDataCache: VoteModel[] = [];
     private isGameStarted = false;
     private currentTheme: number = 0;
-    private themeAmount: number = 6; 
+    private themeAmount: number = 5; 
 
     async OnCreate() 
     {

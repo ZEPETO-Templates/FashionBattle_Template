@@ -225,8 +225,6 @@ export default class SyncPlayerDataModule extends IModule
     {
         this.currentTheme = Math.random() * this.themeAmount; 
         console.log("Rand Theme Number : " + this.currentTheme);
-        console.log("Rand Theme max : " + (1 * this.currentTheme));
-        console.log("Rand Theme min : " + (0 * this.currentTheme));
     }
 
     private CheckIfPlayersReady()

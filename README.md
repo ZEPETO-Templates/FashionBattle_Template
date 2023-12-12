@@ -143,3 +143,8 @@ You can edit every panel of each part of the game from their own prefab.
 You can found them in the project folder.
 <br><img src = "docs/images/uiprefabs.png" alt = "module importer img"></img><br>
 
+**Themes Names**
+You can edit the list of names and the number of random Themes.
+(Remember to change the number of themes in the "SyncPlayerDataModule")
+<br><img src = "docs/images/themeConfig.png" alt = "module importer img"></img><br>
+<br><img src = "docs/images/themeConfigCode.png" alt = "module importer img"></img><br>

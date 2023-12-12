@@ -141,6 +141,8 @@ public StartCustomization()
       case STAGE.START:
         // We reset all panels       
         UIManager.instance.ResetStartPanel();
+        // Request new Theme
+        MultiplayerManager.instance.RequestNextTheme();
         // And we switch the current UI for start game
         UIManager.instance.SwitchUIPanel(UIPanelType.START);
         break;

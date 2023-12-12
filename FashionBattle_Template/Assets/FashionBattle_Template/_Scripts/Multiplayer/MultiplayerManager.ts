@@ -136,7 +136,8 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
 
         this._room.AddMessageHandler(MESSAGE.OnThemeArrive, (message: string) => 
         {
-           this.currentTheme = parseInt(message);
+           this.currentTheme = parseInt(message) - 1 ;
+           Debug.Log("ON THEME ARRIVE : " + this.currentTheme);
         });
 
     }
@@ -308,6 +309,14 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
     public GetThemeName(): string 
     {
         return this.themeText[this.currentTheme];
+    }
+
+    public RequestNextTheme()
+    {
+        if(this._room != null) {
+            Debug.Log("Request Next Theme");
+            this._room.Send(MESSAGE.RequestTheme, "");
+        }
     }
 }
 

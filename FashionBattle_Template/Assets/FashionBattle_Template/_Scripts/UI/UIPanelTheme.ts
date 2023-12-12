@@ -1,6 +1,6 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { ZepetoText } from 'ZEPETO.World.Gui';
-import { GameObject, Time } from "UnityEngine";
+import { Debug, GameObject, Time } from "UnityEngine";
 import { Slider } from "UnityEngine.UI";
 import GameManager from "../Managers/GameManager";
 import MultiplayerManager from '../Multiplayer/MultiplayerManager';
@@ -51,21 +51,25 @@ export default class UIPanelTheme extends ZepetoScriptBehaviour {
          GameManager.instance.StartCustomization();
        }
      }
-   }
+   }  
 
     // This method is responsible to reset panel
     public ResetThemePanel()
     {
-         this.timeCounter = 5;
-        GameManager.instance.theme = false;
-        this.isCounterRunning = false; // Start the counter
+      this.timeCounter = 5;
+      GameManager.instance.theme = false;
+      this.isCounterRunning = false; // Start the counter
     }
 
     public StartTheme() 
-   { this.timeCounter = 5;
-    this.timeSlider.maxValue = GameManager.instance.customizationTimeTheme;   // Set the maximum value of the time slider from GameManager
-    this.isCounterRunning = true; // Start the counter
-    const selectTheme = MultiplayerManager.instance.GetThemeName(); // Get the current theme in MultiplayerManager
-    this.selectThemeText.text = selectTheme; //    // Set text to the selectThemeText
-   }
+    { 
+      this.timeCounter = 5;
+      this.timeSlider.maxValue = GameManager.instance.customizationTimeTheme;   // Set the maximum value of the time slider from GameManager
+      this.isCounterRunning = true; // Start the counter
+      const selectTheme = MultiplayerManager.instance.GetThemeName(); // Get the current theme in MultiplayerManager
+      
+      Debug.Log("START THEME : " + selectTheme);
+      
+      this.selectThemeText.text = selectTheme; //    // Set text to the selectThemeText
+    }
 }

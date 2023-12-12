@@ -79,7 +79,8 @@ export default class SyncPlayerDataModule extends IModule
         });
 
         this.server.onMessage(MESSAGE.RequestTheme, (client, message: string) => {
-            client.send(MESSAGE.OnThemeArrive, this.GetCurrentTheme);
+            console.log("SEND ON THEME ARRIVE : " + this.GetCurrentTheme());
+            client.send(MESSAGE.OnThemeArrive, this.GetCurrentTheme());
         });
     
         this.SetNewTheme();
@@ -223,7 +224,7 @@ export default class SyncPlayerDataModule extends IModule
 
     private SetNewTheme()
     {
-        this.currentTheme = Math.random() * this.themeAmount; 
+        this.currentTheme = Math.round(Math.random() * this.themeAmount); 
         console.log("Rand Theme Number : " + this.currentTheme);
     }
 

@@ -8,6 +8,7 @@ import {
   KeyCode,
   Time,
   Transform,
+  WaitForSeconds,
 } from "UnityEngine";
 import MultiplayerManager, {
   ITEM_TYPE,
@@ -57,6 +58,9 @@ export default class GameManager extends ZepetoScriptBehaviour
 
   public lobbyPanel: GameObject; // Reference to the lobbyPanel
   public themePanel: GameObject; // Reference to the themePanel
+
+  private winnersAmount: number = 0;
+  private currentWinnerShowed: number = 0;
 
   // Awake is called when an enabled script instance is being loaded.
   Awake() 
@@ -281,27 +285,65 @@ public StartCustomization()
   public EvaluateAndSetVote() 
   {
      // We obtain the winner's data
-    let winnerData: VoteModel = MultiplayerManager.instance.GetWinner();
+    let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
 
-    // We obtain the winner's name
-    let winnerName = ZepetoPlayers.instance.GetPlayer(
-      winnerData.sessionId
-    ).name;
+    if(winnerData.length == 1) {
+      // We obtain the winner's name
+      let winnerName = ZepetoPlayers.instance.GetPlayer(
+        winnerData[0].sessionId
+      ).name;
 
-    // We obtain the winner's score
-    let winnerScore = winnerData.finalVote.toString();
+      // We obtain the winner's score
+      let winnerScore = winnerData[0].finalVote.toString();
 
-    // Check if the current stage is ENDGAME 
-    if (this._currentStage == STAGE.ENDGAME) 
+      // Check if the current stage is ENDGAME 
+      if (this._currentStage == STAGE.ENDGAME) 
+      {
+        // Call the function HideCurrentZepetoPlayer
+        PlayerSpawner.instance.HideCurrentZepetoPlayer();
+
+        // Call the function ShowCharacterWithCloth with winner session id     
+        PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[0].sessionId);
+
+        // Call the function SetWinnerPanelData with winner name and winner score 
+        UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+      }
+    }
+    else
     {
-      // Call the function HideCurrentZepetoPlayer
-      PlayerSpawner.instance.HideCurrentZepetoPlayer();
+      this.winnersAmount = winnerData.length - 1;
+      this.ShowNextWinner();
+    }
+  }
 
-      // Call the function ShowCharacterWithCloth with winner session id     
-      PlayerSpawner.instance.ShowCharacterWithCloth(winnerData.sessionId);
+  public ShowNextWinner()
+  {
+    let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
 
-      // Call the function SetWinnerPanelData with winner name and winner score 
-      UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+    if(this.winnersAmount >= this.currentWinnerShowed)
+    {
+      let winnerName = ZepetoPlayers.instance.GetPlayer(
+        winnerData[this.currentWinnerShowed].sessionId
+      ).name;
+
+      // We obtain the winner's score
+      let winnerScore = winnerData[this.currentWinnerShowed].finalVote.toString();
+
+      // Check if the current stage is ENDGAME 
+      if (this._currentStage == STAGE.ENDGAME) 
+      {
+        // Call the function HideCurrentZepetoPlayer
+        PlayerSpawner.instance.HideCurrentZepetoPlayer();
+
+        // Call the function ShowCharacterWithCloth with winner session id     
+        PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[this.currentWinnerShowed].sessionId);
+
+        // Call the function SetWinnerPanelData with winner name and winner score 
+        UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+      }
+      
+      this.currentWinnerShowed++;
+      this.StartCoroutine(this.WaitAndShowNextWinner());
     }
   }
 
@@ -354,4 +396,11 @@ public StartCustomization()
 
     MultiplayerManager.instance.SetItemInPlayerData(itemType, itemCode);
   }
+
+  *WaitAndShowNextWinner()
+  {
+    yield new WaitForSeconds(3);
+    this.ShowNextWinner();
+  }
+
 }

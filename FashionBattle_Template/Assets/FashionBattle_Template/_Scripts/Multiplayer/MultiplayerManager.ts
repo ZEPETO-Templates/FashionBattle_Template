@@ -292,18 +292,33 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
         return this._room.State;
     }
 
-    public GetWinner(): VoteModel 
+    public GetWinner(): VoteModel[] 
     {
-        let winner = this.voteDatas[0];
+        let winners: VoteModel[] = [];
+        winners[0] = this.voteDatas[0];
         this.voteDatas.forEach(vd => 
             {
             vd.finalVote = vd.totalVote / (this.GetPlayersAmount() - 1);
-            if (vd.finalVote > winner.finalVote) 
+
+            if (vd.finalVote > winners[0].finalVote) 
             {
-                winner = vd;
+                winners[0] = vd;
             }
         });
-        return winner;
+
+        this.voteDatas.forEach(vd => 
+            {
+            vd.finalVote = vd.totalVote / (this.GetPlayersAmount() - 1);
+
+            let anotherWinner = 0;
+            if ((vd.finalVote == winners[0].finalVote) && (vd != winners[0])) 
+            {
+                anotherWinner++;
+                winners[anotherWinner] = vd;
+            }
+        });
+
+        return winners;
     }
 
     public GetThemeName(): string 

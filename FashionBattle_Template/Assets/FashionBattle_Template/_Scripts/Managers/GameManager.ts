@@ -283,41 +283,50 @@ public StartCustomization()
   }
 
   public EvaluateAndSetVote() 
+
   {
-     // We obtain the winner's data
-    let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
-
-    if(winnerData.length == 1) {
-      // We obtain the winner's name
-      let winnerName = ZepetoPlayers.instance.GetPlayer(
-        winnerData[0].sessionId
-      ).name;
-
-      // We obtain the winner's score
-      let winnerScore = winnerData[0].finalVote.toString();
-
-      // Check if the current stage is ENDGAME 
-      if (this._currentStage == STAGE.ENDGAME) 
-      {
-        // Call the function HideCurrentZepetoPlayer
-        PlayerSpawner.instance.HideCurrentZepetoPlayer();
-
-        // Call the function ShowCharacterWithCloth with winner session id     
-        PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[0].sessionId);
-
-        // Call the function SetWinnerPanelData with winner name and winner score 
-        UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
-      }
-    }
-    else
+    Debug.LogError("Current Stage: " + this._currentStage.toString());
+    if(this._currentStage == STAGE.ENDGAME) 
     {
-      this.winnersAmount = winnerData.length - 1;
-      this.ShowNextWinner();
+      // We obtain the winner's data
+      let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
+
+      Debug.LogError("Evaluate : " + winnerData.length);
+
+      if(winnerData.length == 1) {
+        // We obtain the winner's name
+        let winnerName = ZepetoPlayers.instance.GetPlayer(
+          winnerData[0].sessionId
+        ).name;
+
+        // We obtain the winner's score
+        let winnerScore = winnerData[0].finalVote.toString();
+
+        // Check if the current stage is ENDGAME 
+        if (this._currentStage == STAGE.ENDGAME) 
+        {
+          // Call the function HideCurrentZepetoPlayer
+          PlayerSpawner.instance.HideCurrentZepetoPlayer();
+
+          // Call the function ShowCharacterWithCloth with winner session id     
+          PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[0].sessionId);
+
+          // Call the function SetWinnerPanelData with winner name and winner score 
+          UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
+        }
+      }
+      else
+      {
+        this.winnersAmount = winnerData.length - 1;
+        this.ShowNextWinner();
+      }
     }
   }
 
   public ShowNextWinner()
   {
+    Debug.LogError("Show next Winner: Current > " + this.currentWinnerShowed );
+
     let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
 
     if(this.winnersAmount >= this.currentWinnerShowed)
@@ -338,12 +347,18 @@ public StartCustomization()
         // Call the function ShowCharacterWithCloth with winner session id     
         PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[this.currentWinnerShowed].sessionId);
 
+        Debug.LogError("SHOW ID: "+ winnerData[this.currentWinnerShowed].sessionId);
+
         // Call the function SetWinnerPanelData with winner name and winner score 
         UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
       }
       
       this.currentWinnerShowed++;
       this.StartCoroutine(this.WaitAndShowNextWinner());
+    }
+    else
+    {
+      this.currentWinnerShowed = 0;
     }
   }
 
@@ -359,6 +374,8 @@ public StartCustomization()
 
     //Call the function SwitchUIPanel with value END
     UIManager.instance.SwitchUIPanel(UIPanelType.END);
+
+    this.currentWinnerShowed = 0;
   }
 
   // This method is used to notify the server when the local player is ready
@@ -399,6 +416,7 @@ public StartCustomization()
 
   *WaitAndShowNextWinner()
   {
+    Debug.LogError("Waiting 3 sec");
     yield new WaitForSeconds(3);
     this.ShowNextWinner();
   }

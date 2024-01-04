@@ -283,17 +283,20 @@ public StartCustomization()
   }
 
   public EvaluateAndSetVote() 
-
   {
     Debug.LogError("Current Stage: " + this._currentStage.toString());
+
+    // We need to check if this is the "EndGame" stage
     if(this._currentStage == STAGE.ENDGAME) 
     {
+      let winnerData: VoteModel[] = [];
       // We obtain the winner's data
-      let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
+      winnerData = MultiplayerManager.instance.GetWinner();
 
-      Debug.LogError("Evaluate : " + winnerData.length);
-
+      Debug.LogError("WINNERS : " + winnerData.length);
+      // We check if is more than 1 winner
       if(winnerData.length == 1) {
+        
         // We obtain the winner's name
         let winnerName = ZepetoPlayers.instance.GetPlayer(
           winnerData[0].sessionId
@@ -325,40 +328,42 @@ public StartCustomization()
 
   public ShowNextWinner()
   {
-    Debug.LogError("Show next Winner: Current > " + this.currentWinnerShowed );
-
     let winnerData: VoteModel[] = MultiplayerManager.instance.GetWinner();
-
-    if(this.winnersAmount >= this.currentWinnerShowed)
+    
+    let winnerName = ZepetoPlayers.instance.GetPlayer(
+      winnerData[this.currentWinnerShowed].sessionId
+    ).name;
+    
+    // We obtain the winner's score
+    let winnerScore = winnerData[this.currentWinnerShowed].finalVote.toString();
+    
+    // Check if the current stage is ENDGAME 
+    if (this._currentStage == STAGE.ENDGAME) 
     {
-      let winnerName = ZepetoPlayers.instance.GetPlayer(
-        winnerData[this.currentWinnerShowed].sessionId
-      ).name;
-
-      // We obtain the winner's score
-      let winnerScore = winnerData[this.currentWinnerShowed].finalVote.toString();
-
-      // Check if the current stage is ENDGAME 
-      if (this._currentStage == STAGE.ENDGAME) 
-      {
-        // Call the function HideCurrentZepetoPlayer
-        PlayerSpawner.instance.HideCurrentZepetoPlayer();
-
-        // Call the function ShowCharacterWithCloth with winner session id     
-        PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[this.currentWinnerShowed].sessionId);
-
-        Debug.LogError("SHOW ID: "+ winnerData[this.currentWinnerShowed].sessionId);
-
-        // Call the function SetWinnerPanelData with winner name and winner score 
-        UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
-      }
+      // Call the function HideCurrentZepetoPlayer
+      PlayerSpawner.instance.HideCurrentZepetoPlayer();
       
-      this.currentWinnerShowed++;
-      this.StartCoroutine(this.WaitAndShowNextWinner());
+      // Call the function ShowCharacterWithCloth with winner session id     
+      PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[this.currentWinnerShowed].sessionId);
+      
+      Debug.LogError("SHOW ID: "+ winnerData[this.currentWinnerShowed].sessionId);
+      
+      // Call the function SetWinnerPanelData with winner name and winner score 
+      UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
     }
-    else
+    
+    Debug.LogError("X: " + this.currentWinnerShowed);
+    this.currentWinnerShowed++;
+    if(this.currentWinnerShowed > this.winnersAmount)
     {
       this.currentWinnerShowed = 0;
+    }
+
+    // We need to check if this is the ENDGAME stage
+    if(this._currentStage == STAGE.ENDGAME) 
+    {
+      //this coroutine call this method again in 5 seconds and show the next winner
+      this.StartCoroutine(this.WaitAndShowNextWinner());
     }
   }
 
@@ -416,8 +421,8 @@ public StartCustomization()
 
   *WaitAndShowNextWinner()
   {
-    Debug.LogError("Waiting 3 sec");
-    yield new WaitForSeconds(3);
+    Debug.LogError("Waiting...");
+    yield new WaitForSeconds(5);
     this.ShowNextWinner();
   }
 

@@ -59,8 +59,9 @@ export default class GameManager extends ZepetoScriptBehaviour
   public lobbyPanel: GameObject; // Reference to the lobbyPanel
   public themePanel: GameObject; // Reference to the themePanel
 
-  private winnersAmount: number = 0;
-  private currentWinnerShowed: number = 0;
+  private winnersAmount: number = 0; // The amount of winners
+  private currentWinnerShowed: number = 0; // Current index of winner
+  private isWaiting: bool = false; // Coroutine flag
 
   // Awake is called when an enabled script instance is being loaded.
   Awake() 
@@ -284,8 +285,6 @@ public StartCustomization()
 
   public EvaluateAndSetVote() 
   {
-    Debug.LogError("Current Stage: " + this._currentStage.toString());
-
     // We need to check if this is the "EndGame" stage
     if(this._currentStage == STAGE.ENDGAME) 
     {
@@ -293,7 +292,6 @@ public StartCustomization()
       // We obtain the winner's data
       winnerData = MultiplayerManager.instance.GetWinner();
 
-      Debug.LogError("WINNERS : " + winnerData.length);
       // We check if is more than 1 winner
       if(winnerData.length == 1) {
         
@@ -346,13 +344,10 @@ public StartCustomization()
       // Call the function ShowCharacterWithCloth with winner session id     
       PlayerSpawner.instance.ShowCharacterWithCloth(winnerData[this.currentWinnerShowed].sessionId);
       
-      Debug.LogError("SHOW ID: "+ winnerData[this.currentWinnerShowed].sessionId);
-      
       // Call the function SetWinnerPanelData with winner name and winner score 
       UIManager.instance.SetWinnerPanelData(winnerName, winnerScore);
     }
     
-    Debug.LogError("X: " + this.currentWinnerShowed);
     this.currentWinnerShowed++;
     if(this.currentWinnerShowed > this.winnersAmount)
     {
@@ -360,8 +355,11 @@ public StartCustomization()
     }
 
     // We need to check if this is the ENDGAME stage
-    if(this._currentStage == STAGE.ENDGAME) 
+    if(this._currentStage == STAGE.ENDGAME && !this.isWaiting) 
     {
+      // We set the flag of the coroutine to True
+    // This is to prevent multiple coroutines from firing
+      this.isWaiting = true;
       //this coroutine call this method again in 5 seconds and show the next winner
       this.StartCoroutine(this.WaitAndShowNextWinner());
     }
@@ -421,9 +419,12 @@ public StartCustomization()
 
   *WaitAndShowNextWinner()
   {
-    Debug.LogError("Waiting...");
     yield new WaitForSeconds(5);
+
+    // We reset the coroutine flag
+    this.isWaiting = false;
     this.ShowNextWinner();
+    
   }
 
 }

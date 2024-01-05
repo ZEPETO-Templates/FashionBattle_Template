@@ -54,7 +54,7 @@ Then extract the files and open it with Unity. <br>
 
 ### Getting it from the releases section
 
-Go to the releases section or click in the lastest release
+Go to the releases section or click in the latest release.
 
 <br><img src = "docs/images/download/06.png" alt = "releases section img"></img><br>
 

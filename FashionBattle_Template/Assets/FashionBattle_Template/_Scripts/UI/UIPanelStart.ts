@@ -18,7 +18,10 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     @SerializeField() gameCountdownTMP: TMP_Text; // Reference to the text of the countdown
     @SerializeField() playersCountTMP: TMP_Text; // Reference to the text of the all players
     @SerializeField() playersReadyTMP: TMP_Text; // Reference to the text of the ready players
-    
+
+    @Header("OTHER")
+    @SerializeField() countdownBg: GameObject; // Reference to the Countdown Background
+
     // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time
     Start()
     {
@@ -72,6 +75,7 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     public ShowCountdownText(value: bool)
     {
         this.gameCountdownTMP.gameObject.SetActive(value);
+        this.countdownBg.gameObject.SetActive(value);
     }
 
     // This method is responsible to set text of the all players in session by new value

@@ -1288,6 +1288,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+      propertyPath: script.keys.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+      propertyPath: script.values.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+      propertyPath: script.keys.Array.data[5]
+      value: countdownBg
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+      propertyPath: script.unityValues.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+      propertyPath: script.unityValues.Array.data[5]
+      value: 
+      objectReference: {fileID: 5152137242763677977}
     - target: {fileID: 8082326285280145142, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1322,6 +1342,11 @@ PrefabInstance:
       objectReference: {fileID: 610228844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+--- !u!1 &5152137242763677977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1045224797337532727, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
+  m_PrefabInstance: {fileID: 5152137242763677976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6233858184078099821
 PrefabInstance:
   m_ObjectHideFlags: 0

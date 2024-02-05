@@ -1417,7 +1417,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 773790406101698340, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
       propertyPath: script.arrayValues.Array.data[0]
-      value: F_HAIR_634
+      value: HEADWEAR_560
       objectReference: {fileID: 0}
     - target: {fileID: 773790406101698340, guid: 9b5d338ec7dbc0d4689959afcdfeb28a, type: 3}
       propertyPath: script.arrayValues.Array.data[4]

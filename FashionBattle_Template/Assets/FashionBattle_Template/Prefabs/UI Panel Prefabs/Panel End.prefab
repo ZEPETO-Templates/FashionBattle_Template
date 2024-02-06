@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1342634352241433552}
   - component: {fileID: 1342634352241433555}
   m_Layer: 0
-  m_Name: TMP_WinnerName
+  m_Name: WinnerNameTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 1351898614659686930}
   - component: {fileID: 2960947851195032692}
   m_Layer: 0
-  m_Name: Text
+  m_Name: RestartTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 5805345112661106643}
   - component: {fileID: 456713825141770673}
   m_Layer: 5
-  m_Name: TMP_WinnerScore
+  m_Name: WinnerScoreTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

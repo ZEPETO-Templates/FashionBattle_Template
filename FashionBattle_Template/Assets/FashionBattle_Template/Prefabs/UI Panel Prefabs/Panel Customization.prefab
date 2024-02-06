@@ -3101,7 +3101,7 @@ GameObject:
   - component: {fileID: 5564470641466864512}
   - component: {fileID: 8569635767301010918}
   m_Layer: 0
-  m_Name: Text
+  m_Name: DoneTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

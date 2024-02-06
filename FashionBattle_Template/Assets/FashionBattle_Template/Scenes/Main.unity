@@ -148,17 +148,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6919514462446899723, guid: afe30653fcb9b764392d466435bcb9ff, type: 3}
   m_PrefabInstance: {fileID: 6919514462994356510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &610228844 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3015732905002551703, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-  m_PrefabInstance: {fileID: 5152137242763677976}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1992568646, guid: eb020944284e149ba8281a465630e06a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &642101698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1678628972684467531, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
@@ -1144,10 +1133,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1678628972684467531, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: m_Name
-      value: Panel Lobby
-      objectReference: {fileID: 0}
     - target: {fileID: 3075138252446857253, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1288,65 +1273,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.keys.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.values.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.keys.Array.data[5]
-      value: countdownBg
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.unityValues.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152137243015593749, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.unityValues.Array.data[5]
-      value: 
-      objectReference: {fileID: 5152137242763677977}
-    - target: {fileID: 8082326285280145142, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.keys.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.values.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.keys.Array.data[1]
-      value: selectThemeText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.values.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.arrayValues.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.unityValues.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8482622210243103028, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-      propertyPath: script.unityValues.Array.data[1]
-      value: 
-      objectReference: {fileID: 610228844}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
---- !u!1 &5152137242763677977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1045224797337532727, guid: e7eacdac8d365b8449b618174a6c7bd6, type: 3}
-  m_PrefabInstance: {fileID: 5152137242763677976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6233858184078099821
 PrefabInstance:
   m_ObjectHideFlags: 0

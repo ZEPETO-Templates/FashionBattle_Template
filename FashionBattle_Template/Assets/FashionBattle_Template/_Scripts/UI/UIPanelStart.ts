@@ -1,8 +1,7 @@
 import { Debug, GameObject } from 'UnityEngine';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { RoundedRectangleButton } from 'ZEPETO.World.Gui';
+import {ZepetoText, RoundedRectangleButton } from 'ZEPETO.World.Gui';
 import UIManager from '../Managers/UIManager';
-import { TMP_Text } from 'TMPro';
 import MultiplayerManager from '../Multiplayer/MultiplayerManager';
 import GameManager from '../Managers/GameManager';
 import { Button } from 'UnityEngine.UI'
@@ -15,9 +14,9 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     @SerializeField() readyImg: GameObject; // Reference to the ready image
 
     @Header("TEXT")
-    @SerializeField() gameCountdownTMP: TMP_Text; // Reference to the text of the countdown
-    @SerializeField() playersCountTMP: TMP_Text; // Reference to the text of the all players
-    @SerializeField() playersReadyTMP: TMP_Text; // Reference to the text of the ready players
+    @SerializeField() gameCountdownTxt: ZepetoText; // Reference to the text of the countdown
+    @SerializeField() playersCountTxt: ZepetoText; // Reference to the text of the all players
+    @SerializeField() playersReadyTxt: ZepetoText; // Reference to the text of the ready players
 
     @Header("OTHER")
     @SerializeField() countdownBg: GameObject; // Reference to the Countdown Background
@@ -56,7 +55,7 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
         if (GameManager.instance.isPlayerReady && !GameManager.instance.isGameStarted)
         {
             var intvalue = Math.floor(GameManager.instance.counterToStart);
-            this.gameCountdownTMP.text = "Game Starts in " + intvalue;
+            this.gameCountdownTxt.text = "Game Starts in " + intvalue;
         }
     }
 
@@ -74,20 +73,20 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     // This method is responsible to change state on countdown object
     public ShowCountdownText(value: bool)
     {
-        this.gameCountdownTMP.gameObject.SetActive(value);
+        this.gameCountdownTxt.gameObject.SetActive(value);
         this.countdownBg.gameObject.SetActive(value);
     }
 
     // This method is responsible to set text of the all players in session by new value
     public SetPlayersCount(amount: number)
     {
-        this.playersCountTMP.text = "Players in Session: " + amount;
+        this.playersCountTxt.text = "Players in Session: " + amount;
     }
 
     // This method is responsible to set text of the all players ready by new value
     public SetPlayersReady(amount: number)
     {
-        this.playersReadyTMP.text = "Ready: " + amount;
+        this.playersReadyTxt.text = "Ready: " + amount;
     }
 
     public SetReadyButtonInteractable()

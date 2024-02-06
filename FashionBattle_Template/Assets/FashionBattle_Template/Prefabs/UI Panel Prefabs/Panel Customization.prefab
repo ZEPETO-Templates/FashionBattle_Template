@@ -3927,16 +3927,13 @@ MonoBehaviour:
   script:
     keys:
     - iconRef
-    - defaultColor
-    - highlightColor
+    - selectedImage
     unityValues:
-    - {fileID: 7133677699890024802}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7133677699890024800}
+    - {fileID: 2597516495164524552}
     values:
     - 
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":1.0}"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
@@ -4127,16 +4124,13 @@ MonoBehaviour:
   script:
     keys:
     - iconRef
-    - defaultColor
-    - highlightColor
+    - selectedImage
     unityValues:
-    - {fileID: 7133677699140658620}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7133677699140658618}
+    - {fileID: 253088849032747854}
     values:
     - 
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":1.0}"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
@@ -4252,16 +4246,13 @@ MonoBehaviour:
   script:
     keys:
     - iconRef
-    - defaultColor
-    - highlightColor
+    - selectedImage
     unityValues:
-    - {fileID: 7133677699552263702}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7133677699552263700}
+    - {fileID: 2007335848472924316}
     values:
     - 
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":1.0}"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}
@@ -4567,16 +4558,13 @@ MonoBehaviour:
   script:
     keys:
     - iconRef
-    - defaultColor
-    - highlightColor
+    - selectedImage
     unityValues:
-    - {fileID: 7133677698996289683}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7133677698996289681}
+    - {fileID: 6897071991093477439}
     values:
     - 
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6901960968971252,\"g\":0.6901960968971252,\"b\":0.6901960968971252,\"a\":1.0}"}'
-    - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":1.0}"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 91670e056b3f8fd4e9d3d2dde0ed86e1, type: 3}

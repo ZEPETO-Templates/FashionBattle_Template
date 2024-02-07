@@ -5,11 +5,13 @@ import UIManager from '../Managers/UIManager';
 import MultiplayerManager from '../Multiplayer/MultiplayerManager';
 import GameManager from '../Managers/GameManager';
 import { Button } from 'UnityEngine.UI'
+
 export default class UIPanelStart extends ZepetoScriptBehaviour 
 {
+    public static instance: UIPanelStart; // Singleton instance variable
     @Header("BUTTONS")
     @SerializeField() readyBtn: Button; // Reference to the play button
-
+    @SerializeField() readyBtns: GameObject; // Reference to the play button
     @Header("READY IMG")
     @SerializeField() readyImg: GameObject; // Reference to the ready image
 
@@ -21,9 +23,18 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     @Header("OTHER")
     @SerializeField() countdownBg: GameObject; // Reference to the Countdown Background
 
+    // Awake is called when an enabled script instance is being loaded.
+    Awake() 
+    {
+      // Singleton pattern
+      if (UIPanelStart.instance != null) GameObject.Destroy(this.gameObject);
+      else UIPanelStart.instance = this;
+    }
+   
     // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time
     Start()
     {
+        this.readyBtns.SetActive(true);
         // Change the ready image value by the GameManager reference
         this.readyImg.SetActive(GameManager.instance.isPlayerReady);
 
@@ -62,6 +73,7 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     // This method is responsible to reset panel
     public ResetPanel()
     {
+        this.readyBtns.SetActive(true);
         // Call to the function ShowCountdownText with value false
         this.ShowCountdownText(false);
         // Change the ready image value by the GameManager reference        
@@ -92,5 +104,10 @@ export default class UIPanelStart extends ZepetoScriptBehaviour
     public SetReadyButtonInteractable()
     {
         this.readyBtn.interactable = true;
+    }
+
+    public SetReadyButtonOff()
+    {
+        this.readyBtns.SetActive(false);
     }
 }

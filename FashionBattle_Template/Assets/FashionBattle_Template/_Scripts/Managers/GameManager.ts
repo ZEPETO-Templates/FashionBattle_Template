@@ -18,6 +18,7 @@ import { ZepetoPlayers } from "ZEPETO.Character.Controller";
 import UIManager, { UIPanelType } from "./UIManager";
 import PlayerSpawner from "../Multiplayer/PlayerSpawner";
 import UIPanelTheme from '../UI/UIPanelTheme';
+import UIPanelStart from "../UI/UIPanelStart";
 
 export enum STAGE 
 {
@@ -84,6 +85,7 @@ export default class GameManager extends ZepetoScriptBehaviour
     // Check if the playersReady value is true and isGameStarted value is false
     if (this.playersReady && !this.isGameStarted) 
     {
+      UIPanelStart.instance.SetReadyButtonOff();
       // We subtract 1 real second from the counter
       this.counterToStart -= Time.deltaTime;
 

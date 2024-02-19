@@ -120,13 +120,14 @@ Before you press play to test the template you have to open the scene and start 
 To make changes in the game you can go in the Hierarchy and select the "Managers" folder there are the most customizables settings for the template.
 
 <br><img src = "docs/images/howto/wherearevariables.png" alt = "variables img" width="600"></img>
-To change variables in Unity, follow these steps:
+<br>
+<details> <summary> To change variables in Unity, follow these steps:</summary>
 
 1. Open the Hierarchy: In the Unity Editor, locate and click on the "Hierarchy" tab at the top of the screen.
 2. Select the "Managers" Folder: In the Hierarchy window, find and click on the "Managers" folder. This folder contains the most customizable settings for the template.
 3. Modify Variables:  With the "Managers" folder selected, you can now modify the variables and settings for the template as needed.
 4. Save Changes: After making your changes, remember to save the scene by clicking on "File" > "Save Scene" in the Unity Editor.
-
+</details>
 </details>
 
 
@@ -137,7 +138,8 @@ To change variables in Unity, follow these steps:
 If you have an error showing that some component is missing, you have to go to the project/packages folder and find the ZEPETO.World folder, then right click it and press in Reimport, it will took some time to fix that problem.
 
 <br><img src = "docs/images/howto/reimportzepetoworld.png" alt = "reimport folder img" width="600"></img>
-To fix the "World multiplay component missing" error in Unity, follow these steps:
+<br>
+<details> <summary> To fix the "World multiplay component missing" error in Unity, follow these steps: </summary> 
 
 1. Locate the ZEPETO.World Folder: In your Unity project, navigate to the project/packages folder.
 2. Find the ZEPETO.World Folder: Inside the packages folder, locate the ZEPETO.World folder.
@@ -146,7 +148,7 @@ To fix the "World multiplay component missing" error in Unity, follow these step
  - Wait for Unity to finish reimporting the package.
 4. Check for Errors: After reimporting, check if the "World multiplay component missing" error is resolved.
 5. Save Changes: Save your project to ensure that the changes are applied.
-
+</details>
 </details>
 
 <br><br>
@@ -182,7 +184,7 @@ The UI manager has a list that contains all the panels of the different states o
 <details> <summary> <h3>Multiplayer Manager</h3></summary> 
 This class is included into the multiplay component of the <a href="https://github.com/JasperGame/zepeto-modules"> Module importer</a> you can learn more about multiplayer <a href="https://docs.zepeto.me/studio/reference/multiplay">here</a>.
 <br>
-<img src = "docs/images/multiplayermanager.png" alt = "module importer img"></img>
+<img src = "docs/images/multiplayermanager.png" alt = "multiplayermanager img"></img>
 <br><br>
 <img src = "docs/images/moduleimporter.png" alt = "module importer img" width="500"></img>
 <br><br>
@@ -192,29 +194,29 @@ This class is included into the multiplay component of the <a href="https://gith
 <details> <summary> <h3>Player Spawner</h3> </summary> 
 This class only has the reference of where the player should be in certain moment of the game.
 In this case it has a reference of where the player will be in the mannequin state.
-<br><img src = "docs/images/playerspawner.png" alt = "module importer img"></img><br><br>
+<br><img src = "docs/images/playerspawner.png" alt = "playerspawner img"></img><br><br>
 </details>
 
 
 <details> <summary> <h3>Clothing Manager</h3></summary> 
 This class has the list of items for each part of the body that will be created on the game.
 To create one you will need the itemId of the item that you want to create in the game and write that id on the correct list by the part of the body.
-<br><img src = "docs/images/clothingmanager.png" alt = "module importer img"></img><br><br>
+<br><img src = "docs/images/clothingmanager.png" alt = "clothingmanager img"></img><br><br>
 </details>
 
 
 <details> <summary> <h3>UI Prefabs</h3></summary> 
 You can edit every panel of each part of the game from their own prefab.
 You can found them in the project folder.
-<br><img src = "docs/images/uiprefabs.png" alt = "module importer img"></img><br><br>
+<br><img src = "docs/images/uiprefabs.png" alt = "uiprefabs img"></img><br><br>
 </details>
 
 
 <details> <summary> <h3>Themes Names</h3></summary> 
 You can edit the list of names and the number of random Themes.
 (Remember to change the number of themes in the "SyncPlayerDataModule")
-<br><img src = "docs/images/themeConfig.png" alt = "module importer img"></img><br>
-<br><img src = "docs/images/themeConfigCode.png" alt = "module importer img"></img><br>
+<br><img src = "docs/images/themeConfig.png" alt = "themeConfig img"></img><br>
+<br><img src = "docs/images/themeConfigCode.png" alt = "themeConfigCodeimg"></img><br>
 </details>
 
 <br><br>
@@ -242,12 +244,11 @@ You can edit the list of names and the number of random Themes.
 5. For each item in the list, click on the element (e.g., Element 0), and then enter the item's ID in the field that appears. You will need the itemId of the item that you want to create.
 6. Repeat the process for each list and item you want to add.
 
-That's it! You've now added items to the list in the Unity inspector for the Clothing Manager class.
 
 <h3>UI Prefabs</h3>
 You can edit every panel of each part of the game from their own prefab.
 You can found them in the project folder.
-<br><img src = "docs/images/uiprefabs.png" alt = "module importer img"></img><br><br>
+<br><img src = "docs/images/uiprefabs.png" alt = "uiprefabs img"></img><br><br>
 
    To modify UI prefabs in Unity, follow these steps:
 1. Locate the UI prefab you want to modify. You can find prefabs in the project folder under the "Prefabs" directory or in a specific folder for UI elements.
@@ -257,8 +258,6 @@ You can found them in the project folder.
 5. To apply the changes to instances of the prefab in your scene, select each instance and click the "Apply" button in the Inspector window.
 6. Test your changes in Play mode to ensure they work as expected.
 7. If you need to make further modifications, repeat the above steps.
-
-That's it! You've now modified a UI prefab in Unity.
 
 
 <h3>Themes Names</h3>
@@ -270,7 +269,7 @@ You can edit the list of names and the number of random Themes.
 3. Locate the variables you want to modify: Themes: This is a list of strings representing the names of themes.
 4. For each theme in the list, click on the element (e.g., Element 0), and then enter the theme's name in the field that appears.
 5. (Remember to change the number of themes in the "SyncPlayerDataModule")
-<br><img src = "docs/images/themeConfig.png" alt = "module importer img"></img><br>
+<br><img src = "docs/images/themeConfig.png" alt = "themeConfig img"></img><br>
 
 **Number themes**
 1. Locate the Project tab at the bottom of the Unity editor window. If you can't find it, go to the top menu and click on "Window" > "General" > "Project".
@@ -293,7 +292,7 @@ Option B:
 > Verify that the number of themes in the "SyncPlayerDataModule" script matches the number of elements in the array in the "MultiplayerManager" script. If not, adjust the number of themes in the "SyncPlayerDataModule" script accordingly.
 
 
-<br><img src = "docs/images/themeConfigCode.png" alt = "module importer img"></img><br>
+<br><img src = "docs/images/themeConfigCode.png" alt = "themeConfigCode img"></img><br>
 
 
 

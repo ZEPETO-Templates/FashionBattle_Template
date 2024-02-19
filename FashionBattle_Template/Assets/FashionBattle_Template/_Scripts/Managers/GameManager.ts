@@ -303,7 +303,8 @@ public StartCustomization()
         ).name;
 
         // We obtain the winner's score
-        let winnerScore = winnerData[0].finalVote.toString();
+        let winnerScore = isNaN(Number(winnerData[0].finalVote)) ? "0" : Number(winnerData[0].finalVote).toString();
+
 
         // Check if the current stage is ENDGAME 
         if (this._currentStage == STAGE.ENDGAME) 

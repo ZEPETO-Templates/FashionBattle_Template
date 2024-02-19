@@ -1,6 +1,5 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
 import { ShopService } from 'ZEPETO.Module.Shop';
-import { TextureRequest } from 'ZEPETO.Module';
 import * as UnityEngine from 'UnityEngine';
 import { RawImage } from 'UnityEngine.UI';
 

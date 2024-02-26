@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89305aa391d1c5141bbe1628d930a2c5, type: 3}
+  m_Name: Tutorials
+  m_EditorClassIdentifier: 
+  Modified:
+    m_PersistentCalls:
+      m_Calls: []
+  ParentContainer: {fileID: 0}
+  OrderInView: 0
+  BackgroundImage: {fileID: 2800000, guid: 5680ff4cb12c133459420e2ee69d0904, type: 3}
+  Title:
+    m_Untranslated: 
+  Subtitle:
+    m_Untranslated: Tutorial
+  Description:
+    m_Untranslated: '    '
+  ProjectLayout: {fileID: 102900000, guid: 820adce6ab7f05d4ea7f0543dbf5413c, type: 3}
+  Sections:
+  - OrderInView: 0
+    Heading:
+      m_Untranslated: In this section, you will find where the easily modifiable
+        items are located to customize your gaming experience.
+    Text:
+      m_Untranslated: 
+    Metadata: 
+    Url: 
+    Image: {fileID: 2800000, guid: 97e55edd4c0aa48a79ab47456ff3ebcd, type: 3}
+    Tutorial: {fileID: 0}
+  - OrderInView: 0
+    Heading:
+      m_Untranslated: 'You can easily modify this:'
+    Text:
+      m_Untranslated: 
+    Metadata: 
+    Url: 
+    Image: {fileID: 2800000, guid: 5f51e0b22aa8cb84b9f422576ce87ff9, type: 3}
+    Tutorial: {fileID: 11400000, guid: aa69275c73c000b48960544fba1b489f, type: 2}

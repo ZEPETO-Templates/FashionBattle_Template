@@ -7,7 +7,7 @@ export default class SyncPlayerDataModule extends IModule
     private voteDataCache: VoteModel[] = [];
     private isGameStarted = false;
     private currentTheme: number = 0;
-    private themeAmount: number = 5; 
+    private themeAmount: number = 0; 
 
     async OnCreate() 
     {
@@ -20,6 +20,11 @@ export default class SyncPlayerDataModule extends IModule
         this.server.onMessage(MESSAGE.SendGameStarted, (client, value: boolean) => 
         {
             this.isGameStarted = value;
+        });
+
+        this.server.onMessage(MESSAGE.OnThemesArrive, (client, value: number) => 
+        {
+            this.themeAmount = value;
         });
 
         this.server.onMessage<PlayerDataModel>(MESSAGE.SendPlayerData, (client, message: PlayerDataModel) => 
@@ -224,6 +229,7 @@ export default class SyncPlayerDataModule extends IModule
 
     private SetNewTheme()
     {
+        console.log("[SYNC THEMES] Theme amount: "+ this.themeAmount);
         this.currentTheme = Math.round(Math.random() * this.themeAmount); 
         console.log("Rand Theme Number : " + this.currentTheme);
     }
@@ -277,6 +283,7 @@ enum MESSAGE {
     OnPlayersDataCacheArrive = "OnPlayersDataCacheArrive",
     OnPlayersReady = "OnPlayersReady",
     OnAllPlayersCustomized = "OnAllPlayersCustomized",
+    OnThemesArrive = "OnThemesArrive",
 
     SendVoteData = "SendVoteData",
     SendResetVoteData = "SendResetVoteData",

@@ -61,12 +61,13 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
             this._room = room;
             this._room.OnStateChange += this.OnStateChange;
             this.AddMessageHandlers();
-
+            
+            this.SendThemesAmount();
             this.localPlayerData.ownerSessionId = this._room.SessionId;
             this.SetPlayerReady(this.localPlayerData.isReady);
             this._room.Send(MESSAGE.RequestPlayersDataCache, "");
             this.GetThemeName();
-        }
+    }
     }
 
     private OnStateChange(state: State, isFirst: boolean) 
@@ -159,6 +160,10 @@ export default class MultiplayerManager extends ZepetoScriptBehaviour
     public RequestPlayersDataCache() 
     {
         this._room.Send(MESSAGE.RequestPlayersDataCache, "");
+    }
+
+    public SendThemesAmount(){
+        this._room.Send(MESSAGE.OnThemesSend, this.themeText.length);
     }
 
     public SendResetVoteCache() 
@@ -366,6 +371,7 @@ enum MESSAGE
     OnPlayersDataCacheArrive = "OnPlayersDataCacheArrive",
     OnPlayersReady = "OnPlayersReady",
     OnAllPlayersCustomized = "OnAllPlayersCustomized",
+    OnThemesSend = "OnThemesArrive",
 
     SendVoteData = "SendVoteData",
     SendResetVoteData = "SendResetVoteData",

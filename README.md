@@ -106,10 +106,10 @@ Before you press play to test the template you have to open the scene and start 
 
 **Multiplay Server Button:**
 - Server Button On
-<img src = "docs/images/howto/ServerOnpng" alt = "ServerOn img" width="600"></img><br>
+<img src = "docs/images/howto/ServerOn.png" alt = "ServerOn img" width="600"></img><br>
 
 - Server Button Off
-<img src = "docs/images/howto/ServerOff.png" alt = "ServerOff img" width="600"></img>
+<img src = "docs/images/howto/Serveroff.png" alt = "ServerOff img" width="600"></img>
 </details>
 </details>
 

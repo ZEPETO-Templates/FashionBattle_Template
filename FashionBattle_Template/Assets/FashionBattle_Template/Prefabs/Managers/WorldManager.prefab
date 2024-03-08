@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8524861927796190480}
   - component: {fileID: 8524861927796190479}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: WorldManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   applyRootMotion: 0
   script:
     keys:
-    - playerCount
     - stageCustomization
     - stageRunway
     - isPlayerReady
@@ -57,6 +56,11 @@ MonoBehaviour:
     - currentPlayerIndexInRunway
     - totalPlayersInRunway
     - stageWinner
+    - voteTimerLimit
+    - customizationTimeLimit
+    - customizationTimeTheme
+    - lobbyPanel
+    - themePanel
     unityValues:
     - {fileID: 0}
     - {fileID: 0}
@@ -69,17 +73,25 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     values:
-    - '{"type":"System.Single, mscorlib","value":"0"}'
     - 
     - 
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - '{"type":"System.Boolean, mscorlib","value":"False"}'
-    - '{"type":"System.Single, mscorlib","value":"5"}'
+    - '{"type":"System.Single, mscorlib","value":"3"}'
     - '{"type":"System.Single, mscorlib","value":"100"}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
     - '{"type":"System.Single, mscorlib","value":"0"}'
+    - 
+    - '{"type":"System.Single, mscorlib","value":"5"}'
+    - '{"type":"System.Single, mscorlib","value":"20"}'
+    - '{"type":"System.Single, mscorlib","value":"5"}'
+    - 
     - 
     unityArrayValues: []
     arrayValues: []

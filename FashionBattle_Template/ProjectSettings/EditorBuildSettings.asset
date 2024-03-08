@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/FashionBattle.unity
+    guid: 7981a4957c42a4ab8b6cbaae3a8a5626
   m_configObjects: {}

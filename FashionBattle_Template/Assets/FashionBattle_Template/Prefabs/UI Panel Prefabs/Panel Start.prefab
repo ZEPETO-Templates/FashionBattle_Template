@@ -1126,7 +1126,7 @@ GameObject:
   - component: {fileID: 5152137242947319013}
   - component: {fileID: 2352645606756045423}
   m_Layer: 5
-  m_Name: gameCountdownTxt
+  m_Name: worldCountdownTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Starts in 5
+  m_Text: World Starts in 5
   customFont: {fileID: 0}
   m_HorizontalFit: 0
   m_VerticalFit: 0
@@ -1961,11 +1961,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 956674662323403088, guid: 4f999fd58b3786846a1f1b71b9dad1fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3612680152109271519, guid: 4f999fd58b3786846a1f1b71b9dad1fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7990837490695423994, guid: 4f999fd58b3786846a1f1b71b9dad1fb, type: 3}
       propertyPath: m_Name

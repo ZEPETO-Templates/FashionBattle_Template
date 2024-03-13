@@ -72,16 +72,19 @@ Then click on the file ".unitypackage" and import it in a new project of Unity!
 
 
 > 💡 Enjoy and start creating with the Template! :tada:
+
+>  If you're new, the best way to start is by exploring the tutorial.
+
 <br>
 
 
 ## ❓ FAQ
-<details> <summary> <h3>How to open the project</h3> </summary>
+<details><summary>How to open the project </summary>
 
 Select the template folder and it will open the project.
 <br><img src = "docs/images/howto/unityproject.png" alt = "unity project img" width="600"></img>
 
-<details> <summary> To open a Unity project for the first time, follow these steps:</summary>
+<details><summary> To open a Unity project for the first time, follow these steps:</summary>
 
 1. Launch Unity Hub.
 2. In Unity Hub, click on the "Projects" tab on the left side.
@@ -92,11 +95,11 @@ Select the template folder and it will open the project.
 </details>
 
 
-<details> <summary> <h3>How to play</h3> </summary> 
+<details><summary> How to play</summary> 
 Before you press play to test the template you have to open the scene and start the server. <br>
 <br><img src = "docs/images/howto/InitFashion.png" alt = "Init Fashion img" width="600"></img><br><br>
 
-<details> <summary> To play the game template in Unity, follow these steps: </summary>
+<details><summary> To play the game template in Unity, follow these steps: </summary>
 
 1. Open the Scene: First find the scene in the next folder and open it.
 <br><img src = "docs/images/howto/scene.png" alt = "scene img" width="600"></img><br><br>
@@ -114,32 +117,75 @@ Before you press play to test the template you have to open the scene and start 
 </details>
 
 
-<details> <summary>
-<h3> How to change variables</h3> </summary> 
+<details><summary> How to explore the Tutorial: </summary>
+If you're new to Unity, you can explore the tutorial section. There's a basic Unity tutorial available, as well as a template tutorial designed to help you quickly locate where the components are. Here's a step-by-step guide to selecting it in the Unity editor:
+1. In Unity, navigate to the top menu bar.
+2.  Click on "Tutorials".
+3.  Select "Show Tutorials" from the dropdown menu.
+<br><img width="700" alt="image" src="./docs/images/howto/tutorial.png"></img><br>   
+<br></details>
 
-To make changes in the game you can go in the Hierarchy and select the "Managers" folder there are the most customizables settings for the template.
-
+<details><summary> How to change variables </summary> 
+1. Open the Hierarchy: In the Unity Editor, locate and click on the "Hierarchy" tab at the top of the screen.
+2. Select the "TEMPLATE SETTINGS" Folder: In the Hierarchy window, find and click on the "TEMPLATE SETTINGS" folder. This folder contains the most customizable settings for the template.
+3. Modify Variables:  With the "TEMPLATE SETTINGS" folder selected, you can now modify the variables and settings for the template as needed.
+4. Save Changes: After making your changes, remember to save the scene by clicking on "File" > "Save Scene" in the Unity Editor.
 <br><img src = "docs/images/howto/wherearevariables.png" alt = "variables img" width="600"></img>
 <br>
-<details> <summary> To change variables in Unity, follow these steps:</summary>
-
-1. Open the Hierarchy: In the Unity Editor, locate and click on the "Hierarchy" tab at the top of the screen.
-2. Select the "Managers" Folder: In the Hierarchy window, find and click on the "Managers" folder. This folder contains the most customizable settings for the template.
-3. Modify Variables:  With the "Managers" folder selected, you can now modify the variables and settings for the template as needed.
-4. Save Changes: After making your changes, remember to save the scene by clicking on "File" > "Save Scene" in the Unity Editor.
+<details><summary> How to change variables in the Inspector:</summary>
+1. Open Unity: Launch the Unity editor and open your project.
+2. Select an Object: Choose the GameObject in your scene that contains the component with the variables you want to change.
+3. Open the Inspector: With the GameObject selected, the Inspector panel should display the properties of the selected object.
+4. Locate the Variable: Find the variable you want to change in the Inspector. This could be a public variable in a script attached to the GameObject or a variable exposed by a Unity component.
+5. Edit the Variable: Click on the field next to the variable name in the Inspector. Depending on the variable type, you may be able to directly type a new value, use a slider, or choose from a dropdown list.
+6. Enter a New Value: Enter the new value for the variable. For example, if the variable is an integer representing a player's health, you could change it from 100 to 150.
+7. Apply the Change: Press Enter or click outside the field to apply the new value. The variable in the script or component will be updated with the new value.
+8. Verify the Change: Check the GameObject in the scene or play mode to verify that the variable change has the desired effect on the object's behavior.
+9. Save Changes.
 </details>
 </details>
+<br><br>
 
 
+<details><summary> How to create a prefab:</summary> 
+Prefabs are a special type of component that allows fully configured GameObjects to be saved in the Project for reuse. These assets can then be shared between scenes, or even other projects without having to be configured again.
 
-<details> <summary>
-<h3> World multiplay component missing</h3> </summary> 
+1. Open Unity: Launch the Unity editor and open your project.
+2. Select an Object: Choose the GameObject in your scene that you want to turn into a prefab. This could be a 3D model, a UI element, or any other GameObject.
+3.  Prepare the Object: Ensure that the GameObject is set up the way you want it to appear in the prefab. This includes its position, rotation, scale, and any components attached to it.
+4.  Create the Prefab:
+      - Select the GameObject in the Hierarchy window.
+      -Right-click on the GameObject or go to the top menu and select "GameObject" > "Create Empty" to create an empty GameObject as a parent.
+      - Drag the original GameObject into the new empty GameObject to make it a child.
+      - Rename the new parent GameObject to something descriptive, like "PrefabName_Prefab" (replace "PrefabName" with your desired name).
+5. Save the Prefab: With the new parent GameObject selected, drag it from the Hierarchy window into the Project window. Release the mouse button to create a prefab asset based on the GameObject.
+6. Use the Prefab:
+To use the prefab in your scene, simply drag it from the Project window into your scene's Hierarchy window or directly into the scene view.
+7. Edit the Prefab:
+ If you need to make changes to the prefab, you can edit the original GameObject in your scene. Any changes made to the original GameObject will be reflected in all instances of the prefab.
+8. Save Changes.
+</details>
+
+
+<details><summary> How to drag an object into the variable inspector area:</summary> 
+1. Open Unity: Launch the Unity editor and open your project.
+2. Select the Object: Choose the object that you want to drag into the variable inspector area. This could be a GameObject, a script, or any other asset in your project.
+3. Locate the Variable: Find the variable in your script or component where you want to assign the object. This variable should be declared as a public field in your script to be visible in the inspector.
+4. Open the Inspector: Select the GameObject or component that contains the script with the variable you want to assign. The inspector panel should now display the properties of the selected object or component.
+5. Drag the Object: Click and hold on the object you want to assign, then drag it from the Hierarchy or Project window and drop it onto the variable field in the inspector. Release the mouse button to complete the drag-and-drop operation.
+6. Verify the Assignment: After dropping the object onto the variable field, you should see the field update with the name of the object you dragged. This indicates that the object has been successfully assigned to the variable.
+7.  Save Changes: Once you've assigned the object to the variable, remember to save your scene and project to preserve the changes.
+</details>
+<br>
+
+
+<details><summary>World multiplay component missing </summary> 
 
 If you have an error showing that some component is missing, you have to go to the project/packages folder and find the ZEPETO.World folder, then right click it and press in Reimport, it will took some time to fix that problem.
 
 <br><img src = "docs/images/howto/reimportzepetoworld.png" alt = "reimport folder img" width="600"></img>
 <br>
-<details> <summary> To fix the "World multiplay component missing" error in Unity, follow these steps: </summary> 
+<details><summary> To fix the "World multiplay component missing" error in Unity, follow these steps: </summary> 
 
 1. Locate the ZEPETO.World Folder: In your Unity project, navigate to the project/packages folder.
 2. Find the ZEPETO.World Folder: Inside the packages folder, locate the ZEPETO.World folder.
@@ -155,7 +201,7 @@ If you have an error showing that some component is missing, you have to go to t
 
 ## 🔨 Tools
 
-<details> <summary> <h3>GameManager </h3> </summary> 
+<details><summary>GameManager </summary> 
 
 The GameManager shows the basic settings for the game
 
@@ -174,14 +220,14 @@ The GameManager shows the basic settings for the game
 </details>
 
 
-<details> <summary> <h3>UIManager</h3></summary> 
+<details><summary> UIManager</summary> 
 The UI manager has a list that contains all the panels of the different states of the game.
 <br>
 <img src = "docs/images/uimanager.png" alt = "uimanager img"></img>
 <br><br>
 </details>
 
-<details> <summary> <h3>Multiplayer Manager</h3></summary> 
+<details><summary> Multiplayer Manager</summary> 
 This class is included into the multiplay component of the <a href="https://github.com/JasperGame/zepeto-modules"> Module importer</a> you can learn more about multiplayer <a href="https://docs.zepeto.me/studio/reference/multiplay">here</a>.
 <br>
 <img src = "docs/images/multiplayermanager.png" alt = "multiplayermanager img"></img>
@@ -191,32 +237,31 @@ This class is included into the multiplay component of the <a href="https://gith
 </details>
 
 
-<details> <summary> <h3>Player Spawner</h3> </summary> 
+<details><summary>Player Spawner </summary> 
 This class only has the reference of where the player should be in certain moment of the game.
 In this case it has a reference of where the player will be in the mannequin state.
 <br><img src = "docs/images/playerspawner.png" alt = "playerspawner img"></img><br><br>
 </details>
 
 
-<details> <summary> <h3>Clothing Manager</h3></summary> 
+<details><summary>Clothing Manager</summary> 
 This class has the list of items for each part of the body that will be created on the game.
 To create one you will need the itemId of the item that you want to create in the game and write that id on the correct list by the part of the body.
 <br><img src = "docs/images/clothingmanager.png" alt = "clothingmanager img"></img><br><br>
 </details>
 
 
-<details> <summary> <h3>UI Prefabs</h3></summary> 
+<details><summary>UI Prefabs</summary> 
 You can edit every panel of each part of the game from their own prefab.
 You can found them in the project folder.
 <br><img src = "docs/images/uiprefabs.png" alt = "uiprefabs img"></img><br><br>
 </details>
 
 
-<details> <summary> <h3>Themes Names</h3></summary> 
-You can edit the list of names and the number of random Themes.
-(Remember to change the number of themes in the "SyncPlayerDataModule")
+<details><summary>Themes Names</summary> 
+You can edit the list of names of random Themes.
 <br><img src = "docs/images/themeConfig.png" alt = "themeConfig img"></img><br>
-<br><img src = "docs/images/themeConfigCode.png" alt = "themeConfigCodeimg"></img><br>
+
 </details>
 
 <br><br>
@@ -261,38 +306,17 @@ You can found them in the project folder.
 
 
 <h3>Themes Names</h3>
-You can edit the list of names and the number of random Themes.
+You can edit the list of names of random Themes.
 
-**List of themes**
-1. Select the GameObject in your scene that has the Themes Names script attached to it.
+1. Select the GameObject in your scene that has the "MultiplayerManager" script attached to it.
 2. In the Inspector window, find the Themes Names component.
-3. Locate the variables you want to modify: Themes: This is a list of strings representing the names of themes.
+3. Locate the variables you want to modify: 
+Themes: This is a list of strings representing the names of themes.
 4. For each theme in the list, click on the element (e.g., Element 0), and then enter the theme's name in the field that appears.
-5. (Remember to change the number of themes in the "SyncPlayerDataModule")
+5. Save the Scene:
+   - Click on "File" in the Unity menu bar.
+   - Select "Save Scene" to save the changes.
 <br><img src = "docs/images/themeConfig.png" alt = "themeConfig img"></img><br>
-
-**Number themes**
-1. Locate the Project tab at the bottom of the Unity editor window. If you can't find it, go to the top menu and click on "Window" > "General" > "Project".
-2. Click on the Project tab to open the Project section in the Unity editor. In the Project section, you can browse and manage your project's assets, such as scripts, scenes, textures, and models.
-3.
-Option A:
-
-   - In Assets, locate the "World.multiplay" folder and open it.
-   - Locate the "ServerModule" folder and open it.
-   - Inside the "ServerModule" folder, find the "Modules" folder and open it.
-   - Within the "Modules" folder, locate the "SyncPlayerDataModule" script and open it.
-
-Option B:
-
-  - You can also use the search bar at the top of the Project section to quickly find assets by name. Search for the "SyncPlayerDataModule" file and click to open it.
-
-4 Inside the "SyncPlayerDataModule" script, find the variable called "ThemeAmount” and modify its value as needed.
-5. Save the "SyncPlayerDataModule" script.
-
-> Verify that the number of themes in the "SyncPlayerDataModule" script matches the number of elements in the array in the "MultiplayerManager" script. If not, adjust the number of themes in the "SyncPlayerDataModule" script accordingly.
-
-
-<br><img src = "docs/images/themeConfigCode.png" alt = "themeConfigCode img"></img><br>
 
 
 
